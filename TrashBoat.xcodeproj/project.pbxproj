@@ -233,6 +233,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		50BF31C22069D4F0000FC388 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		OBJ_101 /* InlineResultArticle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InlineResultArticle.swift; sourceTree = "<group>"; };
 		OBJ_102 /* InlineResultAudio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InlineResultAudio.swift; sourceTree = "<group>"; };
 		OBJ_103 /* InlineResultContact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InlineResultContact.swift; sourceTree = "<group>"; };
@@ -972,16 +973,16 @@
 			path = Points;
 			sourceTree = "<group>";
 		};
-		OBJ_5 /*  */ = {
+		OBJ_5 = {
 			isa = PBXGroup;
 			children = (
+				50BF31C22069D4F0000FC388 /* README.md */,
 				OBJ_6 /* Package.swift */,
 				OBJ_7 /* Sources */,
 				OBJ_61 /* Tests */,
 				OBJ_62 /* Dependencies */,
 				OBJ_267 /* Products */,
 			);
-			name = "";
 			sourceTree = "<group>";
 		};
 		OBJ_50 /* Reward */ = {
@@ -1310,7 +1311,7 @@
 			knownRegions = (
 				en,
 			);
-			mainGroup = OBJ_5 /*  */;
+			mainGroup = OBJ_5;
 			productRefGroup = OBJ_267 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
