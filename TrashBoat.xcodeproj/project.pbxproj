@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		50CC88902069D588006842B0 /* PointInstance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50CC888E2069D588006842B0 /* PointInstance.swift */; };
+		50CC88912069D588006842B0 /* PointAmount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50CC888F2069D588006842B0 /* PointAmount.swift */; };
 		OBJ_276 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_6 /* Package.swift */; };
 		OBJ_282 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_261 /* Package.swift */; };
 		OBJ_288 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_266 /* Package.swift */; };
@@ -38,7 +40,6 @@
 		OBJ_319 /* Player+InlineQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_42 /* Player+InlineQuery.swift */; };
 		OBJ_320 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_43 /* Player.swift */; };
 		OBJ_321 /* PlayerStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_44 /* PlayerStatus.swift */; };
-		OBJ_322 /* PointContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_46 /* PointContainer.swift */; };
 		OBJ_323 /* PointManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_47 /* PointManager.swift */; };
 		OBJ_324 /* PointReceipt.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_48 /* PointReceipt.swift */; };
 		OBJ_325 /* PointType.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_49 /* PointType.swift */; };
@@ -234,6 +235,8 @@
 
 /* Begin PBXFileReference section */
 		50BF31C22069D4F0000FC388 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		50CC888E2069D588006842B0 /* PointInstance.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PointInstance.swift; sourceTree = "<group>"; };
+		50CC888F2069D588006842B0 /* PointAmount.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PointAmount.swift; sourceTree = "<group>"; };
 		OBJ_101 /* InlineResultArticle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InlineResultArticle.swift; sourceTree = "<group>"; };
 		OBJ_102 /* InlineResultAudio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InlineResultAudio.swift; sourceTree = "<group>"; };
 		OBJ_103 /* InlineResultContact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InlineResultContact.swift; sourceTree = "<group>"; };
@@ -391,7 +394,6 @@
 		OBJ_42 /* Player+InlineQuery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Player+InlineQuery.swift"; sourceTree = "<group>"; };
 		OBJ_43 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		OBJ_44 /* PlayerStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerStatus.swift; sourceTree = "<group>"; };
-		OBJ_46 /* PointContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointContainer.swift; sourceTree = "<group>"; };
 		OBJ_47 /* PointManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointManager.swift; sourceTree = "<group>"; };
 		OBJ_48 /* PointReceipt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointReceipt.swift; sourceTree = "<group>"; };
 		OBJ_49 /* PointType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointType.swift; sourceTree = "<group>"; };
@@ -965,7 +967,8 @@
 		OBJ_45 /* Points */ = {
 			isa = PBXGroup;
 			children = (
-				OBJ_46 /* PointContainer.swift */,
+				50CC888F2069D588006842B0 /* PointAmount.swift */,
+				50CC888E2069D588006842B0 /* PointInstance.swift */,
 				OBJ_47 /* PointManager.swift */,
 				OBJ_48 /* PointReceipt.swift */,
 				OBJ_49 /* PointType.swift */,
@@ -1360,6 +1363,7 @@
 				OBJ_296 /* DiceType.swift in Sources */,
 				OBJ_297 /* Event.swift in Sources */,
 				OBJ_298 /* EventContainer.swift in Sources */,
+				50CC88902069D588006842B0 /* PointInstance.swift in Sources */,
 				OBJ_299 /* EventRecord.swift in Sources */,
 				OBJ_300 /* EventRepresentible.swift in Sources */,
 				OBJ_301 /* EventType.swift in Sources */,
@@ -1383,9 +1387,9 @@
 				OBJ_319 /* Player+InlineQuery.swift in Sources */,
 				OBJ_320 /* Player.swift in Sources */,
 				OBJ_321 /* PlayerStatus.swift in Sources */,
-				OBJ_322 /* PointContainer.swift in Sources */,
 				OBJ_323 /* PointManager.swift in Sources */,
 				OBJ_324 /* PointReceipt.swift in Sources */,
+				50CC88912069D588006842B0 /* PointAmount.swift in Sources */,
 				OBJ_325 /* PointType.swift in Sources */,
 				OBJ_326 /* Reward.swift in Sources */,
 				OBJ_327 /* InlineQueryRoute.swift in Sources */,
