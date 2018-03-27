@@ -13,7 +13,10 @@ A abstract route system to allow players to request a specific item from their i
 */
 class ItemRoute: Route {
 	
-	/// The results currently received by players.  Do not use this to directly get the results of the route, as it will not include players that didn't submit a response.
+	// STATE
+	/** The results currently received by players.  Do not use this to directly get the results
+	of the route, as it will not include players that didn't submit a response.  Instead use
+	`getResults`.  */
 	private var results: [ItemTypeTag: [(player: UserProxy, item: ItemRepresentible?)] ] = [:]
 	
 	/// The item types that are part of the current request.
@@ -22,13 +25,12 @@ class ItemRoute: Route {
 	/// The players that have been chosen to select an item
 	var selectors: [UserProxy] = []
 	
-	/** Stores the generated Inline Results for all the items a selected player has (within the types that can be selected), with
-	an invisible marker that prevents selection outside of inline queries.
-	*/
+	/** Stores the generated Inline Results for all the items a selected player has (within the
+	types that can be selected), with an invisible marker that prevents selection outside of
+	inline queries.  */
 	var routedItems: [Int: [ItemTypeTag: [String: ItemInfoTag]]] = [:]
 	
-	/** Stores the custom-made inline cards for each player
-	*/
+	/// Stores the custom-made inline cards for each player.
 	var routedCards: [Int: [ItemTypeTag: [InlineResultArticle]]] = [:]
 	
 	/// The next function associated with each item type, if the result count associated with them matches their result count.
@@ -45,16 +47,18 @@ class ItemRoute: Route {
 		return result
 	}
 	
-	init() {
-		super.init(name: "item_route", action: {P in return true})
+	init(routeName: String) {
+		super.init(name: routeName, action: {P in return true})
 	}
 	
 	/**
-	Initialises a new request, that allows the chat session to listen for specific players to send specific item requests.  Will also
-	configure the UserProxy type to view the items without the "VIEW MODE ONLY" warning.
+	Initialises a new request, that allows the chat session to listen for specific players to
+	send specific item requests.  Will also configure the UserProxy type to view the items without
+	the "VIEW MODE ONLY" warning.
 	
-	- parameter types: The types of items a player can submit, and the closure that will be triggered should all selectors submit one response
-	for that item type.
+	- parameter types: The types of items a player can choose from, and the closure that will be
+	triggered should all selectors submit one response for that item type.
+	
 	- parameter selectors: The players that are able to submit an item request.
 	*/
 	func newRequest(types: [(type: ItemTypeTag, next: ( () -> () )?)], selectors: [UserProxy]) {
@@ -104,7 +108,7 @@ class ItemRoute: Route {
 			routedItems[player.id] = playerRoutedItems
 			routedCards[player.id] = playerRoutedInlineCards
 			
-			// Give the player the new cards
+			// Give the player the new cards to select from.
 			player.itemSelect = playerRoutedInlineCards
 			
 		}

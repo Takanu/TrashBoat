@@ -63,7 +63,18 @@ protocol UserProxy: class {
 	
 	
 	// INLINE CUSTOMISER
+	/// The players this player can choose from, if in the middle of using a player route.
+	var playerChoiceList: [InlineResultArticle] { get set }
 	
+	/// The list of players in the game, allowing the player to browse the turn order and statistics.
+	var playerBrowseList: [UserProxy] { get set }
+	
+	/** The items that can be selected from the player's inventory, as specified by a ItemRoute.
+	Still requires the FetchStatus flair in order for a player to be able to select items from it. */
+	var itemSelect: [ItemTypeTag: [InlineResultArticle]] { get set }
+	
+	/// A space for generators to be able to modify the appearance of inline results sent to the player.  Just use the query name for the key.
+	var inlineResultTransforms: [String: ([InlineResultArticle]) -> ([InlineResultArticle]) ] { get set }
 	
 	
 	// REPRESENTABLE
