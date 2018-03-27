@@ -1,9 +1,4 @@
-//
-//  InventoryWallet.swift
-//  App
-//
-//  Created by Takanu Kyriako on 22/11/2017.
-//
+
 
 import Foundation
 import Pelican

@@ -1,9 +1,4 @@
-//
-//  PointManager.swift
-//  SandBucket
-//
-//  Created by Ido Constantine on 26/03/2018.
-//
+
 
 import Foundation
 
@@ -17,7 +12,7 @@ an implicit manner.
 class PointManager {
 	
 	/// Defines a list of point types the player has, including the amount they have and how they can behave.
-	public private(set) var container: [PointContainer] = []
+	public private(set) var container: [PointInstance] = []
 	
 	/// Defines an array of transactions that have occurred with the inventory wallet.
 	public private(set) var transactions: [PointReceipt] = []
@@ -48,7 +43,7 @@ class PointManager {
 		}
 		
 		// If not, add it!
-		let newWallet = PointContainer(withType: newCurrency, initialAmount: initialAmount)
+		let newWallet = PointInstance(withType: newCurrency, initialAmount: initialAmount)
 		container.append(newWallet)
 	}
 	

@@ -1,9 +1,4 @@
-//
-//  PointAmount.swift
-//  TrashBoat
-//
-//  Created by Ido Constantine on 26/03/2018.
-//
+
 
 import Foundation
 

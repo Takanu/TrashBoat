@@ -9,6 +9,7 @@ a player is supposed to choose another player for an event.
 */
 class PlayerRoute: Route {
 	
+	// STATE
 	/// The results currently received by the route.  This should never be used to directly receive results, as it cannot account for every player that didn't choose a target.
   private var results: [(player: UserProxy, choice: UserProxy?)] = []
 	
@@ -23,17 +24,32 @@ class PlayerRoute: Route {
 	be a unique key that will be unrelated to the player name. */
 	var routedTargets: [Int: [String: UserProxy]] = [:]
 	
+	/// The player list available to select from.  This list will be used to match players to the articles they should have access to.
+	var articles: [Int:[InlineResultArticle]] = [:]
+	
+	
+	// OPTIONS
 	/** Represents an inline key, containing the data that the route will look when a
 	player uses an inline query in order to display player selections. */
 	public var inlineKey: MarkupInlineKey
-  
-  /// The player list available to select from.  This list will be used to match
-  var articles: [Int:[InlineResultArticle]] = [:]
+	
+	// Represents the inline card appearance for selecting no-one.
+	static var pickNobodyCard = InlineResultArticle(id: "1",
+																									title: "Pick Nobody",
+																									description: "If you don't want to, pick nobody.",
+																									contents: "Pick Nobody",
+																									markup: nil)
+	
+	/// If true, the selector will see themselves as a player choice.
   var includeSelf = false
+	
+	/// If true, the selector will be able to pick nobody as a player choice
   var includeNone = false
   
   /// If all targets have assigned result, this optional functional will be called.
   var next: (() -> ())?
+	
+	
 	
 	/**
 	Creates a PlayerRoute type, specifically used to allow users to browse and select other players.
@@ -87,9 +103,13 @@ class PlayerRoute: Route {
       
       // If a "No, i dont want to select someone asshole" option can be available, materialise it.
       if includeNone == true {
-        let title = "Pick Nobody"
-        let description = "If you don't want to, pick nobody."
-        targetArticles.append(InlineResultArticle(id: String(playerIndex + 1), title: title, description: description, contents: title, markup: nil))
+				
+				let pickCopy = InlineResultArticle(id: String(playerIndex + 1),
+																					 title: PlayerRoute.pickNobodyCard.title,
+																					 description: PlayerRoute.pickNobodyCard.description ?? "",
+																					 contents: PlayerRoute.pickNobodyCard.title,
+																					 markup: nil)
+				targetArticles.append(pickCopy)
       }
 			
 			// If we're using the anonymiser, substitute the Article contents for the newly generated names.
@@ -210,8 +230,8 @@ class PlayerRoute: Route {
 	
 	override func compare(_ route: Route) -> Bool {
 		
-		if route is UserProxyRoute {
-			let otherRoute = route as! UserProxyRoute
+		if route is PlayerRoute {
+			let otherRoute = route as! PlayerRoute
 			
 			// Check the ID
 			if self.results.count != otherRoute.results.count { return false }

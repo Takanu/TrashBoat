@@ -1,9 +1,3 @@
-//
-//  UserProxy+Status.swift
-//  App
-//
-//  Created by Takanu Kyriako on 07/09/2017.
-//
 
 import Foundation
 

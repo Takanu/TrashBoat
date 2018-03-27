@@ -55,7 +55,7 @@ class ItemRoute: Route {
 	
 	- parameter types: The types of items a player can submit, and the closure that will be triggered should all selectors submit one response
 	for that item type.
-	- parameter selectors: The users that are able to submit an item request.
+	- parameter selectors: The players that are able to submit an item request.
 	*/
 	func newRequest(types: [(type: ItemTypeTag, next: ( () -> () )?)], selectors: [UserProxy]) {
 		
@@ -197,7 +197,7 @@ class ItemRoute: Route {
 		var returnedResults = typeResults!.value
 		
 		// Figure out what players didn't submit something and add them to the list
-		let leftovers = selectors.filter( {T in returnedResults.contains(where: {P in T.id == P.player.info.tgID}) == false })
+		let leftovers = selectors.filter( {T in returnedResults.contains(where: {P in T.id == P.player.id}) == false })
 		for leftover in leftovers {
 			returnedResults.append((leftover, nil))
 		}

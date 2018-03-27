@@ -10,9 +10,9 @@ player-specific details.
 
 - note:
 This is not the actual UserSession of the person playing the game
-but a proxy they control and that can be used to identify them.  It's
-important to use a proxy to enable the ability for players to leave games early
-without causing unpredictable damage to the state of the game.
+but a proxy they control and that can be used to identify them or attach game
+properties to.  It's important to use a proxy to enable the ability for players
+to leave games early without causing unpredictable damage to the state of the game.
 */
 protocol UserProxy: class {
 	
@@ -22,6 +22,14 @@ protocol UserProxy: class {
 	
 	/// The user data of the session that this proxy belongs to.
 	var userInfo: User { get }
+	
+	
+	// SESSION TYPES
+	/// The base route of the UserSession this proxy belongs to.
+	var baseRoute: Route { get set }
+	
+	/// The request type of the UserSession this proxy belongs to.
+	var request: SessionRequest { get set }
 	
 	
 	// CONVENIENCES
@@ -54,24 +62,22 @@ protocol UserProxy: class {
 	var points: PointManager { get set }
 	
 	
+	// INLINE CUSTOMISER
+	
+	
+	
 	// REPRESENTABLE
-	/**
-	Returns an InlineResultArticle type that represents the player, allowing the player to be represented in a list for use in game events
-	*/
+	/** Returns an InlineResultArticle type that represents the player, allowing the player to be
+	represented in a list for use in game events.  */
 	func getInlineCard(id: String) -> InlineResultArticle
 	
 }
 	
 extension UserProxy {
 	
-	init(session: UserSession) {
-		self.tag = session.tag
-		self.userInfo = session.info
-		
-	}
-	
 	/**
-	Calculates a grammatically correct list of players as a string message, for use in declaring groups of players elegantly.
+	Calculates a grammatically correct list of players as a string message, for use in declaring
+	collections of players elegantly.
 	*/
 	public static func getListText(_ players: [UserProxy]) -> String {
 		
