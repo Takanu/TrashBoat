@@ -1,5 +1,5 @@
 //
-//  PlayerRequest.swift
+//  UserProxyRequest.swift
 //  App
 //
 //  Created by Takanu Kyriako on 22/09/2017.
@@ -12,20 +12,20 @@ import Pelican
 Encapsulates the process of requesting and processing requests where
 a player is supposed to choose another player for an event.
 */
-class PlayerRoute: Route {
+class UserProxyRoute: Route {
 	
 	/// The results currently received by the route.  This should never be used to directly receive results, as it cannot account for every player that didn't choose a target.
-  private var results: [(player: Player, choice: Player?)] = []
+  private var results: [(player: UserProxy, choice: UserProxy?)] = []
 	
 	/// The selectors that are able to select a target.
-  var selectors: [Player] = []
+  var selectors: [UserProxy] = []
 	
 	/// The targets that can be picked from.
-  var targets: [Player] = []
+  var targets: [UserProxy] = []
 	
 	/** A set of targets corresponding to each selector (player that is able to pick a player), with the string that's used by the route handler to identify them by.  If anonymised, the string will be a unique key that will be unrelated to the player name.
 	*/
-	var routedTargets: [Int: [String: Player]] = [:]
+	var routedTargets: [Int: [String: UserProxy]] = [:]
 	
 	public var inlineKey: MarkupInlineKey {
 		return MarkupInlineKey(fromInlineQueryCurrent: MuseumTypes.playerChoiceRoute, text: "Choose Friend")
@@ -51,7 +51,7 @@ class PlayerRoute: Route {
 	- parameter includeNone: If true, a player can decide not to choose anyone as an option.
 	- parameter anonymiser: If not nil, this will be used to generate a unique name for every target, allowing the selectors selecting to not reveal to others who they have chosen.
 	*/
-	func newRequest(selectors: [Player], targets: [Player], includeSelf: Bool, includeNone: Bool, next: @escaping () -> (), anonymiser: ( ([Player]) -> ([String]) )?) {
+	func newRequest(selectors: [UserProxy], targets: [UserProxy], includeSelf: Bool, includeNone: Bool, next: @escaping () -> (), anonymiser: ( ([UserProxy]) -> ([String]) )?) {
     
     resetRequest()
 		
@@ -64,7 +64,7 @@ class PlayerRoute: Route {
     for selector in selectors {
       
       var targetArticles: [InlineResultArticle] = []
-			var availableTargets: [Player] = []
+			var availableTargets: [UserProxy] = []
     
       // Generate the player list based on the passed information (must be done outside defer)
       var playerIndex = 0
@@ -93,7 +93,7 @@ class PlayerRoute: Route {
 			if anonymiser != nil {
 				let newLabels = anonymiser!(availableTargets)
 				var modifiedArticles: [InlineResultArticle] = []
-				var targetSet: [String: Player] = [:]
+				var targetSet: [String: UserProxy] = [:]
 				
 				for i in 0..<availableTargets.count {
 					let newLabel = newLabels[i]
@@ -115,7 +115,7 @@ class PlayerRoute: Route {
 			
 			// Otherwise just set them normally
 			else {
-				var targetSet: [String: Player] = [:]
+				var targetSet: [String: UserProxy] = [:]
 				
 				for i in 0..<availableTargets.count {
 					let newArticle = targetArticles[i]
@@ -172,7 +172,7 @@ class PlayerRoute: Route {
 	/**
 	Returns a set of results in a consistently formatted manner, where every target will appear even if they didn't select a charm.
 	*/
-	func getResults() -> [(player: Player, choice: Player?)] {
+	func getResults() -> [(player: UserProxy, choice: UserProxy?)] {
 		var returnedResults = results
 		
 		let leftovers = selectors.filter( {T in results.contains(where: {P in T.info.tgID == P.player.info.tgID}) == false })
@@ -207,8 +207,8 @@ class PlayerRoute: Route {
 	
 	override func compare(_ route: Route) -> Bool {
 		
-		if route is PlayerRoute {
-			let otherRoute = route as! PlayerRoute
+		if route is UserProxyRoute {
+			let otherRoute = route as! UserProxyRoute
 			
 			// Check the ID
 			if self.results.count != otherRoute.results.count { return false }

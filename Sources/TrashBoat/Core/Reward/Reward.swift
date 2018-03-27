@@ -95,7 +95,7 @@ class Reward {
 	set will be selected, if it exists.  If it doesn't, it will return the lowest stake tier available.
 	- returns: The reward item used and a pre-built message that can be sent as a message.  If no rewards were available, "x got nothing!" will be the message returned.
 	*/
-	private func giveReward(player: Player) -> String {
+	private func giveReward(player: UserProxy) -> String {
 		
 		var message = ""
 		
@@ -190,7 +190,7 @@ class Reward {
 	/**
 	Applies a reward to multiple players, and also provides a message with the results of each player printed on separate lines.
 	*/
-	func applyReward(_ players: [Player]) -> String {
+	func applyReward(_ players: [UserProxy]) -> String {
 		
 		var result = ""
 		for (i, player) in players.enumerated() {

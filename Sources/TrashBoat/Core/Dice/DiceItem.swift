@@ -105,30 +105,6 @@ class DiceItem: ItemRepresentible {
 	}
 	
 	/**
-	Calculates a grammatically correct list of players and the results of their dice.
-	*/
-	public static func getResultsList(_ results: [(player: Player, dice: DiceItem?)]) -> String {
-		
-		var string = ""
-		
-		for (index, result) in results.enumerated() {
-			if result.dice == nil {
-				string += "\(result.player.name) rolled nothing."
-			}
-			
-			else {
-				string += "\(result.player.name)\(result.dice!.getResultText)"
-			}
-			
-			if index != results.count - 1 {
-				string += "\n"
-			}
-		}
-		
-		return string
-	}
-	
-	/**
 	ItemRepresentible conforming function
 	*/
 	func getFullName() -> String {
@@ -145,7 +121,7 @@ class DiceItem: ItemRepresentible {
 	/**
 	Rolls an entire set of given dice, returning useful results <3
 	*/
-	static func rollItemSet(_ set: [(player: Player, item: ItemRepresentible?)]) -> [(player: Player, dice: DiceItem?)]? {
+	static func rollItemSet(_ set: [(player: UserProxy, item: ItemRepresentible?)]) -> [(player: UserProxy, dice: DiceItem?)]? {
 		
 		// Check we've been given a set where the item type is actually a DiceItem.
 		for entry in set {
@@ -154,7 +130,7 @@ class DiceItem: ItemRepresentible {
 		}
 		
 		// Now build the real results.
-		var results: [(player: Player, dice: DiceItem?)] = []
+		var results: [(player: UserProxy, dice: DiceItem?)] = []
 		for entry in set {
 			
 			let player = entry.player

@@ -91,7 +91,7 @@ class Event<T: Handle> {
 	/**
 	A required function to call in order to end the event and pass back control of the game to PartySession.
 	*/
-	func end(playerTrigger: Player<T>?, participants: [Player<T>]?) {
+	func end(playerTrigger: UserProxy, participants: [UserProxy]?) {
 		
 		// Reset the queue timers and ungrouped router for convenience
 		handle.queue.clear()
@@ -109,53 +109,5 @@ class Event<T: Handle> {
 		
 		// Exit
 		next()
-	}
-	
-	/**
-	Escapes from the event if a problem occurs that cannot be safely recovered from, letting the people involved know what happened so they can report it to me *w*.
-	*/
-	func abort(playerTrigger: Player<T>?, participants: [Player<T>]?, errorMessage: String) {
-		
-		// Reset the queue timers and ungrouped router for convenience
-		handle.queue.clear()
-		handle.baseRoute[["event"]]?.clearAll()
-		
-		let glyphs = ["A", "K", "H", "I", "T", "U", "X", "V"]
-		let xoro1 = Xoroshiro(seed: (UInt64(self.getName.hashValue), 0))
-		let xoro2 = Xoroshiro(seed: (UInt64(self.getName.hashValue), 1))
-		let xoro3 = Xoroshiro(seed: (UInt64(self.getName.hashValue), 2))
-		
-		let glyphic1 = glyphs.randomSelection(length: 4, generator: xoro1)!.joined()
-		let glyphic2 = glyphs.randomSelection(length: 4, generator: xoro2)!.joined()
-		let glyphic3 = glyphs.randomSelection(length: 5, generator: xoro3)!.joined()
-		
-		let errorCode = glyphic1 + "-" + glyphic2 + "-" + glyphic3
-		
-		handle.queue.message(delay: 0.sec,
-												 viewTime: 4.sec,
-												 message: "Suddenly, everything disappears.  A message appears...",
-												 chatID: handle.tag.id)
-		
-		let fancyDelayMessage = """
-		`SPOOKY MOJO MALFUNCTION`
-		`=======================`
-		`ERROR = \(errorCode)'
-		'LOCATION = \(getName)'
-		'EXCUSE = \(errorMessage)'
-		
-		'PLEASE HAND THIS TICKET TO YOUR LOCAL SHAMAN'
-		'SHAMANS IN YOUR AREA = @takanu'
-		"""
-		
-		handle.queue.message(delay: 0.sec,
-											 viewTime: 6.sec,
-											 message: fancyDelayMessage,
-											 chatID: handle.tag.id)
-		
-		handle.queue.action(delay: 3.sec,
-												viewTime: 0.sec) {
-												self.end(playerTrigger: playerTrigger, participants: participants)
-		}
-		
 	}
 }

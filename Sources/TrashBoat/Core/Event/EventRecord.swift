@@ -20,22 +20,22 @@ struct EventRecord {
 	var eventType: EventType
 	
 	/// The player who triggered the event.
-	var trigger: Player?
+	var trigger: UserProxy?
 	
 	/// Any other players that participated in the event.
-	var participants: [Player]?
+	var participants: [UserProxy]?
 	
 	/// Any transactions that occurred during the event.
-	var transactions: [(Player, CurrencyReceipt)]
+	var transactions: [(UserProxy, PointReceipt)]
 	
 	/// Any additional states or changes the record should hold.
 	var states: [String: Any]
 	
 	init(name: String,
 			 type: EventType,
-			 trigger: Player?,
-			 participants: [Player]?,
-			 transactions: [(Player, CurrencyReceipt)] = [],
+			 trigger: UserProxy?,
+			 participants: [UserProxy]?,
+			 transactions: [(UserProxy, PointReceipt)] = [],
 			 states: [String: Any] = [:]) {
 		
 		self.eventName = name

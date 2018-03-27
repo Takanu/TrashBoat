@@ -31,7 +31,7 @@ class EventContainer<T: Handle> {
 	var next: ( () -> () )?
 	
 	/// The flairs influencing an event.  When
-	lazy var flair = FlairSystem<T>()
+	lazy var flair = FlairManager<T>()
 	
 	
 	/**
@@ -65,7 +65,7 @@ class EventContainer<T: Handle> {
 	func finish() {
 		
 		if next == nil {
-			print("HEY, THE EVENT CONTAINER FINISH WAS CALLED WHEN NO NEXT FUNCTION EXISTS.\n\n\(type.getName) - \(name)")
+			print("HEY, THE EVENT CONTAINER FINISH WAS CALLED WHEN NO NEXT FUNCTION EXISTS.\n\n\(type.name) - \(name)")
 			return
 			
 		} else {

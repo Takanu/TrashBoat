@@ -16,37 +16,15 @@ A PointInstance is ideal for tracking health, currency, turns and other scalar-t
 properties.  Alternatively you can use PointManager to manage multiple types of Points
 under one property.
 */
-class PointInstance: Equatable {
+protocol PointInstance: Equatable {
 	
-	public private(set) var amount: Int = 0
+	public private(set) var amount: PointAmount
+	
 	var type: PointType
-	
-	init(withType type: PointType, initialAmount: Int) {
-		self.type = type
-		self.amount = initialAmount
-	}
 	
 	/**
 	Changes the amount of currency the player has in accordance with it's behaviours, returning a receipt.
 	*/
-	func changeAmount(_ change: Int) -> PointReceipt {
-		
-		let lastAmount = amount
-		amount = amount + change
-		
-		if type.allowNegativeValue == false {
-			amount = max(amount, 0)
-		}
-		
-		let change = amount - lastAmount
-		
-		return CurrencyReceipt(type: type, amountBefore: lastAmount, amountAfter: amount, change: change)
-	}
-	
-	static func ==(lhs: PointContainer, rhs: PointContainer) -> Bool {
-		if lhs.amount != rhs.amount { return false }
-		if lhs.type != rhs.type { return false }
-		
-		return true
-	}
+	func changeAmount(_ change: PointAmount) -> PointReceipt
+
 }

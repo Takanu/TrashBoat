@@ -22,7 +22,7 @@ struct PointType: Hashable, Equatable {
 	public private(set) var symbol: String
 	
 	/// The point type that this tag is associated and will create when a tag is given to a PointManager.
-	public private(set) var type: PointInstance.self
+	public private(set) var type: PointInstance.Type
 	
 	var hashValue: Int {
 		return name.hashValue ^ symbol.hashValue ^ allowNegativeValue.hashValue

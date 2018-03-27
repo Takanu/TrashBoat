@@ -23,7 +23,7 @@ class Inventory {
 	
 	
 	// FLAIR DEFINITIONS
-	/// Defines the flair category that collects what items players are currently able to use.  Should be used in conjunction with Player and ItemRoute.
+	/// Defines the flair category that collects what items players are currently able to use.  Should be used in conjunction with UserProxy and ItemRoute.
 	static var fetchStatusCategory = "Item Usage"
 	
 	
@@ -57,7 +57,7 @@ class Inventory {
 			var itemAdded = false
 			for stack in stacks {
 				
-				if stack.getItemName == item.name {
+				if stack.itemName == item.name {
 					stack.addItem(item)
 					items[item.type] = stacks
 					itemAdded = true
@@ -86,7 +86,7 @@ class Inventory {
 		let stacks = items[item.type]!
 		for stack in stacks {
 			
-			if stack.getItemName == item.name {
+			if stack.itemName == item.name {
 				stack.isUnlimited = useUnlimitedStack
 			}
 		}
@@ -106,7 +106,7 @@ class Inventory {
 		
 		/// Search through the stacks for one that matches the name.  If found, return true.
 		for stack in items[item.type]! {
-			if stack.getItemName == item.name {
+			if stack.itemName == item.name {
 				return true
 			}
 		}
@@ -151,16 +151,16 @@ class Inventory {
 	func getItemInfo(forType type: StringRepresentible) -> [ItemInfoTag]? {
 		
 		/// Check that the type category is stored, and if not return nil.
-		if items.keys.contains(where: {$0.getName == type.string()}) == false { return nil }
+		if items.keys.contains(where: {$0.name == type.string()}) == false { return nil }
 		
 		/// Search through the stacks for one that matches the name.  If found, extract an item from it.
-		let inventorySet = items.first(where: {$0.key.getName == type.string()})!
+		let inventorySet = items.first(where: {$0.key.name == type.string()})!
 		let stacks = inventorySet.value
 		var result: [ItemInfoTag] = []
 		
 		for stack in stacks {
 			if stack.count != 0 {
-				result.append(stack.getItemInfo)
+				result.append(stack.itemInfo)
 			}
 		}
 		
@@ -173,13 +173,13 @@ class Inventory {
 	func removeItem(type: StringRepresentible, name: StringRepresentible) -> ItemRepresentible? {
 		
 		/// Check that the type category is stored, and if not return nil.
-		if items.keys.contains(where: {$0.getName == type.string()}) == false { return nil }
+		if items.keys.contains(where: {$0.name == type.string()}) == false { return nil }
 		
 		/// Search through the stacks for one that matches the name.  If found, extract an item from it.
-		let inventorySet = items.first(where: {$0.key.getName == type.string()})!
+		let inventorySet = items.first(where: {$0.key.name == type.string()})!
 		var stacks = inventorySet.value
 		for (i, stack) in stacks.enumerated() {
-			if stack.getItemName == name.string() {
+			if stack.itemName == name.string() {
 				
 				let retrievedItem = stack.removeItem()
 				
@@ -203,7 +203,7 @@ class Inventory {
 	Returns and removes an item from the player's inventory if they own it.
 	*/
 	func removeItem(_ item: ItemRepresentible) -> ItemRepresentible? {
-		return removeItem(type: item.type.getName, name: item.name)
+		return removeItem(type: item.type.name, name: item.name)
 	}
 	
 	/**
@@ -212,13 +212,13 @@ class Inventory {
 	func removeRandomItem(type: StringRepresentible, name: StringRepresentible) -> ItemRepresentible? {
 		
 		/// Check that the type category is stored, and if not return nil.
-		if items.keys.contains(where: {$0.getName == type.string()}) == false { return nil }
+		if items.keys.contains(where: {$0.name == type.string()}) == false { return nil }
 		
 		/// Search through the stacks for one that matches the name.  If found, extract an item from it..
-		let inventorySet = items.first(where: {$0.key.getName == type.string()})!
+		let inventorySet = items.first(where: {$0.key.name == type.string()})!
 		var stacks = inventorySet.value
 		for (i, stack) in stacks.enumerated() {
-			if stack.getItemName == name.string() {
+			if stack.itemName == name.string() {
 				
 				let retrievedItem = stack.removeRandomItem()
 				
@@ -242,7 +242,7 @@ class Inventory {
 	Returns and removes an item from the player's inventory if they own it, at a random position in the stack.
 	*/
 	func removeRandomItem(_ item: ItemRepresentible) -> ItemRepresentible? {
-		return removeRandomItem(type: item.type.getName, name: item.name)
+		return removeRandomItem(type: item.type.name, name: item.name)
 	}
 	
 	/**
@@ -251,10 +251,10 @@ class Inventory {
 	func removeRandomItem(ofType type: String, includeUnlimitedStack: Bool) -> ItemRepresentible? {
 		
 		/// Check that the type category is stored, and if not return nil.
-		if items.keys.contains(where: {$0.getName == type}) == false { return nil }
+		if items.keys.contains(where: {$0.name == type}) == false { return nil }
 		
 		/// Search through the stacks for an item we can fetch
-		let inventorySet = items.first(where: {$0.key.getName == type})!
+		let inventorySet = items.first(where: {$0.key.name == type})!
 		var stacks = inventorySet.value
 		
 		if stacks.count == 0 { return nil }
@@ -332,9 +332,7 @@ class Inventory {
 	*/
 	func clearAll() {
 		
-		wallet.removeAll()
 		items.removeAll()
-		walletTransactions.removeAll()
 		itemTransactions.removeAll()
 	}
 }

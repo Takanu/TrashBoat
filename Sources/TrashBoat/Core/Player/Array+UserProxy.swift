@@ -1,9 +1,3 @@
-//
-//  Array+Player.swift
-//  App
-//
-//  Created by Takanu Kyriako on 15/10/2017.
-//
 
 import Foundation
 import Pelican

@@ -48,7 +48,7 @@ class FlairManager<HandleType: Handle> {
 	*/
 	func addFlair(withName name: StringRepresentible, category: StringRepresentible) {
 		
-		let newFlag = Flair(withName: name.string(), category: category)
+		let newFlag = Flair<HandleType>(withName: name.string(), category: category)
 		addToList(newFlag)
 	}
 	
@@ -56,7 +56,7 @@ class FlairManager<HandleType: Handle> {
 	Adds a new state to the system using flags that have already been built.  Note that if the state you're adding already matches the category and name of one in the system,
 	the one in the system will have their stack number increase without the newly added state being added.
 	*/
-	func addFlair(_ flairs: Flair...) {
+	func addFlair(_ flairs: Flair<HandleType>...) {
 		
 		for flair in flairs {
 			addToList(flair)
@@ -64,21 +64,9 @@ class FlairManager<HandleType: Handle> {
 	}
 	
 	/**
-	Adds a new state to the system using a type that can represent itself as a flag.  Note that if the state you're adding already matches the category and name of one in the system,
-	the one in the system will have their stack number increase without the newly added state being added.
-	*/
-	func addFlair(_ types: FlairRepresentible...) {
-		
-		for type in types {
-			let newFlair = type.getFlair()
-			addToList(newFlair)
-		}
-	}
-	
-	/**
 	Always use this function if you want to add a new state to the dictionary.
 	*/
-	private func addToList(_ incomingFlair: Flair) {
+	private func addToList(_ incomingFlair: Flair<HandleType>) {
 		
 		//print("Adding Flair: \(incomingFlair.name)\n\(getFlairMap())")
 		
@@ -105,7 +93,7 @@ class FlairManager<HandleType: Handle> {
 	Tries to find if this system has the specified flair.  The flair given does not have to match exactly if compareContents is false.
 	- returns: True if it does, false if not.
 	*/
-	func findFlair(_ incomingFlair: Flair, compareContents: Bool) -> Bool {
+	func findFlair(_ incomingFlair: Flair<HandleType>, compareContents: Bool) -> Bool {
 		
 		if let category = flairs[incomingFlair.category] {
 			for stack in category {
@@ -146,7 +134,7 @@ class FlairManager<HandleType: Handle> {
 	*/
 	func removeFlair(withName name: StringRepresentible, category: StringRepresentible, removeAll: Bool = false) {
 		
-		let flair = Flair(withName: name, category: category)
+		let flair = Flair<HandleType>(withName: name, category: category)
 		removeFromList(flair, removeAll: removeAll)
 	}
 	
@@ -154,14 +142,14 @@ class FlairManager<HandleType: Handle> {
 	Attempts to remove a flag from the state system using a prepared StateFlag instance.
 	- parameter ignoreStack: If true, the stack number will not be considered, and the flag will be removed if found.
 	*/
-	func removeFlair(_ flair: Flair, removeAll: Bool = false) {
+	func removeFlair(_ flair: Flair<HandleType>, removeAll: Bool = false) {
 		removeFromList(flair, removeAll: removeAll)
 	}
 	
 	/**
 	Always use this function if you want to remove a new state to the dictionary.
 	*/
-	private func removeFromList(_ incomingFlair: Flair, removeAll: Bool) {
+	private func removeFromList(_ incomingFlair: Flair<HandleType>, removeAll: Bool) {
 		
 		//print("Removing Flair: \(incomingFlair.name)\n\(getFlairMap())")
 		

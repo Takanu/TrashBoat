@@ -1,15 +1,10 @@
-//
-//  ItemRepresentible.swift
-//  App
-//
-//  Created by Takanu Kyriako on 17/11/2017.
-//
 
 import Foundation
 import Pelican
 
 /**
-Types that conform to this protocol can be both collected and used by a Player.
+This type represents a single collectible item type in your game.
+Types that conform to this protocol can be both collected and used by a UserProxy.
 */
 protocol ItemRepresentible {
 	

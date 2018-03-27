@@ -31,7 +31,7 @@ class FlairStack<HandleType: Handle>: Equatable {
 	
 	/// STACK
 	/// The array of states the stack is keeping hold of.
-	private var stack: [Flair] = []
+	private var stack: [Flair<HandleType>] = []
 	/// The number of states this stack currently has.
 	var count: Int { return stack.count }
 	
@@ -39,7 +39,7 @@ class FlairStack<HandleType: Handle>: Equatable {
 	/**
 	Initialises the stack with the Flair that will form the stack.
 	*/
-	init(firstState: Flair) {
+	init(firstState: Flair<HandleType>) {
 		
 		self.name = firstState.name
 		self.category = firstState.category
@@ -51,7 +51,7 @@ class FlairStack<HandleType: Handle>: Equatable {
 	/**
 	Adds a flair to the stack, if it matches the one the stack represents (otherwise it will return without adding it).
 	*/
-	func addState(_ incomingState: Flair) {
+	func addState(_ incomingState: Flair<HandleType>) {
 		
 		// Verify that the state should be added.
 		if allowStacks == false { return }
@@ -73,7 +73,7 @@ class FlairStack<HandleType: Handle>: Equatable {
 	/**
 	Compares the incoming Flair object with the stack's current properties.
 	*/
-	func compareFlair(_ incomingFlair: Flair) -> Bool {
+	func compareFlair(_ incomingFlair: Flair<HandleType>) -> Bool {
 		if incomingFlair == stack[0] { return true }
 		
 		return false

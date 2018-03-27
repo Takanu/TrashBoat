@@ -12,10 +12,10 @@ import Pelican
 A (◕‿◕✿) single item that when added (⌐■_■) to a FlairSystem, helps define the state ԅ(≖‿≖ԅ)
 of the game in a fluid (~‾▿‾)~ and procedural manner.
 */
-struct Flair: Hashable, Equatable, FlairRepresentible {
+struct Flair<HandleType: Handle>: Hashable, Equatable {
 	
 	/// Defines a closure used when a flair is successfully triggered by a flag.
-	typealias FlairOperation = ( (Flair, Handle) -> (FlairResponse) )
+	typealias FlairOperation = ( (Flair, HandleType) -> (FlairResponse) )
 	
 	/// The specific name of the state, which will be used when an event is trying to search for a specific flag.  Should be defined in normal case.
 	var name: String
@@ -100,8 +100,7 @@ struct Flair: Hashable, Equatable, FlairRepresentible {
 	Attempt to trigger the state by passing it flags.
 	- returns: True if a matching flag was found and the state had a next closure to trigger, false if not.
 	*/
-	func trigger(withHandle handle: MuseumHandle,
-							 flags inputFlags: [StringRepresentible]) -> FlairResponse? {
+	func trigger(withHandle handle: HandleType, flags inputFlags: [StringRepresentible]) -> FlairResponse? {
 		
 		let sortedInputFlags = inputFlags.map({ $0.string() })
 		

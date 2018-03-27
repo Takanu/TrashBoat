@@ -14,13 +14,13 @@ A abstract route system to allow players to request a specific item from their i
 class ItemRoute: Route {
 	
 	/// The results currently received by players.  Do not use this to directly get the results of the route, as it will not include players that didn't submit a response.
-	private var results: [ItemTypeTag: [(player: Player, item: ItemRepresentible?)] ] = [:]
+	private var results: [ItemTypeTag: [(player: UserProxy, item: ItemRepresentible?)] ] = [:]
 	
 	/// The item types that are part of the current request.
 	var itemTypes: [ItemTypeTag] = []
 	
 	/// The players that have been chosen to select an item
-	var selectors: [Player] = []
+	var selectors: [UserProxy] = []
 	
 	/** Stores the generated Inline Results for all the items a selected player has (within the types that can be selected), with
 	an invisible marker that prevents selection outside of inline queries.
@@ -51,13 +51,13 @@ class ItemRoute: Route {
 	
 	/**
 	Initialises a new request, that allows the chat session to listen for specific players to send specific item requests.  Will also
-	configure the Player type to view the items without the "VIEW MODE ONLY" warning.
+	configure the UserProxy type to view the items without the "VIEW MODE ONLY" warning.
 	
 	- parameter types: The types of items a player can submit, and the closure that will be triggered should all selectors submit one response
 	for that item type.
 	- parameter selectors: The users that are able to submit an item request.
 	*/
-	func newRequest(types: [(type: ItemTypeTag, next: ( () -> () )?)], selectors: [Player]) {
+	func newRequest(types: [(type: ItemTypeTag, next: ( () -> () )?)], selectors: [UserProxy]) {
 		
 		resetRequest()
 		
@@ -187,7 +187,7 @@ class ItemRoute: Route {
 	/**
 	Returns a set of results in a consistently formatted manner, where every target will appear even if they didn't select an item.
 	*/
-	func getResults(forItemType type: String) -> [(player: Player, item: ItemRepresentible?)]? {
+	func getResults(forItemType type: String) -> [(player: UserProxy, item: ItemRepresentible?)]? {
 		
 		// Get the set corresponding to the item type provided if it exists
 		let typeResults = results.first(where: {$0.key.getName == type})
