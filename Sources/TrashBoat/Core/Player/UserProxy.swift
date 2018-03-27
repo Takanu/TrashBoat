@@ -40,6 +40,7 @@ protocol UserProxy: class {
 	/// The current status of the player using this proxy.  Used to let the game state know if the player has left.
 	var status: UserProxyStatus { get set }
 	
+	// REPRESENTABLE
 	/**
 	Returns an InlineResultArticle type that represents the player, allowing the player to be represented in a list for use in game events
 	*/

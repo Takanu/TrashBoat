@@ -10,12 +10,12 @@ import Foundation
 import Pelican
 
 /**
-Defines a structure for a single set of rewards that can be re-used to give any number of players items and/or currency.
+Defines a structure for a single set of rewards that can be re-used to give any number of players items and/or points.
 */
 class Reward {
 	
-	/// The currency that can be awarded to the player.  From the range a value will be randomly selected.
-	var currency: [CurrencyType: ClosedRange<Int>] = [:]
+	/// The points that can be awarded to the player.  From the range a value will be randomly selected.
+	var points: [PointType: ClosedRange<Int>] = [:]
 	
 	/// The items that this reward can dispense to the player, organised in stacks by their full name
 	var items: [String: [ItemRepresentible]] = [:]
@@ -25,7 +25,7 @@ class Reward {
 	
 	/// Returns whether or not the reward has absolutely nothing to give to someone if used.
 	var hasNoReward: Bool {
-		if currency.keys.count != 0 { return false }
+		if points.keys.count != 0 { return false }
 		if items.values.count != 0 { return false }
 		if randomItems.count != 0 { return false }
 		
@@ -45,10 +45,10 @@ class Reward {
 	init() { }
 	
 	/**
-	Initialises the reward with a currency type and a range that will be used to randomly select the reward amount.
+	Initialises the reward with a points type and a range that will be used to randomly select the reward amount.
 	*/
 	init(withCurrency type: CurrencyType, amount: ClosedRange<Int>) {
-		currency[type] = amount
+		points[type] = amount
 	}
 	
 	/**
@@ -102,7 +102,7 @@ class Reward {
 		/// IF WE HAVE NOTHING, just send a basic message and leave early.
 		// If the reward has nothing somehow, make it special
 		if hasNoReward == true {
-			message = "\(player.name) got nothing!"
+			message = "\(player.firstName) got nothing!"
 			return message
 		}
 		
@@ -120,12 +120,12 @@ class Reward {
 		
 		/// GIVE PLAYER STUFF FIRST
 		// Build a dice to get a fortune figure!
-		var finalCurrency: [CurrencyType: Int] = [:]
+		var finalCurrency: [PointType: Int] = [:]
 		
-		for currencyEntry in currency {
-			var currencyDice = Dice(withRange: currencyEntry.value)
-			let finalAmount = currencyDice.roll()
-			finalCurrency[currencyEntry.key] = finalAmount
+		for pointsEntry in points {
+			var pointsDice = Dice(withRange: pointsEntry.value)
+			let finalAmount = pointsDice.roll()
+			finalCurrency[pointsEntry.key] = finalAmount
 		}
 		
 		// Build a list for randomised items
@@ -144,11 +144,11 @@ class Reward {
 			
 			/// BUILD FANCY MESSAGE
 			if reward.value > 0 {
-				message += "\(player.name) got \(reward.value) \(reward.key.symbol) (\(player.inventory[reward.key]!) \(reward.key.symbol))."
+				message += "\(player.firstName) got \(reward.value) \(reward.key.symbol) (\(player.inventory[reward.key]!) \(reward.key.symbol))."
 			}
 			
 			else if reward.value < 0 {
-				message += "\(player.name) lost \(abs(reward.value)) \(reward.key.symbol) (\(player.inventory[reward.key]!) \(reward.key.symbol))."
+				message += "\(player.firstName) lost \(abs(reward.value)) \(reward.key.symbol) (\(player.inventory[reward.key]!) \(reward.key.symbol))."
 			}
 		}
 		
@@ -163,7 +163,7 @@ class Reward {
 			
 			// If we're at the first index, introduce it.
 			if index == 0 {
-				message += "\(player.name) got "
+				message += "\(player.firstName) got "
 			}
 			
 			// If the total is one or the index is the end of the list, cap it.

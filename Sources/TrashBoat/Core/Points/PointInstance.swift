@@ -16,11 +16,11 @@ A PointInstance is ideal for tracking health, currency, turns and other scalar-t
 properties.  Alternatively you can use PointManager to manage multiple types of Points
 under one property.
 */
-protocol PointInstance: Equatable {
+protocol PointInstance {
 	
-	public private(set) var amount: PointAmount
+	var amount: PointAmount { get set }
 	
-	var type: PointType
+	var type: PointType { get }
 	
 	/**
 	Changes the amount of currency the player has in accordance with it's behaviours, returning a receipt.

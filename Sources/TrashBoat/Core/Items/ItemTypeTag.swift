@@ -30,6 +30,9 @@ class ItemTypeTag: Hashable, Equatable {
 	/// The description of the type itself.
 	public private(set) var description: String
 	
+	/// Returns the name that should be used to enable and disable the "fetch status" of an item.  SHOULD ONLY BE USED BY ITEMROUTE.
+	var fetchStatusFlair: Flair { return Flair(withName: name, category: Inventory.fetchStatusCategory) }
+	
 	
 	/**
 	Initialises the type tag with a set of required arguments used to identify and illustrate it in a game.

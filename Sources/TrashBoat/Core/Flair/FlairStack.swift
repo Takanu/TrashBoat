@@ -11,7 +11,7 @@ import Pelican
 /**
 Represents a self-organising stack of Flair types that share the same name and category.
 */
-class FlairStack<HandleType: Handle>: Equatable {
+class FlairStack: Equatable {
 	
 	/// REPLICATED VARIABLES
 	/// The name of the states being grouped into the stack.
@@ -31,7 +31,7 @@ class FlairStack<HandleType: Handle>: Equatable {
 	
 	/// STACK
 	/// The array of states the stack is keeping hold of.
-	private var stack: [Flair<HandleType>] = []
+	private var stack: [Flair] = []
 	/// The number of states this stack currently has.
 	var count: Int { return stack.count }
 	
@@ -39,7 +39,7 @@ class FlairStack<HandleType: Handle>: Equatable {
 	/**
 	Initialises the stack with the Flair that will form the stack.
 	*/
-	init(firstState: Flair<HandleType>) {
+	init(firstState: Flair) {
 		
 		self.name = firstState.name
 		self.category = firstState.category
@@ -51,7 +51,7 @@ class FlairStack<HandleType: Handle>: Equatable {
 	/**
 	Adds a flair to the stack, if it matches the one the stack represents (otherwise it will return without adding it).
 	*/
-	func addState(_ incomingState: Flair<HandleType>) {
+	func addState(_ incomingState: Flair) {
 		
 		// Verify that the state should be added.
 		if allowStacks == false { return }
@@ -73,7 +73,7 @@ class FlairStack<HandleType: Handle>: Equatable {
 	/**
 	Compares the incoming Flair object with the stack's current properties.
 	*/
-	func compareFlair(_ incomingFlair: Flair<HandleType>) -> Bool {
+	func compareFlair(_ incomingFlair: Flair) -> Bool {
 		if incomingFlair == stack[0] { return true }
 		
 		return false
@@ -82,7 +82,7 @@ class FlairStack<HandleType: Handle>: Equatable {
 	/**
 	Attempts to trigger any flags held by this state.
 	*/
-	func trigger(handle: HandleType, flags: [StringRepresentible]) {
+	func trigger(handle: Handle, flags: [StringRepresentible]) {
 		
 		if stack.count == 0 { return }
 		

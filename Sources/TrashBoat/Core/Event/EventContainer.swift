@@ -31,7 +31,7 @@ class EventContainer<T: Handle> {
 	var next: ( () -> () )?
 	
 	/// The flairs influencing an event.  When
-	lazy var flair = FlairManager<T>()
+	lazy var flair = FlairManager()
 	
 	
 	/**

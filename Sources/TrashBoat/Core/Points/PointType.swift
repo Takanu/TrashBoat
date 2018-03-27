@@ -25,14 +25,14 @@ struct PointType: Hashable, Equatable {
 	public private(set) var type: PointInstance.Type
 	
 	var hashValue: Int {
-		return name.hashValue ^ symbol.hashValue ^ allowNegativeValue.hashValue
+		return name.hashValue ^ symbol.hashValue
 	}
 	
 	
 	/**
 	Initialises a new wallet type, which holds and manages a specific type of currency.
 	*/
-	init(name: String, symbol: String, type: PointInstance.self) {
+	init(name: String, symbol: String, type: PointInstance.Type) {
 		self.name = name
 		self.symbol = symbol
 		self.type = type

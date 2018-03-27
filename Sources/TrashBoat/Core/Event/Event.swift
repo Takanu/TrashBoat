@@ -39,7 +39,7 @@ class Event<T: Handle> {
 	var baseRoute: Route!
 	
 	/// The flairs influencing an event.  These should typically be set before the event begins by an EventContainer.
-	lazy var flair = FlairManager<T>()
+	lazy var flair = FlairManager()
 	
 	
 	

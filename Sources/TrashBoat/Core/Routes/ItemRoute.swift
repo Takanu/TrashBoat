@@ -39,7 +39,7 @@ class ItemRoute: Route {
 		var result: [MarkupInlineKey] = []
 		
 		for type in itemTypes {
-			result.append(MarkupInlineKey(fromCallbackData: type.getRouteName, text: type.getName)!)
+			result.append(MarkupInlineKey(fromCallbackData: type.routeName, text: type.name)!)
 		}
 		
 		return result
@@ -101,8 +101,8 @@ class ItemRoute: Route {
 			}
 			
 			// Add the new inline cards and routed item sets under the player's ID
-			routedItems[player.info.tgID] = playerRoutedItems
-			routedCards[player.info.tgID] = playerRoutedInlineCards
+			routedItems[player.id] = playerRoutedItems
+			routedCards[player.id] = playerRoutedInlineCards
 			
 			// Give the player the new cards
 			player.itemSelect = playerRoutedInlineCards
@@ -134,19 +134,19 @@ class ItemRoute: Route {
 	override func handle(_ update: Update) -> Bool {
 		
 		// Eliminate bad possibilities
-		if selectors.contains(where: {$0.info.tgID == update.from!.tgID }) == false { return false }
+		if selectors.contains(where: {$0.id == update.from!.tgID }) == false { return false }
 		//if results.contains(where: {$0.keys.player.info.tgID == update.from!.tgID}) == true { return false }
 		
 		// Get the player
-		let player = selectors.first(where: {$0.info.tgID == update.from!.tgID } )!
-		let playerRoutedItems = routedItems[player.info.tgID]!
+		let player = selectors.first(where: {$0.id == update.from!.tgID } )!
+		let playerRoutedItems = routedItems[player.id]!
 		
 		// Go through their items in the form of inline cards to work out if there's a match
 		for type in itemTypes {
 			
 			// If the player has already successfully made a request for this item type, exit.
 			let resultSet = results[type]!
-			if resultSet.first(where: {$0.player.info.tgID == player.info.tgID}) != nil { return false }
+			if resultSet.first(where: {$0.player.id == player.id}) != nil { return false }
 			
 			// Otherwise get the set of items for this type and searc hthrough them
 			let itemTypeSet = playerRoutedItems[type]!
@@ -159,7 +159,7 @@ class ItemRoute: Route {
 					let chosenItemInfo = itemTypeSet.values.filter({_ in return true})[i]
 					
 					// Request the item from the player's inventory and add it to the results if not nil.
-					let fetchedItem = player.inventory.removeItem(type: chosenItemInfo.type.getName, name: chosenItemInfo.name)
+					let fetchedItem = player.inventory.removeItem(type: chosenItemInfo.type.name, name: chosenItemInfo.name)
 					
 					if fetchedItem != nil {
 						results[type]!.append((player, fetchedItem))
@@ -190,14 +190,14 @@ class ItemRoute: Route {
 	func getResults(forItemType type: String) -> [(player: UserProxy, item: ItemRepresentible?)]? {
 		
 		// Get the set corresponding to the item type provided if it exists
-		let typeResults = results.first(where: {$0.key.getName == type})
+		let typeResults = results.first(where: {$0.key.name == type})
 		if typeResults == nil { return nil }
 		
 		// Build a list of results using the initial players that submitted one
 		var returnedResults = typeResults!.value
 		
 		// Figure out what players didn't submit something and add them to the list
-		let leftovers = selectors.filter( {T in returnedResults.contains(where: {P in T.info.tgID == P.player.info.tgID}) == false })
+		let leftovers = selectors.filter( {T in returnedResults.contains(where: {P in T.id == P.player.info.tgID}) == false })
 		for leftover in leftovers {
 			returnedResults.append((leftover, nil))
 		}

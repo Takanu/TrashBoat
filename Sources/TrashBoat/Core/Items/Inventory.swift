@@ -277,7 +277,7 @@ class Inventory {
 				
 				// If the stack count is down to 0 and the item is not unlimited, remove it.
 				if stack!.isEmpty == true {
-					let index = stacks.index(where: {$0.getItemName == stack!.getItemName})!
+					let index = stacks.index(where: {$0.itemName == stack!.itemName})!
 					stacks.remove(at: index)
 				}
 			}
