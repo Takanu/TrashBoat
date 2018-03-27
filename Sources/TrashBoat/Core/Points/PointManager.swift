@@ -10,6 +10,9 @@ import Foundation
 /**
 A type that allows for the creation and management of PointContainer types, designed for tracking
 things like player currency and health.
+
+Enables other types like Reward to find a single abstracted point from which to modify point values in
+an implicit manner.
 */
 class PointManager {
 	

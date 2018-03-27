@@ -1,9 +1,4 @@
-//
-//  UserProxyRequest.swift
-//  App
-//
-//  Created by Takanu Kyriako on 22/09/2017.
-//
+
 
 import Foundation
 import Pelican
@@ -12,7 +7,7 @@ import Pelican
 Encapsulates the process of requesting and processing requests where
 a player is supposed to choose another player for an event.
 */
-class UserProxyRoute: Route {
+class PlayerRoute: Route {
 	
 	/// The results currently received by the route.  This should never be used to directly receive results, as it cannot account for every player that didn't choose a target.
   private var results: [(player: UserProxy, choice: UserProxy?)] = []
@@ -23,13 +18,14 @@ class UserProxyRoute: Route {
 	/// The targets that can be picked from.
   var targets: [UserProxy] = []
 	
-	/** A set of targets corresponding to each selector (player that is able to pick a player), with the string that's used by the route handler to identify them by.  If anonymised, the string will be a unique key that will be unrelated to the player name.
-	*/
+	/** A set of targets corresponding to each selector (player that is able to pick a player), with
+	the string that's used by the route handler to identify them by.  If anonymised, the string will
+	be a unique key that will be unrelated to the player name. */
 	var routedTargets: [Int: [String: UserProxy]] = [:]
 	
-	public var inlineKey: MarkupInlineKey {
-		return MarkupInlineKey(fromInlineQueryCurrent: MuseumTypes.playerChoiceRoute, text: "Choose Friend")
-	}
+	/** Represents an inline key, containing the data that the route will look when a
+	player uses an inline query in order to display player selections. */
+	public var inlineKey: MarkupInlineKey
   
   /// The player list available to select from.  This list will be used to match
   var articles: [Int:[InlineResultArticle]] = [:]
@@ -39,12 +35,19 @@ class UserProxyRoute: Route {
   /// If all targets have assigned result, this optional functional will be called.
   var next: (() -> ())?
 	
-	init() {
+	/**
+	Creates a PlayerRoute type, specifically used to allow users to browse and select other players.
+	
+	- parameter inlineKey: The inline key that will be used to show player selections.
+	*/
+	init(inlineKey: MarkupInlineKey) {
+		self.inlineKey = inlineKey
 		super.init(name: "player_route", action: {P in return true})
 	}
 	
 	/**
 	Starts a new request?
+	
 	- parameter selectors: The players that can pick another player.
 	- parameter targets: The players that can be chosen from.
 	- parameter includeSelf: If true, a player that's being asked to choose can also choose themselves.
@@ -109,8 +112,8 @@ class UserProxyRoute: Route {
 				}
 				
 				selector.playerChoiceList = modifiedArticles
-				routedTargets[selector.info.tgID] = targetSet
-				articles[selector.info.tgID] = modifiedArticles
+				routedTargets[selector.id] = targetSet
+				articles[selector.id] = modifiedArticles
 			}
 			
 			// Otherwise just set them normally
@@ -125,8 +128,8 @@ class UserProxyRoute: Route {
 				}
 				
 				selector.playerChoiceList = targetArticles
-				routedTargets[selector.info.tgID] = targetSet
-				articles[selector.info.tgID] = targetArticles
+				routedTargets[selector.id] = targetSet
+				articles[selector.id] = targetArticles
 			}
 			
 			selector.playerRoute.enabled = true
@@ -136,16 +139,16 @@ class UserProxyRoute: Route {
 		self.enabled = true
   }
 
-
+	
   override func handle(_ update: Update) -> Bool {
     
     // Eliminate bad possibilities
     if update.from == nil || update.content == "" { return false }
-    if selectors.contains(where: {$0.info.tgID == update.from!.tgID }) == false { return false }
-    if results.contains(where: {$0.player.info.tgID == update.from!.tgID}) == true { return false }
+    if selectors.contains(where: {$0.id == update.from!.tgID }) == false { return false }
+    if results.contains(where: {$0.player.id == update.from!.tgID}) == true { return false }
     
     // Get the player
-    let player = selectors.first(where: {$0.info.tgID == update.from!.tgID } )!
+    let player = selectors.first(where: {$0.id == update.from!.tgID } )!
     
     // If the text is "Pick Nobody", add a nil result to the stack.
     if update.content == "Pick Nobody" {
@@ -154,7 +157,7 @@ class UserProxyRoute: Route {
       
     // Otherwise try and find the target the selector is referring to
     else {
-      if let choice = routedTargets[player.info.tgID]![update.content] {
+      if let choice = routedTargets[player.id]![update.content] {
         results.append((player, choice))
       }
     }
@@ -175,7 +178,7 @@ class UserProxyRoute: Route {
 	func getResults() -> [(player: UserProxy, choice: UserProxy?)] {
 		var returnedResults = results
 		
-		let leftovers = selectors.filter( {T in results.contains(where: {P in T.info.tgID == P.player.info.tgID}) == false })
+		let leftovers = selectors.filter( {T in results.contains(where: {P in T.id == P.player.id}) == false })
 		for leftover in leftovers {
 			returnedResults.append((leftover, nil))
 		}

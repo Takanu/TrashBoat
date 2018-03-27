@@ -76,7 +76,7 @@ class ItemRoute: Route {
 				let type = set.type
 				
 				let initialCards = player.inventory.getInlineCards(forType: type) ?? []
-				var itemInfo = player.inventory.getItemInfo(forType: type.getName) ?? []
+				var itemInfo = player.inventory.getItemInfo(forType: type.name) ?? []
 				
 				var fixedCards: [InlineResultArticle] = []
 				var routedItems: [String: ItemInfoTag] = [:]

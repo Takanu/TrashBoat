@@ -23,6 +23,7 @@ protocol UserProxy: class {
 	/// The user data of the session that this proxy belongs to.
 	var userInfo: User { get }
 	
+	
 	// CONVENIENCES
 	/// The unique identifier for the user.
 	var id: Int { get }
@@ -36,9 +37,22 @@ protocol UserProxy: class {
 	/// User's or bot's username.
 	var username: String? { get }
 	
+	
 	// STATUS
 	/// The current status of the player using this proxy.  Used to let the game state know if the player has left.
 	var status: UserProxyStatus { get set }
+	
+	/// The flair currently attached to the player.  Used for flexible state tracking and procedural events.
+	var flair: FlairManager { get set }
+	
+	
+	// ITEMS
+	/// The items a player currently has.
+	var inventory: Inventory { get set }
+	
+	/// The points a player currently has.
+	var points: PointManager { get set }
+	
 	
 	// REPRESENTABLE
 	/**

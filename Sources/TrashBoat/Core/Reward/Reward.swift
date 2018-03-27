@@ -47,7 +47,7 @@ class Reward {
 	/**
 	Initialises the reward with a points type and a range that will be used to randomly select the reward amount.
 	*/
-	init(withCurrency type: CurrencyType, amount: ClosedRange<Int>) {
+	init(withCurrency type: PointType, amount: ClosedRange<Int>) {
 		points[type] = amount
 	}
 	
@@ -140,15 +140,15 @@ class Reward {
 		
 		// Pass on the new currencies!
 		for reward in finalCurrency {
-			_ = player.inventory.changeCurrency(reward.key, change: reward.value)
+			_ = player.points.changeCurrency(reward.key, change: reward.value)
 			
 			/// BUILD FANCY MESSAGE
 			if reward.value > 0 {
-				message += "\(player.firstName) got \(reward.value) \(reward.key.symbol) (\(player.inventory[reward.key]!) \(reward.key.symbol))."
+				message += "\(player.firstName) got \(reward.value) \(reward.key.symbol) (\(player.points[reward.key]!) \(reward.key.symbol))."
 			}
 			
 			else if reward.value < 0 {
-				message += "\(player.firstName) lost \(abs(reward.value)) \(reward.key.symbol) (\(player.inventory[reward.key]!) \(reward.key.symbol))."
+				message += "\(player.firstName) lost \(abs(reward.value)) \(reward.key.symbol) (\(player.points[reward.key]!) \(reward.key.symbol))."
 			}
 		}
 		
