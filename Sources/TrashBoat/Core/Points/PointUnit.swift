@@ -19,6 +19,25 @@ public struct PointUnit: CustomStringConvertible {
 	/// A description of the point unit.
 	public private(set) var description: String
 	
+	/// The type this unit represents.
+	public private(set) var type: PointType
+	
 	/// The value of the unit.
 	public private(set) var value: PointValue
+	
+	
+	public init(name: String,
+							pluralisedName: String,
+							description: String,
+							type: PointType,
+							value: PointValue) {
+		
+		self.name = name
+		self.pluralisedName = pluralisedName
+		self.description = description
+		self.type = type
+		self.value = value
+	}
+	
+	
 }
