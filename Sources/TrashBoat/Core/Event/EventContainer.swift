@@ -13,10 +13,10 @@ Defines a container that can hold a type of event and information about it, to b
 
 Useful for parametrically building sets of events in an efficient way.
 */
-class EventContainer<T: Handle> {
+class EventContainer<HandleType: Handle> {
 	
 	/// The event to be created.
-	var eventType: Event<T>.Type
+	var eventType: Event<HandleType>.Type
 	
 	/// The name of the event.
 	var name: String
@@ -25,7 +25,7 @@ class EventContainer<T: Handle> {
 	var type: EventType
 	
 	/// The live event instance.  If nil, the event either hasn't started, or it has finished.
-	var event: Event<T>?
+	var event: Event<HandleType>?
 	
 	/// The function to be called next when the event is finished.  If nil, the event either hasn't started, or it has finished.
 	var next: ( () -> () )?
@@ -37,7 +37,7 @@ class EventContainer<T: Handle> {
 	/**
 	Initialises itself with an event and tag, to temporarily initialise the event and extract name and type information.
 	*/
-	init(event: Event<T>.Type) {
+	init(event: Event<HandleType>.Type) {
 		
 		/// Initialise the event temporarily to extract the juicy bits.
 		self.eventType = event
@@ -50,7 +50,7 @@ class EventContainer<T: Handle> {
 	/**
 	Initialises the event and starts it.
 	*/
-	func start(handle: T, next: @escaping () -> ()) {
+	func start(handle: HandleType, next: @escaping () -> ()) {
 		
 		self.event = self.eventType.init(next: self.finish)
 		self.next = next

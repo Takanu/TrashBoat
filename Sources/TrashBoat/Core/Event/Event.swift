@@ -13,7 +13,7 @@ Encapsulates an event in a game, which should act as a reusable experience.  Als
 
 Should almost always be initialised as part of an `EventContainer`, and subclasses should always use the `EventRepresentible` protocol to define the event's name and type.
 */
-class Event<T: Handle> {
+class Event<HandleType: Handle> {
 	
 	/// The name of the event
 	public var getName: String { return name }
@@ -27,7 +27,7 @@ class Event<T: Handle> {
 																					description: "DEFINE ME")
 	
 	/// The handle used to send requests to Telegram, and to modify key game state information.  WARNING - DO NOT USE OUTSIDE THE SCOPE OF AN EVENT.
-	var handle: T!
+	var handle: HandleType!
 	
 	/// The request class, shared by `handle` to make requests.  WARNING - DO NOT USE OUTSIDE THE SCOPE OF AN EVENT.
 	internal var request: SessionRequest!
@@ -69,7 +69,7 @@ class Event<T: Handle> {
 	/**
 	Starts the event by assigning it a game object and exiting closure.
 	*/
-	func start(handle: T) {
+	func start(handle: HandleType) {
 		self.handle = handle
 		self.request = handle.request
 		self.queue = handle.queue
