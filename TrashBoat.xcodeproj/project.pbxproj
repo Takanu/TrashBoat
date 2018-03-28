@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		505A4BE5206A3B010072D040 /* FlairRepresentible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 505A4BE4206A3B010072D040 /* FlairRepresentible.swift */; };
 		5097842F206B0F680030D7A1 /* UserProxy+InlineQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5097842D206B0EFA0030D7A1 /* UserProxy+InlineQuery.swift */; };
+		50978435206B324D0030D7A1 /* PointValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50978434206B324D0030D7A1 /* PointValue.swift */; };
 		OBJ_277 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_6 /* Package.swift */; };
 		OBJ_283 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_262 /* Package.swift */; };
 		OBJ_289 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_267 /* Package.swift */; };
@@ -37,7 +38,7 @@
 		OBJ_318 /* Array+UserProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_40 /* Array+UserProxy.swift */; };
 		OBJ_321 /* UserProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_43 /* UserProxy.swift */; };
 		OBJ_322 /* UserProxyStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_44 /* UserProxyStatus.swift */; };
-		OBJ_323 /* PointAmount.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_46 /* PointAmount.swift */; };
+		OBJ_323 /* PointUnit.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_46 /* PointUnit.swift */; };
 		OBJ_324 /* PointInstance.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_47 /* PointInstance.swift */; };
 		OBJ_325 /* PointManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_48 /* PointManager.swift */; };
 		OBJ_326 /* PointReceipt.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_49 /* PointReceipt.swift */; };
@@ -234,6 +235,7 @@
 /* Begin PBXFileReference section */
 		505A4BE4206A3B010072D040 /* FlairRepresentible.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlairRepresentible.swift; sourceTree = "<group>"; };
 		5097842D206B0EFA0030D7A1 /* UserProxy+InlineQuery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserProxy+InlineQuery.swift"; sourceTree = "<group>"; };
+		50978434206B324D0030D7A1 /* PointValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointValue.swift; sourceTree = "<group>"; };
 		OBJ_100 /* InlineQuery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InlineQuery.swift; sourceTree = "<group>"; };
 		OBJ_102 /* InlineResultArticle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InlineResultArticle.swift; sourceTree = "<group>"; };
 		OBJ_103 /* InlineResultAudio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InlineResultAudio.swift; sourceTree = "<group>"; };
@@ -389,7 +391,7 @@
 		OBJ_40 /* Array+UserProxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+UserProxy.swift"; sourceTree = "<group>"; };
 		OBJ_43 /* UserProxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProxy.swift; sourceTree = "<group>"; };
 		OBJ_44 /* UserProxyStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProxyStatus.swift; sourceTree = "<group>"; };
-		OBJ_46 /* PointAmount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointAmount.swift; sourceTree = "<group>"; };
+		OBJ_46 /* PointUnit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointUnit.swift; sourceTree = "<group>"; };
 		OBJ_47 /* PointInstance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointInstance.swift; sourceTree = "<group>"; };
 		OBJ_48 /* PointManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointManager.swift; sourceTree = "<group>"; };
 		OBJ_49 /* PointReceipt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointReceipt.swift; sourceTree = "<group>"; };
@@ -961,11 +963,12 @@
 		OBJ_45 /* Points */ = {
 			isa = PBXGroup;
 			children = (
-				OBJ_46 /* PointAmount.swift */,
+				OBJ_46 /* PointUnit.swift */,
 				OBJ_47 /* PointInstance.swift */,
 				OBJ_48 /* PointManager.swift */,
 				OBJ_49 /* PointReceipt.swift */,
 				OBJ_50 /* PointType.swift */,
+				50978434206B324D0030D7A1 /* PointValue.swift */,
 			);
 			path = Points;
 			sourceTree = "<group>";
@@ -1352,6 +1355,7 @@
 			files = (
 				OBJ_295 /* Dice.swift in Sources */,
 				5097842F206B0F680030D7A1 /* UserProxy+InlineQuery.swift in Sources */,
+				50978435206B324D0030D7A1 /* PointValue.swift in Sources */,
 				OBJ_296 /* DiceItem.swift in Sources */,
 				OBJ_297 /* DiceType.swift in Sources */,
 				OBJ_298 /* Event.swift in Sources */,
@@ -1377,7 +1381,7 @@
 				OBJ_318 /* Array+UserProxy.swift in Sources */,
 				OBJ_321 /* UserProxy.swift in Sources */,
 				OBJ_322 /* UserProxyStatus.swift in Sources */,
-				OBJ_323 /* PointAmount.swift in Sources */,
+				OBJ_323 /* PointUnit.swift in Sources */,
 				OBJ_324 /* PointInstance.swift in Sources */,
 				OBJ_325 /* PointManager.swift in Sources */,
 				OBJ_326 /* PointReceipt.swift in Sources */,

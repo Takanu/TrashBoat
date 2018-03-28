@@ -20,11 +20,11 @@ class PointManager {
 	/**
 	Enables quick access to the amount of a given currency the player has.
 	*/
-	subscript(incomingType: PointType) -> Int? {
+	subscript(incomingType: PointType) -> PointValue? {
 		get {
 			for currency in container {
 				if currency.type == incomingType {
-					return currency.count
+					return currency.value
 				}
 			}
 			
@@ -35,7 +35,7 @@ class PointManager {
 	/**
 	Adds a new currency to the wallet!  If a matching wallet already exists, it will not be added again.
 	*/
-	func addCurrency(_ type: PointType, initialAmount: Int) {
+	func addCurrency(_ type: PointType, initialAmount: PointValue) {
 		
 		// Ensure this won't add a wallet of the same type
 		for currency in container {
@@ -52,7 +52,7 @@ class PointManager {
 	- returns: A receipt that can be used to inspect the changes, if a currency with the specified name was found.
 	*/
 	@discardableResult
-	func changeCurrency(_ type: PointType, change: Int) -> PointReceipt? {
+	func changeCurrency(_ type: PointType, change: PointValue) -> PointReceipt? {
 		
 		// Ensure this won't add a wallet of the same type
 		for currency in container {

@@ -9,24 +9,38 @@ how it is added or subtracted from, counted and displayed.
 
 A PointInstance is ideal for tracking health, currency, turns and other scalar-type
 properties.  Alternatively you can use PointManager to manage multiple types of Points
-under one property.
+under one property in an implicit manner.
 */
-protocol PointInstance {
+public protocol PointInstance: CustomStringConvertible {
 	
 	/// The point total this instance has.
-	var count: Int { get set }
+	var value: PointValue { get set }
 	
-	/// A textual representation of the points that this instance represents, including how to describe it.
+	/// A definition of the kind of value this instance represents, including how to describe it.
 	var type: PointType { get }
+	
+	/// A textual description of the instance's value.
+	var description: String { get }
 	
 	/**
 	A standard initialiser that's required for a PointInstance to be used with a PointManager.
 	*/
-	init(initialAmount: Int)
+	init(initialAmount: PointValue)
 	
 	/**
-	Changes the amount of currency the player has in accordance with it's behaviours, returning a receipt.
+	Changes the amount of currency the player has in accordance with it's behaviours, returning a receipt
+	if successful.
+	
+	- parameter change: The change in any numerical value.  NSNumber does the heavy-lifting of type conversion
+	and assumes your point value could be based on an integer or floating point value.
 	*/
-	func changeAmount(_ change: PointAmount) -> PointReceipt
-
+	func changeAmount(_ change: PointValue) -> PointReceipt?
+	
+	/**
+	Changes the amount of currency the player has in accordance with it's behaviours, returning a receipt
+	if successful.
+	
+	- parameter units: The PointUnit types you wish to comprise the change of.
+	*/
+	func changeAmount(_ units: PointUnit...) -> PointReceipt?
 }

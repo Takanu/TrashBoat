@@ -152,7 +152,7 @@ class PlayerRoute: Route {
 				articles[selector.id] = targetArticles
 			}
 			
-			selector.playerRoute.enabled = true
+			//selector.playerRoute.enabled = true
     }
 		
 		// Set self as true
@@ -213,7 +213,7 @@ class PlayerRoute: Route {
 		
 		for target in targets {
 			target.playerChoiceList = []
-			target.playerRoute.enabled = false
+			//target.playerRoute.enabled = false
 		}
 		
     selectors = []

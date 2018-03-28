@@ -140,7 +140,7 @@ class Reward {
 		
 		// Pass on the new currencies!
 		for reward in finalCurrency {
-			_ = player.points.changeCurrency(reward.key, change: reward.value)
+			_ = player.points.changeCurrency(reward.key, change: .int(reward.value))
 			
 			/// BUILD FANCY MESSAGE
 			if reward.value > 0 {
