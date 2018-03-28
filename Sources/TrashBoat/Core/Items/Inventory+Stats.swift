@@ -30,7 +30,16 @@ extension Inventory {
 			
 			// Modify the title to include the quantity if needed.
 			if stack.isUnlimited == false {
-				newCard.title = "\(newCard.title)  (You have \(stack.count))"
+				
+				if inlineCardTitle != "" {
+					var newTitle = inlineCardTitle
+					newTitle = newTitle.replacingOccurrences(of: "$name", with: newCard.title)
+					newTitle = newTitle.replacingOccurrences(of: "$count", with: "\(stack.count)")
+					newCard.title = newTitle
+					
+				} else {
+					newCard.title = "\(newCard.title)  (You have \(stack.count))"
+				}
 			}
 			
 			// Throw it onto the pile
