@@ -9,7 +9,7 @@ of object should define this tag immediately when inheriting from ItemRepresenti
 
 Types can only ever be set, their definition cannot change once created.
 */
-public class ItemTypeTag: Hashable, Equatable {
+public struct ItemTypeTag: Hashable, Equatable {
 	
 	public var hashValue: Int {
 		return name.hashValue ^ symbol.hashValue ^ pluralisedName.hashValue ^ routeName.hashValue ^ description.hashValue
