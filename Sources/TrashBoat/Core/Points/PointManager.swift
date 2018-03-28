@@ -22,7 +22,7 @@ public class PointManager {
 	/**
 	Enables quick access to the amount of a given currency the player has.
 	*/
-	subscript(incomingType: PointType) -> PointValue? {
+	public subscript(incomingType: PointType) -> PointValue? {
 		get {
 			for currency in container {
 				if currency.type == incomingType {
