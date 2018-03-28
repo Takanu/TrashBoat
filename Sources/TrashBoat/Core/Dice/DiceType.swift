@@ -1,9 +1,4 @@
-//
-//  DiceType.swift
-//  App
-//
-//  Created by Takanu Kyriako on 23/01/2018.
-//
+
 
 import Foundation
 

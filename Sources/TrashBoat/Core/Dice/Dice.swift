@@ -1,10 +1,4 @@
-//
-//  Items.swift
-//  party
-//
-//  Created by Takanu Kyriako on 10/05/2017.
-//
-//
+
 
 import Foundation
 import Pelican

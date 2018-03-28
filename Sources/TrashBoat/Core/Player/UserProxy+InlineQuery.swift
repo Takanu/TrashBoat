@@ -1,9 +1,4 @@
-//
-//  UserProxy+InlineQuery.swift
-//  TrashBoatPackageDescription
-//
-//  Created by Ido Constantine on 28/03/2018.
-//
+
 
 import Foundation
 import Pelican

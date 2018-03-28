@@ -1,10 +1,4 @@
-//
-//  ExtensionTools.swift
-//  kabuki
-//
-//  Created by Takanu Kyriako on 02/04/2017.
-//
-//
+
 
 import Foundation
 

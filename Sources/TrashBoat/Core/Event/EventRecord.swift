@@ -1,9 +1,4 @@
-//
-//  EventRecord.swift
-//  spookyPackageDescription
-//
-//  Created by Takanu Kyriako on 03/02/2018.
-//
+
 
 import Foundation
 

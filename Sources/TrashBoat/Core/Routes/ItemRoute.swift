@@ -1,9 +1,4 @@
-//
-//  ItemRoute.swift
-//  App
-//
-//  Created by Takanu Kyriako on 18/11/2017.
-//
+
 
 import Foundation
 import Pelican

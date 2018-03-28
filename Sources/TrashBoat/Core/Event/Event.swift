@@ -1,9 +1,4 @@
-//
-//  Event.swift
-//  spooky
-//
-//  Created by Takanu Kyriako on 25/01/2018.
-//
+
 
 import Foundation
 import Pelican

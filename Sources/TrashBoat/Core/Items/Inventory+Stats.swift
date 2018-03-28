@@ -1,9 +1,4 @@
-//
-//  Inventory+Stats.swift
-//  App
-//
-//  Created by Takanu Kyriako on 17/11/2017.
-//
+
 
 import Foundation
 import Pelican

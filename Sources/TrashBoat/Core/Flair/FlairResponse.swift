@@ -1,9 +1,4 @@
-//
-//  FlairResponse.swift
-//  App
-//
-//  Created by Takanu Kyriako on 21/11/2017.
-//
+
 
 import Foundation
 import Pelican

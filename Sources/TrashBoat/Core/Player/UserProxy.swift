@@ -1,7 +1,7 @@
 
+
 import Foundation
 import Pelican
-
 
 /**
 Represents the player entity, including who the controller is, their

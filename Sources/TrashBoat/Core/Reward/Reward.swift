@@ -1,10 +1,4 @@
-//
-//  File.swift
-//  party
-//
-//  Created by Takanu Kyriako on 29/05/2017.
-//
-//
+
 
 import Foundation
 import Pelican

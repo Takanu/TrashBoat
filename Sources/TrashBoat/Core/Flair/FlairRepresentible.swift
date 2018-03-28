@@ -1,9 +1,4 @@
-//
-//  FlairRepresentible.swift
-//  App
-//
-//  Created by Ido Constantine on 21/11/2017.
-//
+
 
 import Foundation
 import Pelican

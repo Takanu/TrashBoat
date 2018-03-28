@@ -1,9 +1,4 @@
-//
-//  GeneratorBump.swift
-//  App
-//
-//  Created by Takanu Kyriako on 15/09/2017.
-//
+
 
 import Foundation
 import Pelican
