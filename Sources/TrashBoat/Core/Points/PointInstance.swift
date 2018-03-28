@@ -13,9 +13,16 @@ under one property.
 */
 protocol PointInstance {
 	
-	var amount: PointAmount { get set }
+	/// The point total this instance has.
+	var count: Int { get set }
 	
+	/// A textual representation of the points that this instance represents, including how to describe it.
 	var type: PointType { get }
+	
+	/**
+	A standard initialiser that's required for a PointInstance to be used with a PointManager.
+	*/
+	init(initialAmount: Int)
 	
 	/**
 	Changes the amount of currency the player has in accordance with it's behaviours, returning a receipt.

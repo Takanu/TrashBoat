@@ -82,6 +82,24 @@ protocol UserProxy: class {
 	represented in a list for use in game events.  */
 	func getInlineCard(id: String) -> InlineResultArticle
 	
+	
+	// EQUATABLE
+	/// Checks for equality between two UserProxy types.
+	func isEqualTo(_ other: UserProxy) -> Bool
+	
+}
+
+/**
+Equality extensions
+*/
+extension UserProxy where Self : Equatable {
+	
+	func isEqualTo(_ other: UserProxy) -> Bool {
+		
+		if let o = other as? Self { return self == o }
+		return false
+	}
+	
 }
 	
 extension UserProxy {

@@ -90,7 +90,7 @@ class PlayerRoute: Route {
       for (i, target) in targets.enumerated() {
         
         // If the target is supposed to be excluded from the list, make sure that happens here.
-        if includeSelf == false && target == selector {
+        if includeSelf == false && target.isEqualTo(selector) {
           continue
           
         } else {

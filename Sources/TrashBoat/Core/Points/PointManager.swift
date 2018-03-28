@@ -24,7 +24,7 @@ class PointManager {
 		get {
 			for currency in container {
 				if currency.type == incomingType {
-					return currency.amount
+					return currency.count
 				}
 			}
 			
@@ -35,15 +35,15 @@ class PointManager {
 	/**
 	Adds a new currency to the wallet!  If a matching wallet already exists, it will not be added again.
 	*/
-	func addCurrency(_ newCurrency: PointType, initialAmount: Int) {
+	func addCurrency(_ type: PointType, initialAmount: Int) {
 		
 		// Ensure this won't add a wallet of the same type
 		for currency in container {
-			if currency.type == newCurrency { return }
+			if currency.type == type { return }
 		}
 		
 		// If not, add it!
-		let newWallet = PointInstance(withType: newCurrency, initialAmount: initialAmount)
+		let newWallet = type.instance.init(initialAmount: initialAmount)
 		container.append(newWallet)
 	}
 	
