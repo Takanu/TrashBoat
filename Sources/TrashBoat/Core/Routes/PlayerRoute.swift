@@ -228,7 +228,7 @@ class PlayerRoute: Route {
 		self.enabled = false
   }
 	
-	override func compare(_ route: Route) -> Bool {
+	override func isEqualTo(_ route: Route) -> Bool {
 		
 		if route is PlayerRoute {
 			let otherRoute = route as! PlayerRoute

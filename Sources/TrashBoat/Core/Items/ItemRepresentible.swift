@@ -34,7 +34,7 @@ extension ItemRepresentible {
 		return ItemInfoTag(withItem: self)
 	}
 	
-	func compare(_ item: ItemRepresentible) -> Bool {
+	func isEqualTo(_ item: ItemRepresentible) -> Bool {
 		
 		if name != item.name { return false }
 		if type != item.type { return false }

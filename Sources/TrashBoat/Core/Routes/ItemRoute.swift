@@ -229,7 +229,7 @@ class ItemRoute: Route {
 		self.enabled = false
 	}
 	
-	override func compare(_ route: Route) -> Bool {
+	override func isEqualTo(_ route: Route) -> Bool {
 		/*
 		if route is CharmRoute {
 			let otherRoute = route as! CharmRoute
