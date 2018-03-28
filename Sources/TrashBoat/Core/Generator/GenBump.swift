@@ -6,7 +6,7 @@ import Pelican
 /**
 A series of static functions designed to provide convenient ways to assign common randomisation behaviours to a Generator.
 */
-class GenBump {
+public class GenBump {
 	
 	/// Reduces the probability by 1 every time it is selected.
 	static func counter() -> ((GeneratorOption) -> ()) {

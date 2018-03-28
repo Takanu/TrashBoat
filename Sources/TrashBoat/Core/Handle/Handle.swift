@@ -14,7 +14,7 @@ to the handle into the global game state once the event is over.
 - note: Most other SandBucket types expect a single Handle class, ensure you only have one Handle that can specifically
 handle your own needs.
 */
-protocol Handle: class {
+public protocol Handle: class {
 	
 	// API INTERFACE
 	var tag: SessionTag { get set }

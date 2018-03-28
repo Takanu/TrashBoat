@@ -6,7 +6,7 @@ import Pelican
 /**
 A protocol used to force the explicit definition of core properties when a new event type is defined.  Makes code design cleaner <3
 */
-protocol EventRepresentible {
+public protocol EventRepresentible {
 	
 	/// The name of the event.
 	var eventName: String { get }

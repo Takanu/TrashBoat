@@ -11,7 +11,7 @@ extension Inventory {
 	/**
 	Returns an array of inline query cards that represent the items a player has of a specific type.
 	*/
-	func getInlineCards(forType type: ItemTypeTag) -> [InlineResultArticle]? {
+	public func getInlineCards(forType type: ItemTypeTag) -> [InlineResultArticle]? {
 		if items.keys.contains(type) == false { return nil }
 		
 		var result: [InlineResultArticle] = []
@@ -43,7 +43,7 @@ extension Inventory {
 	/**
 	Returns the number of items a player has of any given item type.  An item stack value will only contribute to the total if `isUnlimited` is false.
 	*/
-	func getItemCount(forType type: ItemTypeTag) -> Int {
+	public func getItemCount(forType type: ItemTypeTag) -> Int {
 		if items.keys.contains(type) == false { return 0 }
 	
 		var totalCount = 0

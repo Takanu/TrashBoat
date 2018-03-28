@@ -7,7 +7,7 @@ import Pelican
 Defines a system for selecting randomised results from a series of list, based on given probabilities of each result.
 Probabilities can dynamically change to prevent repeat selections from occurring.
 */
-class Generator {
+public class Generator {
 	
 	/// The results that the generator can be chosen from.
 	var pool: [GeneratorOption] = []

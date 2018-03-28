@@ -9,9 +9,9 @@ of object should define this tag immediately when inheriting from ItemRepresenti
 
 Types can only ever be set, their definition cannot change once created.
 */
-class ItemTypeTag: Hashable, Equatable {
+public class ItemTypeTag: Hashable, Equatable {
 	
-	var hashValue: Int {
+	public var hashValue: Int {
 		return name.hashValue ^ symbol.hashValue ^ pluralisedName.hashValue ^ routeName.hashValue ^ description.hashValue
 	}
 	
@@ -31,13 +31,13 @@ class ItemTypeTag: Hashable, Equatable {
 	public private(set) var description: String
 	
 	/// Returns the name that should be used to enable and disable the "fetch status" of an item.  SHOULD ONLY BE USED BY ITEMROUTE.
-	var fetchStatusFlair: Flair { return Flair(withName: name, category: Inventory.fetchStatusCategory) }
+	public var fetchStatusFlair: Flair { return Flair(withName: name, category: Inventory.fetchStatusCategory) }
 	
 	
 	/**
 	Initialises the type tag with a set of required arguments used to identify and illustrate it in a game.
 	*/
-	init(name: String, symbol: String, pluralisedName: String, routeName: String, description: String) {
+	public init(name: String, symbol: String, pluralisedName: String, routeName: String, description: String) {
 		self.name = name
 		self.symbol = symbol
 		self.pluralisedName = pluralisedName
@@ -49,7 +49,7 @@ class ItemTypeTag: Hashable, Equatable {
 
 extension ItemTypeTag {
 	
-	static func ==(lhs: ItemTypeTag, rhs: ItemTypeTag) -> Bool {
+	static public func ==(lhs: ItemTypeTag, rhs: ItemTypeTag) -> Bool {
 		if lhs.name != rhs.name { return false }
 		if lhs.symbol != rhs.symbol { return false }
 		if lhs.pluralisedName != rhs.pluralisedName { return false }

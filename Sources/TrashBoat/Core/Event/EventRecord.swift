@@ -6,7 +6,7 @@ import Foundation
 /**
 A structure left behind when an event is either completed or aborted, to quickly list what happened within it.
 */
-struct EventRecord {
+public struct EventRecord {
 	
 	/// The name of the event.
 	var eventName: String

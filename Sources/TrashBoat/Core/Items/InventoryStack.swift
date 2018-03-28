@@ -6,7 +6,7 @@ import Pelican
 /**
 Manages an array of items that share the same item type and name.
 */
-class InventoryStack: Equatable {
+public class InventoryStack: Equatable {
 	
 	/// The name of the item, as listed in the object.
 	public private(set) var itemName: String
@@ -28,13 +28,13 @@ class InventoryStack: Equatable {
 	private var items: [ItemRepresentible] = []
 	
 	/// If true, this stack can provide an unlimited supply of the specified item as long as it has one instance of it.
-	var isUnlimited: Bool = false
+	public var isUnlimited: Bool = false
 	
 	/// Returns the number of items in the stack.
-	var count: Int { return items.count }
+	public var count: Int { return items.count }
 	
 	/// Returns whether or not the stack is empty, and therefore should be removed.
-	var isEmpty: Bool {
+	public var isEmpty: Bool {
 		if count == 0 { return true }
 		return false
 	}
@@ -123,7 +123,7 @@ class InventoryStack: Equatable {
 		}
 	}
 	
-	static func ==(lhs: InventoryStack, rhs: InventoryStack) -> Bool {
+	static public func ==(lhs: InventoryStack, rhs: InventoryStack) -> Bool {
 		if lhs.itemName != rhs.itemName { return false }
 		if lhs.itemType != rhs.itemType { return false }
 		if lhs.itemInfo != rhs.itemInfo { return false }

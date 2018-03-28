@@ -5,7 +5,7 @@ import Foundation
 /**
 Defines the current status for a UserProxy Session.
 */
-enum UserProxyStatus {
+public enum UserProxyStatus {
 	
 	/// The user is currently active in the current game.
 	case active

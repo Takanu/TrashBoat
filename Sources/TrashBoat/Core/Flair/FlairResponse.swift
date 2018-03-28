@@ -7,7 +7,7 @@ import Pelican
 Lets a Flair type send information back to the stack after it has been triggered, to
 tell the stack how it should be removed if applicable.
 */
-struct FlairResponse {
+public struct FlairResponse {
 	
 	// If the FlairStack receives this after a trigger and is true, the state just triggered will be removed.
 	var removeSelf: Bool = false

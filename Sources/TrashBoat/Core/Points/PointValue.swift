@@ -11,7 +11,7 @@ public enum PointValue {
 	case double(Double)
 	
 	/// Returns the type value in Integer form.  If the case is not an Integer, it will be converted.
-	var intValue: Int {
+	public var intValue: Int {
 		switch self {
 		case .int(let int):
 			return int
@@ -21,7 +21,7 @@ public enum PointValue {
 	}
 	
 	/// Returns the type value in Double form.  If the case is not an Double, it will be converted.
-	var doubleValue: Double {
+	public var doubleValue: Double {
 		switch self {
 		case .int(let int):
 			return Double(int)

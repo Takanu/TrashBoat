@@ -7,7 +7,7 @@ import Pelican
 A potential selection of the generator, defining it's own probability
 as well as how that might change as it is selected.
 */
-class GeneratorOption {
+public class GeneratorOption {
 	
 	// PROBABILITY TRACKERS
 	/// The initial probability the selection is set to.

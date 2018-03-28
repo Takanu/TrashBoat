@@ -14,7 +14,7 @@ but a proxy they control and that can be used to identify them or attach game
 properties to.  It's important to use a proxy to enable the ability for players
 to leave games early without causing unpredictable damage to the state of the game.
 */
-protocol UserProxy: class {
+public protocol UserProxy: class {
 	
 	// SESSION DATA
 	/// The tag of the session that this proxy belongs to.
@@ -94,7 +94,7 @@ Equality extensions
 */
 extension UserProxy where Self : Equatable {
 	
-	func isEqualTo(_ other: UserProxy) -> Bool {
+	public func isEqualTo(_ other: UserProxy) -> Bool {
 		
 		if let o = other as? Self { return self == o }
 		return false

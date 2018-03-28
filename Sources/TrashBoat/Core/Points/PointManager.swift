@@ -9,7 +9,7 @@ things like player currency and health.
 Enables other types like Reward to find a single abstracted point from which to modify point values in
 an implicit manner.
 */
-class PointManager {
+public class PointManager {
 	
 	/// Defines a list of point types the player has, including the amount they have and how they can behave.
 	public private(set) var container: [PointInstance] = []
@@ -35,7 +35,7 @@ class PointManager {
 	/**
 	Adds a new currency to the wallet!  If a matching wallet already exists, it will not be added again.
 	*/
-	func addCurrency(_ type: PointType, initialAmount: PointValue) {
+	public func addCurrency(_ type: PointType, initialAmount: PointValue) {
 		
 		// Ensure this won't add a wallet of the same type
 		for currency in container {
@@ -52,7 +52,7 @@ class PointManager {
 	- returns: A receipt that can be used to inspect the changes, if a currency with the specified name was found.
 	*/
 	@discardableResult
-	func changeCurrency(_ type: PointType, change: PointValue) -> PointReceipt? {
+	public func changeCurrency(_ type: PointType, change: PointValue) -> PointReceipt? {
 		
 		// Ensure this won't add a wallet of the same type
 		for currency in container {

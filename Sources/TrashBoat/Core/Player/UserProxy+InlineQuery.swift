@@ -13,7 +13,7 @@ extension UserProxy {
 	/**
 	Used to pick a player during an active player route.
 	*/
-	func inlinePlayerChoices(update: Update) -> Bool {
+	public func inlinePlayerChoices(update: Update) -> Bool {
 		
 		if let transform = inlineResultTransforms[update.content] {
 			let newPlayerChoices = transform(playerChoiceList)
@@ -38,7 +38,7 @@ extension UserProxy {
 	/**
 	Used to browse for and use items.
 	*/
-	func inlineItems(update: Update) -> Bool {
+	public func inlineItems(update: Update) -> Bool {
 		
 		// Work out if the update content matches any given item route definition.
 		let types = inventory.getAllTypes()

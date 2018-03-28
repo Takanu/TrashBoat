@@ -8,7 +8,7 @@ import Pelican
 Defines a flexible unit for deriving a random number, using a range, a 
 pattern or for not defining a random number at all.
 */
-struct Dice {
+public struct Dice {
 	
 	/// The way this dice handles rolling and the kind of rolling that can be performed by it.
 	private var type: DiceType
@@ -22,10 +22,10 @@ struct Dice {
 	/// The result of the roll.  Do not use this to confirm whether or not the dice has been rolled.
 	private var result: Int = 0
 	/// The way this dice handles rolling and the kind of rolling that can be performed by it.
-	var getType: DiceType { return type }
+	public var getType: DiceType { return type }
 	
 	/// The result of the roll.  Returns nil, if the dice has yet to be rolled.
-	var getResult: Int? {
+	public var getResult: Int? {
 		if hasResult == true {
 			return result
 		}
@@ -33,34 +33,34 @@ struct Dice {
 		else { return nil }
 	}
 	
-	init(withRange range: ClosedRange<Int>) {
+	public init(withRange range: ClosedRange<Int>) {
 		self.type = .range
 		self.range = range
 	}
 	
-	init(withSelection selection: Int...) {
+	public init(withSelection selection: Int...) {
 		self.type = .selection
 		self.selection = selection
 	}
 	
-	init(withSelection selection: [Int]) {
+	public init(withSelection selection: [Int]) {
 		self.type = .selection
 		self.selection = selection
 	}
 	
-	init(withConstant constant: Int) {
+	public init(withConstant constant: Int) {
 		self.type = .constant
 		self.constant = constant
 	}
 	
-	init(withProbability probability: [(value: Int, odds: Int)]) {
+	public init(withProbability probability: [(value: Int, odds: Int)]) {
 		self.type = .probability
 		self.probability = probability
 	}
 	
 	
 	/** Generates a random number as a dice result, based on the way the dice has been set up */
-	mutating func roll() -> Int {
+	public mutating func roll() -> Int {
 		
 		switch self.type {
 			
@@ -128,7 +128,7 @@ struct Dice {
 	}
 	
 	/** Resets the dice result, acting as if it has not been rolled. */
-	mutating func reset() {
+	public mutating func reset() {
 		self.hasResult = false
 		self.result = 0
 	}

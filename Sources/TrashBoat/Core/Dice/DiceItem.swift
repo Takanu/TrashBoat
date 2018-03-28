@@ -4,16 +4,16 @@ import Foundation
 import Pelican
 
 /// Builds and contains a set of dice based on the type defined on initialisation.
-class DiceItem: ItemRepresentible {
+public class DiceItem: ItemRepresentible {
 	
 	/// The name of the dice item
-	var name: String
+	public var name: String
 	
 	/// A description of what the dice is.
-	var description: String
+	public var description: String
 	
 	/// A static type to conform to ItemRepresentible.
-	var type = ItemTypeTag(name: "Dice",
+	public var type = ItemTypeTag(name: "Dice",
 												 symbol: "🎲",
 												 pluralisedName: "Dice",
 												 routeName: "Dice",
@@ -44,17 +44,17 @@ class DiceItem: ItemRepresentible {
 	}
 	
 	/// Determines whether or not the dice is cursed, which causes it to break.
-	var cursed: Bool = false
+	public var cursed: Bool = false
 	
 	
-	init(name: String, description: String, dice: [Dice]) {
+	public init(name: String, description: String, dice: [Dice]) {
 		self.name = name
 		self.description = description
 		self.dice = dice
 	}
 	
 	
-	func clone() -> ItemRepresentible {
+	public func clone() -> ItemRepresentible {
 		let clone = DiceItem(name: self.name, description: self.description, dice: self.dice)
 		clone.cursed = self.cursed
 		return clone
@@ -62,7 +62,7 @@ class DiceItem: ItemRepresentible {
 	
 	
 	/** Generates a random number as a dice result, based on the way the dice has been set up */
-	func roll() -> Int {
+	public func roll() -> Int {
 		var tempResult = 0
 		var rolledDice: [Dice] = []
 		
@@ -85,7 +85,7 @@ class DiceItem: ItemRepresentible {
 	}
 	
 	/** Resets the dice result, acting as if it has not been rolled. */
-	func reset() {
+	public func reset() {
 		var resetDice: [Dice] = []
 		
 		for d in dice {
@@ -102,21 +102,21 @@ class DiceItem: ItemRepresentible {
 	/**
 	ItemRepresentible conforming function
 	*/
-	func getFullName() -> String {
+	public func getFullName() -> String {
 		return "\(name) Dice"
 	}
 	
 	/**
 	Returns an Inline Result version of the dice for display when a user is looking at the dice they own.
 	*/
-	func getInlineCard() -> InlineResultArticle {
+	public func getInlineCard() -> InlineResultArticle {
 		return InlineResultArticle(id: "0", title: getFullName(), description: description, contents: getFullName(), markup: nil)
 	}
 	
 	/**
 	Rolls an entire set of given dice, returning useful results <3
 	*/
-	static func rollItemSet(_ set: [(player: UserProxy, item: ItemRepresentible?)]) -> [(player: UserProxy, dice: DiceItem?)]? {
+	static public func rollItemSet(_ set: [(player: UserProxy, item: ItemRepresentible?)]) -> [(player: UserProxy, dice: DiceItem?)]? {
 		
 		// Check we've been given a set where the item type is actually a DiceItem.
 		for entry in set {

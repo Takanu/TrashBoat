@@ -6,7 +6,7 @@ import Pelican
 This type represents a single collectible item type in your game.
 Types that conform to this protocol can be both collected and used by a UserProxy.
 */
-protocol ItemRepresentible {
+public protocol ItemRepresentible {
 	
 	/// The name of the item, conforming to ItemRepresentable.  Must be unique between items of the same type.
 	var name: String { get }
@@ -30,11 +30,11 @@ protocol ItemRepresentible {
 
 extension ItemRepresentible {
 	
-	var info: ItemInfoTag {
+	public var info: ItemInfoTag {
 		return ItemInfoTag(withItem: self)
 	}
 	
-	func isEqualTo(_ item: ItemRepresentible) -> Bool {
+	public func isEqualTo(_ item: ItemRepresentible) -> Bool {
 		
 		if name != item.name { return false }
 		if type != item.type { return false }

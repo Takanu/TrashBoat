@@ -6,7 +6,7 @@ import Pelican
 /**
 A abstract route system to allow players to request a specific item from their inventory.
 */
-class ItemRoute: Route {
+public class ItemRoute: Route {
 	
 	// STATE
 	/** The results currently received by players.  Do not use this to directly get the results
@@ -15,21 +15,21 @@ class ItemRoute: Route {
 	private var results: [ItemTypeTag: [(player: UserProxy, item: ItemRepresentible?)] ] = [:]
 	
 	/// The item types that are part of the current request.
-	var itemTypes: [ItemTypeTag] = []
+	public var itemTypes: [ItemTypeTag] = []
 	
 	/// The players that have been chosen to select an item
-	var selectors: [UserProxy] = []
+	public var selectors: [UserProxy] = []
 	
 	/** Stores the generated Inline Results for all the items a selected player has (within the
 	types that can be selected), with an invisible marker that prevents selection outside of
 	inline queries.  */
-	var routedItems: [Int: [ItemTypeTag: [String: ItemInfoTag]]] = [:]
+	public var routedItems: [Int: [ItemTypeTag: [String: ItemInfoTag]]] = [:]
 	
 	/// Stores the custom-made inline cards for each player.
-	var routedCards: [Int: [ItemTypeTag: [InlineResultArticle]]] = [:]
+	public var routedCards: [Int: [ItemTypeTag: [InlineResultArticle]]] = [:]
 	
 	/// The next function associated with each item type, if the result count associated with them matches their result count.
-	var requestExits: [ItemTypeTag: (() -> ())? ] = [:]
+	public var requestExits: [ItemTypeTag: (() -> ())? ] = [:]
 	
 	
 	public var inlineKeys: [MarkupInlineKey] {
@@ -42,7 +42,7 @@ class ItemRoute: Route {
 		return result
 	}
 	
-	init(routeName: String) {
+	public init(routeName: String) {
 		super.init(name: routeName, action: {P in return true})
 	}
 	
@@ -56,7 +56,7 @@ class ItemRoute: Route {
 	
 	- parameter selectors: The players that are able to submit an item request.
 	*/
-	func newRequest(types: [(type: ItemTypeTag, next: ( () -> () )?)], selectors: [UserProxy]) {
+	public func newRequest(types: [(type: ItemTypeTag, next: ( () -> () )?)], selectors: [UserProxy]) {
 		
 		resetRequest()
 		
@@ -130,7 +130,7 @@ class ItemRoute: Route {
 	Receives updates to work out if they should be accepted by this route as valid responses.  This function
 	searches through all items a player has to see if it matches the definition
 	*/
-	override func handle(_ update: Update) -> Bool {
+	override public func handle(_ update: Update) -> Bool {
 		
 		// Eliminate bad possibilities
 		if selectors.contains(where: {$0.id == update.from!.tgID }) == false { return false }
@@ -186,7 +186,7 @@ class ItemRoute: Route {
 	/**
 	Returns a set of results in a consistently formatted manner, where every target will appear even if they didn't select an item.
 	*/
-	func getResults(forItemType type: String) -> [(player: UserProxy, item: ItemRepresentible?)]? {
+	public func getResults(forItemType type: String) -> [(player: UserProxy, item: ItemRepresentible?)]? {
 		
 		// Get the set corresponding to the item type provided if it exists
 		let typeResults = results.first(where: {$0.key.name == type})
@@ -207,7 +207,7 @@ class ItemRoute: Route {
 	/**
 	Resets everything!
 	*/
-	func resetRequest() {
+	public func resetRequest() {
 		
 		// Enable VIEW MODE ONLY warnings for all selectors
 		for type in itemTypes {
@@ -229,7 +229,7 @@ class ItemRoute: Route {
 		self.enabled = false
 	}
 	
-	override func isEqualTo(_ route: Route) -> Bool {
+	override public func compare(_ route: Route) -> Bool {
 		/*
 		if route is CharmRoute {
 			let otherRoute = route as! CharmRoute

@@ -26,7 +26,7 @@ public struct PointReceipt {
 	/**
 	Initialises a receipt for a currency transaction using a numerical change value.
 	*/
-	init(type: PointType, amountBefore: PointValue, amountAfter: PointValue, change: PointValue) {
+	public init(type: PointType, amountBefore: PointValue, amountAfter: PointValue, change: PointValue) {
 		self.type = type
 		self.previousAmount = amountBefore
 		self.currentAmount = amountAfter
@@ -36,7 +36,7 @@ public struct PointReceipt {
 	/**
 	Initialises a receipt for a currency transaction using a series of PointUnit types.
 	*/
-	init(type: PointType, amountBefore: PointValue, amountAfter: PointValue, change: PointUnit...) {
+	public init(type: PointType, amountBefore: PointValue, amountAfter: PointValue, change: PointUnit...) {
 		self.type = type
 		self.previousAmount = amountBefore
 		self.currentAmount = amountAfter

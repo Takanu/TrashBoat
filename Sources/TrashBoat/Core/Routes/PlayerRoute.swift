@@ -7,25 +7,25 @@ import Pelican
 Encapsulates the process of requesting and processing requests where
 a player is supposed to choose another player for an event.
 */
-class PlayerRoute: Route {
+public class PlayerRoute: Route {
 	
 	// STATE
 	/// The results currently received by the route.  This should never be used to directly receive results, as it cannot account for every player that didn't choose a target.
   private var results: [(player: UserProxy, choice: UserProxy?)] = []
 	
 	/// The selectors that are able to select a target.
-  var selectors: [UserProxy] = []
+  public var selectors: [UserProxy] = []
 	
 	/// The targets that can be picked from.
-  var targets: [UserProxy] = []
+  public var targets: [UserProxy] = []
 	
 	/** A set of targets corresponding to each selector (player that is able to pick a player), with
 	the string that's used by the route handler to identify them by.  If anonymised, the string will
 	be a unique key that will be unrelated to the player name. */
-	var routedTargets: [Int: [String: UserProxy]] = [:]
+	public var routedTargets: [Int: [String: UserProxy]] = [:]
 	
 	/// The player list available to select from.  This list will be used to match players to the articles they should have access to.
-	var articles: [Int:[InlineResultArticle]] = [:]
+	public var articles: [Int:[InlineResultArticle]] = [:]
 	
 	
 	// OPTIONS
@@ -41,13 +41,13 @@ class PlayerRoute: Route {
 																									markup: nil)
 	
 	/// If true, the selector will see themselves as a player choice.
-  var includeSelf = false
+  public var includeSelf = false
 	
 	/// If true, the selector will be able to pick nobody as a player choice
-  var includeNone = false
+  public var includeNone = false
   
   /// If all targets have assigned result, this optional functional will be called.
-  var next: (() -> ())?
+  public var next: (() -> ())?
 	
 	
 	
@@ -56,7 +56,7 @@ class PlayerRoute: Route {
 	
 	- parameter inlineKey: The inline key that will be used to show player selections.
 	*/
-	init(inlineKey: MarkupInlineKey) {
+	public init(inlineKey: MarkupInlineKey) {
 		self.inlineKey = inlineKey
 		super.init(name: "player_route", action: {P in return true})
 	}
@@ -70,7 +70,12 @@ class PlayerRoute: Route {
 	- parameter includeNone: If true, a player can decide not to choose anyone as an option.
 	- parameter anonymiser: If not nil, this will be used to generate a unique name for every target, allowing the selectors selecting to not reveal to others who they have chosen.
 	*/
-	func newRequest(selectors: [UserProxy], targets: [UserProxy], includeSelf: Bool, includeNone: Bool, next: @escaping () -> (), anonymiser: ( ([UserProxy]) -> ([String]) )?) {
+	public func newRequest(selectors: [UserProxy],
+												 targets: [UserProxy],
+												 includeSelf: Bool,
+												 includeNone: Bool,
+												 next: @escaping () -> (),
+												 anonymiser: ( ([UserProxy]) -> ([String]) )?) {
     
     resetRequest()
 		
@@ -160,7 +165,7 @@ class PlayerRoute: Route {
   }
 
 	
-  override func handle(_ update: Update) -> Bool {
+  override public func handle(_ update: Update) -> Bool {
     
     // Eliminate bad possibilities
     if update.from == nil || update.content == "" { return false }
@@ -195,7 +200,7 @@ class PlayerRoute: Route {
 	/**
 	Returns a set of results in a consistently formatted manner, where every target will appear even if they didn't select a charm.
 	*/
-	func getResults() -> [(player: UserProxy, choice: UserProxy?)] {
+	public func getResults() -> [(player: UserProxy, choice: UserProxy?)] {
 		var returnedResults = results
 		
 		let leftovers = selectors.filter( {T in results.contains(where: {P in T.id == P.player.id}) == false })
@@ -209,7 +214,7 @@ class PlayerRoute: Route {
 	/**
 	Resets everything!
 	*/
-  func resetRequest() {
+  public func resetRequest() {
 		
 		for target in targets {
 			target.playerChoiceList = []
@@ -228,7 +233,7 @@ class PlayerRoute: Route {
 		self.enabled = false
   }
 	
-	override func isEqualTo(_ route: Route) -> Bool {
+	override public func compare(_ route: Route) -> Bool {
 		
 		if route is PlayerRoute {
 			let otherRoute = route as! PlayerRoute

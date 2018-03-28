@@ -5,7 +5,7 @@ import Foundation
 /**
 Defines the kind of dice a Dice is.  *shrug*
 */
-enum DiceType {
+public enum DiceType {
 	
 	/// Defines a dice that can roll a value between two values.
 	case range

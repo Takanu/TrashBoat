@@ -6,7 +6,7 @@ import Pelican
 /**
 Defines a simple and lightweight system for organising and managing items belonging to a player.
 */
-class Inventory {
+public class Inventory {
 	
 	// CONTENTS
 	/// Defines a structured set of items the player has, organised into stacks.
@@ -14,7 +14,7 @@ class Inventory {
 	
 	// RECORD
 	/// Defines an array of transactions that have occurred with items held in the inventory.
-	private var itemTransactions: [String] = []
+	public private(set) var itemTransactions: [String] = []
 	
 	
 	// FLAIR DEFINITIONS
@@ -27,7 +27,7 @@ class Inventory {
 	Adds an item type to the inventory system, before any items from that type are added.
 	This enables an inventory to provide better feedback in inline menus if the player has no items of that type.
 	*/
-	func addItemType(_ type: ItemTypeTag) {
+	public func addItemType(_ type: ItemTypeTag) {
 		
 		/// Check that the item has a type category
 		if items.keys.contains(type) == false {
@@ -38,7 +38,7 @@ class Inventory {
 	/**
 	Adds an item to the player's inventory.
 	*/
-	func addItems(_ incomingItems: [ItemRepresentible]) {
+	public func addItems(_ incomingItems: [ItemRepresentible]) {
 		
 		for item in incomingItems {
 		
@@ -71,7 +71,7 @@ class Inventory {
 	/**
 	Changes the behaviour of a stack of any given item, if it already exists as a stack.
 	*/
-	func modifyStack(ofItem item: ItemRepresentible, useUnlimitedStack: Bool) {
+	public func modifyStack(ofItem item: ItemRepresentible, useUnlimitedStack: Bool) {
 		/// Check that the item has a type category
 		if items.keys.contains(item.type) == false {
 			items[item.type] = []
@@ -92,7 +92,7 @@ class Inventory {
 	Checks to see if this item is in the player's inventory.
 	- returns: True if the player has the item, false if not.
 	*/
-	func hasItem(_ item: ItemRepresentible) -> Bool {
+	public func hasItem(_ item: ItemRepresentible) -> Bool {
 		
 		/// Check that the type category is stored, and if not return false early.
 		if items.keys.contains(item.type) == false {
@@ -112,7 +112,7 @@ class Inventory {
 	/**
 	Returns every type where the inventory has at least one item belonging to it.
 	*/
-	func getAllTypes() -> [ItemTypeTag] {
+	public func getAllTypes() -> [ItemTypeTag] {
 		
 		return items.keys.filter( { _ in return true } )
 	}
@@ -120,7 +120,7 @@ class Inventory {
 	/**
 	Returns a copy of every item the inventory is currently storing of a given type.
 	*/
-	func cloneItems(forType type: ItemTypeTag) -> [[ItemRepresentible]]? {
+	public func cloneItems(forType type: ItemTypeTag) -> [[ItemRepresentible]]? {
 		
 		/// Check that the type category is stored, and if not return nil.
 		if items.keys.contains(type) == false { return nil }
@@ -143,7 +143,7 @@ class Inventory {
 	Returns one of every item the inventory is currently storing of a given type.
 	- note: This retrieval does not remove the item from the inventory, all items retrieved are copied from their respective stacks.
 	*/
-	func getItemInfo(forType type: StringRepresentible) -> [ItemInfoTag]? {
+	public func getItemInfo(forType type: StringRepresentible) -> [ItemInfoTag]? {
 		
 		/// Check that the type category is stored, and if not return nil.
 		if items.keys.contains(where: {$0.name == type.string()}) == false { return nil }
@@ -165,7 +165,7 @@ class Inventory {
 	/**
 	Returns and removes an item from the player's inventory if they own it.
 	*/
-	func removeItem(type: StringRepresentible, name: StringRepresentible) -> ItemRepresentible? {
+	public func removeItem(type: StringRepresentible, name: StringRepresentible) -> ItemRepresentible? {
 		
 		/// Check that the type category is stored, and if not return nil.
 		if items.keys.contains(where: {$0.name == type.string()}) == false { return nil }
@@ -197,14 +197,14 @@ class Inventory {
 	/**
 	Returns and removes an item from the player's inventory if they own it.
 	*/
-	func removeItem(_ item: ItemRepresentible) -> ItemRepresentible? {
+	public func removeItem(_ item: ItemRepresentible) -> ItemRepresentible? {
 		return removeItem(type: item.type.name, name: item.name)
 	}
 	
 	/**
 	Returns and removes an item from the player's inventory if they own it, at a random position in the stack.
 	*/
-	func removeRandomItem(type: StringRepresentible, name: StringRepresentible) -> ItemRepresentible? {
+	public func removeRandomItem(type: StringRepresentible, name: StringRepresentible) -> ItemRepresentible? {
 		
 		/// Check that the type category is stored, and if not return nil.
 		if items.keys.contains(where: {$0.name == type.string()}) == false { return nil }
@@ -236,14 +236,14 @@ class Inventory {
 	/**
 	Returns and removes an item from the player's inventory if they own it, at a random position in the stack.
 	*/
-	func removeRandomItem(_ item: ItemRepresentible) -> ItemRepresentible? {
+	public func removeRandomItem(_ item: ItemRepresentible) -> ItemRepresentible? {
 		return removeRandomItem(type: item.type.name, name: item.name)
 	}
 	
 	/**
 	Randomly returns and retrieves any item that can be found which matches the given type.
 	*/
-	func removeRandomItem(ofType type: String, includeUnlimitedStack: Bool) -> ItemRepresentible? {
+	public func removeRandomItem(ofType type: String, includeUnlimitedStack: Bool) -> ItemRepresentible? {
 		
 		/// Check that the type category is stored, and if not return nil.
 		if items.keys.contains(where: {$0.name == type}) == false { return nil }
@@ -289,7 +289,7 @@ class Inventory {
 	- parameter includeUnlimitedStack: If true, any item with an unlimited stack will be removed.  Otherwise, it will remain in the inventory.
 	- returns: An array of all the items of this type if the player has at least one item belonging to it.
 	*/
-	func removeAllItems(forType type: ItemTypeTag, includeUnlimitedStack: Bool) -> [ItemRepresentible]? {
+	public func removeAllItems(forType type: ItemTypeTag, includeUnlimitedStack: Bool) -> [ItemRepresentible]? {
 		
 		/// Check that the type category is stored, and if not return nil.
 		if items.keys.contains(type) == false { return nil }
@@ -325,7 +325,7 @@ class Inventory {
 	/**
 	Clears an inventory including all wallet currencies and items.  Weeewwwww.
 	*/
-	func clearAll() {
+	public func clearAll() {
 		
 		items.removeAll()
 		itemTransactions.removeAll()

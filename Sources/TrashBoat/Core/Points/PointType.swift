@@ -30,7 +30,7 @@ public struct PointType: Hashable, Equatable {
 	/**
 	Initialises a new wallet type, which holds and manages a specific type of currency.
 	*/
-	init(name: String, pluralisedName: String, symbol: String, instance: PointInstance.Type) {
+	public init(name: String, pluralisedName: String, symbol: String, instance: PointInstance.Type) {
 		self.name = name
 		self.pluralisedName = pluralisedName
 		self.symbol = symbol

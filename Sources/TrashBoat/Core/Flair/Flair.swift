@@ -7,36 +7,36 @@ import Pelican
 A (◕‿◕✿) single item that when added (⌐■_■) to a FlairSystem, helps define the state ԅ(≖‿≖ԅ)
 of the game in a fluid (~‾▿‾)~ and procedural manner.
 */
-struct Flair: Hashable, Equatable, FlairRepresentible {
+public struct Flair: Hashable, Equatable, FlairRepresentible {
 	
 	/// Defines a closure used when a flair is successfully triggered by a flag.
-	typealias FlairOperation = ( (Flair, Handle) -> (FlairResponse) )
+	public typealias FlairOperation = ( (Flair, Handle) -> (FlairResponse) )
 	
 	/// The specific name of the state, which will be used when an event is trying to search for a specific flag.  Should be defined in normal case.
-	var name: String
+	public var name: String
 	
 	/// The category this flag belongs to, used in both direct searching and when the `StateSystem` class is organising the flags it has.  Should be defined in normal case.
-	var category: String
+	public var category: String
 	
 	/// A generic dictionary that Flairs can use to record any kind of variables or states they need to.
-	var payload: [String: Any] = [:]
+	public var payload: [String: Any] = [:]
 	
 	/// What flags this State is looking out for, in order to trigger it's `next` function.
-	var flags: [String] = []
+	public var flags: [String] = []
 	
 	/// The function that's triggered
-	var next: FlairOperation?
+	public var next: FlairOperation?
 	
 	/// If true, multiple instances of this state can be recorded and held by a system.
-	var allowStacks: Bool = false
+	public var allowStacks: Bool = false
 	
 	/** If true, all state instances in the same stack will be called when trigger flags are sent.
 	Requires `allowStacks` to be true.
 	*/
-	var triggerSimultaneously: Bool = false
+	public var triggerSimultaneously: Bool = false
 	
 	
-	var hashValue: Int {
+	public var hashValue: Int {
 		return name.hashValue ^ category.hashValue ^ allowStacks.hashValue
 	}
 	
@@ -46,7 +46,7 @@ struct Flair: Hashable, Equatable, FlairRepresentible {
 	- parameter category: The name of the category to be added.  Should always be defined in normal case to match the behaviour of ItemTypeTag and it's requirements.
 	- parameter name: The name of the flair to be added.  Should always be defined in normal case to match the behaviour of ItemTypeTag and it's requirements.
 	*/
-	init(withName name: StringRepresentible, 
+	public init(withName name: StringRepresentible,
 			 category: StringRepresentible) {
 		self.name = name.string()
 		self.category = category.string()
@@ -55,7 +55,7 @@ struct Flair: Hashable, Equatable, FlairRepresentible {
 	/**
 	Create a new State with additional options for stacking options.
 	*/
-	init(withName name: StringRepresentible,
+	public init(withName name: StringRepresentible,
 			 category: StringRepresentible,
 			 payload: [String: Any]?,
 			 allowStacks: Bool) {
@@ -76,7 +76,7 @@ struct Flair: Hashable, Equatable, FlairRepresentible {
 	- parameter triggerSimultaneously: If `allowStacks` is true and there is more than one identical Flair in any given system, if one of the Flairs is triggered then all of them will be triggered simultaneously.  If false, only the first Flair in the stack will be triggered.
 	- parameter payload: If you need
 	*/
-	init(withName name: StringRepresentible,
+	public init(withName name: StringRepresentible,
 			 category: StringRepresentible,
 			 payload: [String: Any]?,
 			 flags: [StringRepresentible],
@@ -95,7 +95,7 @@ struct Flair: Hashable, Equatable, FlairRepresentible {
 	Attempt to trigger the state by passing it flags.
 	- returns: True if a matching flag was found and the state had a next closure to trigger, false if not.
 	*/
-	func trigger(withHandle handle: Handle, flags inputFlags: [StringRepresentible]) -> FlairResponse? {
+	public func trigger(withHandle handle: Handle, flags inputFlags: [StringRepresentible]) -> FlairResponse? {
 		
 		let sortedInputFlags = inputFlags.map({ $0.string() })
 		
@@ -114,11 +114,11 @@ struct Flair: Hashable, Equatable, FlairRepresentible {
 		return nil
 	}
 	
-	func getFlair() -> Flair {
+	public func getFlair() -> Flair {
 		return self
 	}
 	
-	static func ==(lhs: Flair, rhs: Flair) -> Bool {
+	static public func ==(lhs: Flair, rhs: Flair) -> Bool {
 		
 		if lhs.name != rhs.name { return false }
 		if lhs.category != rhs.category { return false }

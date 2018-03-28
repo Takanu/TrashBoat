@@ -8,18 +8,17 @@ Encapsulates an event in a game, which should act as a reusable experience.  Als
 
 Should almost always be initialised as part of an `EventContainer`, and subclasses should always use the `EventRepresentible` protocol to define the event's name and type.
 */
-class Event<HandleType: Handle> {
+public class Event<HandleType: Handle> {
 	
 	/// The name of the event
-	public var getName: String { return name }
-	var name: String = "Untitled"
+	public private(set) var name: String = "Untitled"
 	
 	/// The type of event.
-	public var getType: EventType { return type }
-	var type: EventType = EventType(name: "UNDEFINED",
-																					symbol: "💀",
-																					pluralisedName: "UNDEFINED",
-																					description: "DEFINE ME")
+	public private(set) var type = EventType(name: "UNDEFINED",
+																					 symbol: "💀",
+																					 pluralisedName: "UNDEFINED",
+																					 description: "DEFINE ME")
+
 	
 	/// The handle used to send requests to Telegram, and to modify key game state information.  WARNING - DO NOT USE OUTSIDE THE SCOPE OF AN EVENT.
 	var handle: HandleType!
@@ -50,7 +49,7 @@ class Event<HandleType: Handle> {
 															 markup: nil)
 	}
 	
-	required init(next: @escaping () -> ()) {
+	required public init(next: @escaping () -> ()) {
 		
 		self.next = next
 		
@@ -64,7 +63,7 @@ class Event<HandleType: Handle> {
 	/**
 	Starts the event by assigning it a game object and exiting closure.
 	*/
-	func start(handle: HandleType) {
+	public func start(handle: HandleType) {
 		self.handle = handle
 		self.request = handle.request
 		self.queue = handle.queue
@@ -79,14 +78,14 @@ class Event<HandleType: Handle> {
 	/**
 	The function which all sub-classes should overwrite to implement it's unique functionality.
 	*/
-	func execute() {
+	public func execute() {
 		
 	}
 	
 	/**
 	A required function to call in order to end the event and pass back control of the game to PartySession.
 	*/
-	func end(playerTrigger: UserProxy, participants: [UserProxy]?) {
+	public func end(playerTrigger: UserProxy, participants: [UserProxy]?) {
 		
 		// Reset the queue timers and ungrouped router for convenience
 		handle.queue.clear()

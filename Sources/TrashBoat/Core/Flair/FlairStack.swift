@@ -6,7 +6,7 @@ import Pelican
 /**
 Represents a self-organising stack of Flair types that share the same name and category.
 */
-class FlairStack: Equatable {
+public class FlairStack: Equatable {
 	
 	/// REPLICATED VARIABLES
 	/// The name of the states being grouped into the stack.
@@ -121,7 +121,7 @@ class FlairStack: Equatable {
 		}
 	}
 	
-	static func ==(lhs: FlairStack, rhs: FlairStack) -> Bool {
+	static public func ==(lhs: FlairStack, rhs: FlairStack) -> Bool {
 		
 		if lhs.name != rhs.name { return false }
 		if lhs.category != rhs.category { return false }

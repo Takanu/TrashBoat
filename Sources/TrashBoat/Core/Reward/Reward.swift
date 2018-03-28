@@ -6,19 +6,19 @@ import Pelican
 /**
 Defines a structure for a single set of rewards that can be re-used to give any number of players items and/or points.
 */
-class Reward {
+public class Reward {
 	
 	/// The points that can be awarded to the player.  From the range a value will be randomly selected.
-	var points: [PointType: ClosedRange<Int>] = [:]
+	public var points: [PointType: ClosedRange<Int>] = [:]
 	
 	/// The items that this reward can dispense to the player, organised in stacks by their full name
-	var items: [String: [ItemRepresentible]] = [:]
+	public var items: [String: [ItemRepresentible]] = [:]
 	
 	/// Random rewards to be retrieved at the point a player is being given a reward.
-	var randomItems: [() -> (ItemRepresentible)] = []
+	public var randomItems: [() -> (ItemRepresentible)] = []
 	
 	/// Returns whether or not the reward has absolutely nothing to give to someone if used.
-	var hasNoReward: Bool {
+	public var hasNoReward: Bool {
 		if points.keys.count != 0 { return false }
 		if items.values.count != 0 { return false }
 		if randomItems.count != 0 { return false }
@@ -27,7 +27,7 @@ class Reward {
 	}
 	
 	/// Returns the number of items this reward is currently holding, including any items that should be generated.
-	var itemCount: Int {
+	public var itemCount: Int {
 		var result = 0
 		
 		items.forEach({result += $0.value.count})
@@ -36,26 +36,26 @@ class Reward {
 		return result
 	}
 	
-	init() { }
+	public init() { }
 	
 	/**
 	Initialises the reward with a points type and a range that will be used to randomly select the reward amount.
 	*/
-	init(withCurrency type: PointType, amount: ClosedRange<Int>) {
+	public init(withCurrency type: PointType, amount: ClosedRange<Int>) {
 		points[type] = amount
 	}
 	
 	/**
 	Initialises the reward with a specific selection of items that will be rewarded.
 	*/
-	init(withItems incomingItems: ItemRepresentible...) {
+	public init(withItems incomingItems: ItemRepresentible...) {
 		items = self.addItems(incomingItems, set: items)
 	}
 	
 	/**
 	Initialises the reward with a function that will be called when a reward needs to be given, vending zero or more items.
 	*/
-	init(withRandomItems itemGen: () -> (ItemRepresentible)...) {
+	public init(withRandomItems itemGen: () -> (ItemRepresentible)...) {
 		randomItems = itemGen
 	}
 	
@@ -184,7 +184,7 @@ class Reward {
 	/**
 	Applies a reward to multiple players, and also provides a message with the results of each player printed on separate lines.
 	*/
-	func applyReward(_ players: [UserProxy]) -> String {
+	public func applyReward(_ players: [UserProxy]) -> String {
 		
 		var result = ""
 		for (i, player) in players.enumerated() {

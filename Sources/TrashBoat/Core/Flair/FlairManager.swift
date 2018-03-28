@@ -7,7 +7,7 @@ import Pelican
 A controller of flair types (`*w*`) that can be used to help define the game state on a global
 or type level in a procedural manner.
 */
-class FlairManager {
+public class FlairManager {
 	
 	/// The current collection of states this system is holding.
 	public private(set) var flairs: [String: [FlairStack] ] = [:]

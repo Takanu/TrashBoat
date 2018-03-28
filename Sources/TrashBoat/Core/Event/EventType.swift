@@ -7,9 +7,9 @@ Represents a type of `Event`.  Useful for standarising presentation, procedural 
 
 Once initialised, the contents are immutable.
 */
-struct EventType: Hashable, Equatable {
+public struct EventType: Hashable, Equatable {
 	
-	var hashValue: Int {
+	public var hashValue: Int {
 		return name.hashValue ^ symbol.hashValue ^ pluralisedName.hashValue ^ description.hashValue
 	}
 	
@@ -43,7 +43,7 @@ struct EventType: Hashable, Equatable {
 
 extension EventType {
 	
-	static func ==(lhs: EventType, rhs: EventType) -> Bool {
+	static public func ==(lhs: EventType, rhs: EventType) -> Bool {
 		if lhs.name != rhs.name { return false }
 		if lhs.symbol != rhs.symbol { return false }
 		if lhs.pluralisedName != rhs.pluralisedName { return false }
