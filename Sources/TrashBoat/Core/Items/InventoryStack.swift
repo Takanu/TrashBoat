@@ -72,7 +72,7 @@ public class InventoryStack: Equatable {
 	Returns a clone of the first item in the stack.
 	*/
 	func cloneItem() -> ItemRepresentible {
-		return items.first!.clone
+		return items.first!.clone()
 	}
 	
 	/**
