@@ -8,7 +8,7 @@ extension Array {
 	/**
 	Returns an element from the sequence at a random position.
 	*/
-  var getRandom: Element? {
+  public var getRandom: Element? {
     if self.count > 0 {
       var xoro = Xoroshiro()
       let index = Int(xoro.random32(max: UInt32(self.count - 1)))
@@ -21,7 +21,7 @@ extension Array {
 	/**
 	Returns a random index of the array.
 	*/
-	var getRandomIndex: Int? {
+	public var getRandomIndex: Int? {
 		
 		if self.count > 0 {
 			var xoro = Xoroshiro()
@@ -35,7 +35,7 @@ extension Array {
 	/**
 	Returns a sequence of elements randomly selected from the array, the length of which is based on the length specified.
 	*/
-	func randomSelection(length: Int) -> [Element]? {
+	public func randomSelection(length: Int) -> [Element]? {
 		if self.count > 0 {
 			
 			var result: [Element] = []
@@ -57,7 +57,7 @@ extension Array {
 	Returns a sequence of elements randomly selected from the array, the length of which is based on the length specified.
 	Includes the option to include a random generator to make the picks.
 	*/
-	func randomSelection(length: Int, generator: RandomGenerator) -> [Element]? {
+	public func randomSelection(length: Int, generator: RandomGenerator) -> [Element]? {
 		if self.count > 0 {
 			
 			var result: [Element] = []
@@ -78,7 +78,7 @@ extension Array {
 	/**
 	Removes and returns an element from the sequence at a random position.
 	*/
-  mutating func popRandom() -> Element? {
+  public mutating func popRandom() -> Element? {
     if self.count > 0 {
       var xoro = Xoroshiro()
       let index = Int(xoro.random32(max: UInt32(self.count - 1)))
@@ -95,7 +95,7 @@ extension Array {
 	/**
 	Returns a random sequence of elements based on the length you specify.  This differs from `randomSelection(length:)` in that the random selection will start by creating a copy of the array and randomly removing elements from it until it is empty.  When empty, the array will be repopulated again until the length parameter is met.
 	*/
-	func randomUniqueSelection(length: Int) -> [Element]? {
+	public func randomUniqueSelection(length: Int) -> [Element]? {
 		
 		if self.count > 0 {
 			
