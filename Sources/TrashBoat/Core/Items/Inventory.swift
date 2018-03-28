@@ -148,7 +148,7 @@ public class Inventory {
 	}
 	
 	/**
-	Returns one of every item the inventory is currently storing of a given type.
+	Returns one of every item the inventory is currently storing of a given type as an info tag.
 	- note: This retrieval does not remove the item from the inventory, all items retrieved are copied from their respective stacks.
 	*/
 	public func getItemInfo(forType type: StringRepresentible) -> [ItemInfoTag]? {
@@ -169,6 +169,30 @@ public class Inventory {
 		
 		return result
 	}
+	
+	/**
+	Copies and returns one of every item the inventory is currently storing of the provided type.
+	- note: In order to avoid item count issues, try to avoid copying items - use item info instead.
+	*/
+	public func getItemCopies(forType type: StringRepresentible) -> [ItemRepresentible]? {
+		
+		/// Check that the type category is stored, and if not return nil.
+		if items.keys.contains(where: {$0.name == type.string()}) == false { return nil }
+		
+		/// Search through the stacks for one that matches the name.  If found, extract an item from it.
+		let inventorySet = items.first(where: {$0.key.name == type.string()})!
+		let stacks = inventorySet.value
+		var result: [ItemRepresentible] = []
+		
+		for stack in stacks {
+			if stack.count != 0 {
+				result.append(stack.cloneItem())
+			}
+		}
+		
+		return result
+	}
+	
 	
 	/**
 	Returns and removes an item from the player's inventory if they own it.

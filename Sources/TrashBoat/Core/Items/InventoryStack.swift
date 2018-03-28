@@ -69,6 +69,13 @@ public class InventoryStack: Equatable {
 	}
 	
 	/**
+	Returns a clone of the first item in the stack.
+	*/
+	func cloneItem() -> ItemRepresentible {
+		return items.first!.clone
+	}
+	
+	/**
 	Returns and removes the first item from the stack if it has any.  The item being requested must match the item held by the stack.
 	*/
 	func removeItem() -> ItemRepresentible? {
