@@ -116,7 +116,7 @@ class FlairManager {
 	*/
 	func findFlair(withName name: StringRepresentible, category: StringRepresentible) -> Bool {
 		let unwrappedName = name.string()
-		let unwrappedCategory = category.string()
+		//let unwrappedCategory = category.string()
 		
 		if let category = flairs[unwrappedName] {
 			for stack in category {
