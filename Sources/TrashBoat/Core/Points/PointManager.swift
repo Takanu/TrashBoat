@@ -17,6 +17,8 @@ public class PointManager {
 	/// Defines an array of transactions that have occurred with the inventory wallet.
 	public private(set) var transactions: [PointReceipt] = []
 	
+	public init() {}
+	
 	/**
 	Enables quick access to the amount of a given currency the player has.
 	*/

@@ -22,6 +22,8 @@ public class Inventory {
 	static var fetchStatusCategory = "Item Usage"
 	
 	
+	public init() { }
+	
 	
 	/**
 	Adds an item type to the inventory system, before any items from that type are added.
