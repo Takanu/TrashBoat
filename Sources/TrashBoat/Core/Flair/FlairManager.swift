@@ -13,6 +13,9 @@ public class FlairManager {
 	public private(set) var flairs: [String: [FlairStack] ] = [:]
 	
 	
+	public init() { }
+	
+	
 	/**
 	Returns all the names of the states that appear under a given category, if that category exists.
 	*/
@@ -41,7 +44,7 @@ public class FlairManager {
 	Adds a new `Flair` item to the system.  Note that if the state you're adding already matches the category and name of one in the system,
 	the one in the system will have their stack number increase without the newly added state being added.
 	*/
-	func addFlair(withName name: StringRepresentible, category: StringRepresentible) {
+	public func addFlair(withName name: StringRepresentible, category: StringRepresentible) {
 		
 		let newFlag = Flair(withName: name.string(), category: category)
 		addToList(newFlag)
@@ -51,7 +54,7 @@ public class FlairManager {
 	Adds a new state to the system using flags that have already been built.  Note that if the state you're adding already matches the category and name of one in the system,
 	the one in the system will have their stack number increase without the newly added state being added.
 	*/
-	func addFlair(_ flairs: Flair...) {
+	public func addFlair(_ flairs: Flair...) {
 		
 		for flair in flairs {
 			addToList(flair)
@@ -88,7 +91,7 @@ public class FlairManager {
 	Tries to find if this system has the specified flair.  The flair given does not have to match exactly if compareContents is false.
 	- returns: True if it does, false if not.
 	*/
-	func findFlair(_ incomingFlair: Flair, compareContents: Bool) -> Bool {
+	public func findFlair(_ incomingFlair: Flair, compareContents: Bool) -> Bool {
 		
 		if let category = flairs[incomingFlair.category] {
 			for stack in category {
@@ -109,7 +112,7 @@ public class FlairManager {
 	Tries to find a flair that matches the given name and category only.
 	- returns: True if the flair exists, false if not.
 	*/
-	func findFlair(withName name: StringRepresentible, category: StringRepresentible) -> Bool {
+	public func findFlair(withName name: StringRepresentible, category: StringRepresentible) -> Bool {
 		let unwrappedName = name.string()
 		//let unwrappedCategory = category.string()
 		
@@ -127,7 +130,7 @@ public class FlairManager {
 	Attempts to remove a flag from the state system using a given name and category.
 	- parameter removeAll: If true, the stack that the Flair corresponds to will be removed if found.
 	*/
-	func removeFlair(withName name: StringRepresentible, category: StringRepresentible, removeAll: Bool = false) {
+	public func removeFlair(withName name: StringRepresentible, category: StringRepresentible, removeAll: Bool = false) {
 		
 		let flair = Flair(withName: name, category: category)
 		removeFromList(flair, removeAll: removeAll)
@@ -137,7 +140,7 @@ public class FlairManager {
 	Attempts to remove a flag from the state system using a prepared StateFlag instance.
 	- parameter ignoreStack: If true, the stack number will not be considered, and the flag will be removed if found.
 	*/
-	func removeFlair(_ flair: Flair, removeAll: Bool = false) {
+	public func removeFlair(_ flair: Flair, removeAll: Bool = false) {
 		removeFromList(flair, removeAll: removeAll)
 	}
 	
@@ -177,7 +180,7 @@ public class FlairManager {
 	Passes the given flags to any Flair currently added to the system.  They are matched with any potential Flair flags
 	and if a match occurs, the Flair's next() event will be executed.
 	*/
-	func trigger(handle: Handle, flags: [StringRepresentible]) {
+	public func trigger(handle: Handle, flags: [StringRepresentible]) {
 		
 		//print("Attempting Trigger: \(flags)\n\(getFlairMap())")
 		
@@ -210,7 +213,7 @@ public class FlairManager {
 	/**
 	Returns a string that describes the current state of the FlairSystem, for debugging purposes
 	*/
-	func getFlairMap() -> String {
+	public func getFlairMap() -> String {
 		
 		var result = "-----\n"
 		
@@ -230,7 +233,7 @@ public class FlairManager {
 	/**
 	Clears all the flair from the system.  Put on a tie dammit.
 	*/
-	func clearAll() {
+	public func clearAll() {
 		flairs.removeAll()
 	}
 }
