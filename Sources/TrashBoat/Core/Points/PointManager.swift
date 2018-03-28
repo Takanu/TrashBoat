@@ -65,4 +65,12 @@ public class PointManager {
 		
 		return nil
 	}
+	
+	/**
+	Removes and clears all PointInstance and PointReceipt types the manager has currently collected.
+	*/
+	public func clearAll() {
+		self.container.removeAll()
+		self.transactions.removeAll()
+	}
 }
