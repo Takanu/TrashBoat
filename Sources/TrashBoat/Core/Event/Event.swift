@@ -32,6 +32,9 @@ open class Event<HandleType: Handle> {
 	/// The base route, shared by 'handle' to handle update filtering.  WARNING - DO NOT USE OUTSIDE THE SCOPE OF AN EVENT.
 	public var baseRoute: Route!
 	
+	// The tag, shared by 'handle' to identify the chat when making requests.  WARNING - DO NOT USE OUTSIDE THE SCOPE OF AN EVENT.
+	public var tag: SessionTag!
+	
 	/// The flairs influencing an event.  These should typically be set before the event begins by an EventContainer.
 	public lazy var flair = FlairManager()
 	
@@ -68,6 +71,7 @@ open class Event<HandleType: Handle> {
 		self.request = handle.request
 		self.queue = handle.queue
 		self.baseRoute = handle.baseRoute
+		self.tag = handle.tag
 		
 		handle.baseRoute[["event"]]?.clearAll()
 		handle.queue.clear()
