@@ -89,7 +89,7 @@ open class Event<HandleType: Handle> {
 	/**
 	A required function to call in order to end the event and pass back control of the game to PartySession.
 	*/
-	open func end(playerTrigger: UserProxy, participants: [UserProxy]?) {
+	open func end(playerTrigger: UserProxy?, participants: [UserProxy]?) {
 		
 		// Reset the queue timers and ungrouped router for convenience
 		handle.queue.clear()
