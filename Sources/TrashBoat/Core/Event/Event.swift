@@ -21,19 +21,19 @@ open class Event<HandleType: Handle> {
 
 	
 	/// The handle used to send requests to Telegram, and to modify key game state information.  WARNING - DO NOT USE OUTSIDE THE SCOPE OF AN EVENT.
-	var handle: HandleType!
+	public var handle: HandleType!
 	
 	/// The request class, shared by `handle` to make requests.  WARNING - DO NOT USE OUTSIDE THE SCOPE OF AN EVENT.
-	internal var request: SessionRequest!
+	public var request: SessionRequest!
 	
 	/// The queue system, shared by 'handle' to queue requests.  WARNING - DO NOT USE OUTSIDE THE SCOPE OF AN EVENT.
-	var queue: ChatSessionQueue!
+	public var queue: ChatSessionQueue!
 	
 	/// The base route, shared by 'handle' to handle update filtering.  WARNING - DO NOT USE OUTSIDE THE SCOPE OF AN EVENT.
-	var baseRoute: Route!
+	public var baseRoute: Route!
 	
 	/// The flairs influencing an event.  These should typically be set before the event begins by an EventContainer.
-	lazy var flair = FlairManager()
+	public lazy var flair = FlairManager()
 	
 	
 	
