@@ -8,7 +8,7 @@ Encapsulates an event in a game, which should act as a reusable experience.  Als
 
 Should almost always be initialised as part of an `EventContainer`, and subclasses should always use the `EventRepresentible` protocol to define the event's name and type.
 */
-public class Event<HandleType: Handle> {
+open class Event<HandleType: Handle> {
 	
 	/// The name of the event
 	public private(set) var name: String = "Untitled"
