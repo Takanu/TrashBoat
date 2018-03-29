@@ -26,12 +26,12 @@ public struct EventRecord {
 	/// Any additional states or changes the record should hold.
 	var states: [String: Any]
 	
-	init(name: String,
-			 type: EventType,
-			 trigger: UserProxy?,
-			 participants: [UserProxy]?,
-			 transactions: [(UserProxy, PointReceipt)] = [],
-			 states: [String: Any] = [:]) {
+	public init(name: String,
+							type: EventType,
+							trigger: UserProxy?,
+							participants: [UserProxy]?,
+							transactions: [(UserProxy, PointReceipt)] = [],
+							states: [String: Any] = [:]) {
 		
 		self.eventName = name
 		self.eventType = type

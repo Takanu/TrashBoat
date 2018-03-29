@@ -63,7 +63,7 @@ public class Event<HandleType: Handle> {
 	/**
 	Starts the event by assigning it a game object and exiting closure.
 	*/
-	public func start(handle: HandleType) {
+	open func start(handle: HandleType) {
 		self.handle = handle
 		self.request = handle.request
 		self.queue = handle.queue
@@ -78,14 +78,14 @@ public class Event<HandleType: Handle> {
 	/**
 	The function which all sub-classes should overwrite to implement it's unique functionality.
 	*/
-	public func execute() {
+	open func execute() {
 		
 	}
 	
 	/**
 	A required function to call in order to end the event and pass back control of the game to PartySession.
 	*/
-	public func end(playerTrigger: UserProxy, participants: [UserProxy]?) {
+	open func end(playerTrigger: UserProxy, participants: [UserProxy]?) {
 		
 		// Reset the queue timers and ungrouped router for convenience
 		handle.queue.clear()

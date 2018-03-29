@@ -28,7 +28,7 @@ public struct EventType: Hashable, Equatable {
 	/**
 	Initialises the type tag with a set of required arguments used to identify and illustrate it in a game.
 	*/
-	init(name: String,
+	public init(name: String,
 			 symbol: String,
 			 pluralisedName: String,
 			 description: String) {

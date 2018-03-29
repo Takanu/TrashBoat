@@ -11,22 +11,22 @@ Useful for parametrically building sets of events in an efficient way.
 public class EventContainer<HandleType: Handle> {
 	
 	/// The event to be created.
-	var eventType: Event<HandleType>.Type
+	public private(set) var eventType: Event<HandleType>.Type
 	
 	/// The name of the event.
-	var name: String
+	public private(set) var name: String
 	
 	/// The type of event.  Event types should be defined statically to ensure uniform standards.
-	var type: EventType
+	public private(set) var type: EventType
 	
 	/// The live event instance.  If nil, the event either hasn't started, or it has finished.
-	var event: Event<HandleType>?
+	public private(set) var event: Event<HandleType>?
 	
 	/// The function to be called next when the event is finished.  If nil, the event either hasn't started, or it has finished.
 	public var next: ( () -> () )?
 	
 	/// The flairs influencing an event.  When
-	lazy var flair = FlairManager()
+	public lazy var flair = FlairManager()
 	
 	
 	/**
