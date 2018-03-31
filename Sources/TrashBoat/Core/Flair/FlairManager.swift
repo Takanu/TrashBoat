@@ -19,7 +19,7 @@ public class FlairManager {
 	/**
 	Returns all the names of the states that appear under a given category, if that category exists.
 	*/
-	subscript(category: StringRepresentible) -> [String]? {
+	public subscript(category: StringRepresentible) -> [String]? {
 		
 		get {
 			

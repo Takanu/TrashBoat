@@ -40,7 +40,7 @@ extension Array {
 			
 			var result: [Element] = []
 			
-			for _ in 0..<count {
+			for _ in 0..<length {
 				var xoro = Xoroshiro()
 				let index = Int(xoro.random32(max: UInt32(self.count - 1)))
 				
@@ -62,7 +62,7 @@ extension Array {
 			
 			var result: [Element] = []
 			
-			for _ in 0..<count {
+			for _ in 0..<length {
 				var newGen = generator
 				let index = Int(newGen.random32(max: UInt32(self.count - 1)))
 				
