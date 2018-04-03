@@ -6,7 +6,7 @@ import Foundation
 Used to let the player decide between using an Integer and Double as value types for Points
 without having to use the messy and Linux-unfriendly NSNumber.
 */
-public enum PointValue {
+public enum PointValue: Equatable {
 	case int(Int)
 	case double(Double)
 	
@@ -30,3 +30,4 @@ public enum PointValue {
 		}
 	}
 }
+
