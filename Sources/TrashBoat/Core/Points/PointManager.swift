@@ -20,13 +20,13 @@ public class PointManager {
 	public init() {}
 	
 	/**
-	Enables quick access to the amount of a given currency the player has.
+	Enables quick access to the amount of a given currency the player has by using the PointType.
 	*/
-	public subscript(incomingType: PointType) -> PointValue? {
+	public subscript(incomingType: PointType) -> PointUnit? {
 		get {
-			for currency in container {
-				if currency.type == incomingType {
-					return currency.value
+			for instance in container {
+				if instance.type == incomingType {
+					return instance.getValue()
 				}
 			}
 			
@@ -35,36 +35,71 @@ public class PointManager {
 	}
 	
 	/**
-	Adds a new currency to the wallet!  If a matching wallet already exists, it will not be added again.
+	Enables quick access to the amount of a given currency the player has by using the PointType name.
 	*/
-	public func add(_ type: PointType, amount: PointValue) {
-		
-		// Ensure this won't add a wallet of the same type
-		for currency in container {
-			if currency.type == type { return }
+	public subscript(typeName: String) -> PointUnit? {
+		get {
+			for instance in container {
+				if instance.type.name == typeName {
+					return instance.getValue()
+				}
+			}
+			
+			return nil
 		}
-		
-		// If not, add it!
-		let newWallet = type.instance.init(initialAmount: amount)
-		container.append(newWallet)
 	}
 	
 	/**
-	Modifies the specified currency by the given numerical change.  If the currency type has not been added, it must be added first.
-	- returns: A receipt that can be used to inspect the changes, if a currency with the specified name was found.
+	Checks if the manager has a PointInstance that represents a specific PointType.
+	- returns: True if yes, false if no.
 	*/
-	@discardableResult
-	public func changeCurrency(_ type: PointType, change: PointValue) -> PointReceipt? {
+	public func hasType(_ type: PointType) -> Bool {
+		
+		for instance in container {
+			if instance.type == type {
+				return true
+			}
+		}
+		return false
+	}
+	
+	/**
+	Adds the amount provided to this manager with the specified PointType.
+	A PointInstance will be created for any PointTypes that have yet to be stored in the wallet.
+	*/
+	public func add(type: PointType, amount: PointValue) {
 		
 		// Ensure this won't add a wallet of the same type
-		for currency in container {
-			if currency.type == type {
-				return currency.changeAmount(change)
+		for instance in container {
+			if instance.type == type {
+				instance.add(amount)
 			}
 		}
 		
-		return nil
+		// If not, add it!
+		let newInstance = type.instance.init(startAmount: amount)
+		container.append(newInstance)
 	}
+	
+	/*
+	/**
+	Deducts the amount provided from a PointInstance this Manager is responsible for.
+	A PointInstance will be created if one does not yet exist for the specified type.
+	*/
+	public func deduct(type: PointType, amount: PointValue) {
+		
+		// Ensure this won't add a wallet of the same type
+		for instance in container {
+			if instance.type == type {
+				instance.add(amount)
+			}
+		}
+		
+		// If not, add it!
+		let newInstance = type.instance.init(startAmount: amount)
+		container.append(newInstance)
+	}
+	*/
 	
 	/**
 	Removes and clears all PointInstance and PointReceipt types the manager has currently collected.

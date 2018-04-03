@@ -8,7 +8,7 @@ import Pelican
 Defines a type of Point that can be created and monitored by a PointManager
 or initialised by using the `type` property.
 */
-public struct PointType: Hashable, Equatable {
+public struct PointType: Hashable, Equatable, CustomStringConvertible {
 	
 	/// The name of the currency.
 	public private(set) var name: String
@@ -18,6 +18,10 @@ public struct PointType: Hashable, Equatable {
 	
 	/// The symbol used as a shorthand to the name of the currency.
 	public private(set) var symbol: String
+	
+	/** A description of the point unit, conforms to `CustomStringConvertible` to
+	be the default textual representation of this type. */
+	public var description: String { return "\(symbol) \(name)" }
 	
 	/// The point type that this tag is associated and will create when a tag is given to a PointManager.
 	public private(set) var instance: PointInstance.Type

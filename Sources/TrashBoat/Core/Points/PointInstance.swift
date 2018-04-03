@@ -13,8 +13,8 @@ under one property in an implicit manner.
 */
 public protocol PointInstance: CustomStringConvertible {
 	
-	/// The point total this instance has.
-	var value: PointValue { get set }
+	/// The point total this instance has.  This is a private value, use getValue() instead to retrieve the value of a PointInstance.
+	var value: PointValue { get }
 	
 	/// A definition of the kind of value this instance represents, including how to describe it.
 	var type: PointType { get }
@@ -26,22 +26,29 @@ public protocol PointInstance: CustomStringConvertible {
 	/**
 	A standard initialiser that's required for a PointInstance to be used with a PointManager.
 	*/
-	init(initialAmount: PointValue)
+	init(startAmount: PointValue)
+	
 	
 	/**
-	Changes the amount of currency the player has in accordance with it's behaviours, returning a receipt
+	Returns the numerical value of this PointInstance as a PointUnit type.
+	*/
+	func getValue() -> PointUnit
+	
+	/**
+	Adds the amount of currency the player has to the instance's value, in accordance with it's behaviours, returning a receipt
 	if successful.
 	
-	- parameter change: The change in any numerical value.  NSNumber does the heavy-lifting of type conversion
-	and assumes your point value could be based on an integer or floating point value.
+	- parameter change: The change in any numerical value.
 	*/
-	func changeAmount(_ change: PointValue) -> PointReceipt?
+	@discardableResult
+	func add(_ change: PointValue) -> PointReceipt?
 	
 	/**
-	Changes the amount of currency the player has in accordance with it's behaviours, returning a receipt
+	Adds the amount of currency the player has to the instance's value, in accordance with it's behaviours, returning a receipt
 	if successful.
 	
 	- parameter units: The PointUnit types you wish to comprise the change of.
 	*/
-	func changeAmount(_ units: PointUnit...) -> PointReceipt?
+	@discardableResult
+	func add(units: PointUnit...) -> PointReceipt?
 }

@@ -19,7 +19,8 @@ public protocol PointUnit: CustomStringConvertible {
 	/// The pluralised name of the point unit.
 	var pluralisedName: String { get }
 	
-	/// A description of the point unit.
+	/** A description of the point unit, conforms to `CustomStringConvertible` to
+	be the default textual representation of this type. */
 	var description: String { get }
 	
 	/// The type this unit represents.
