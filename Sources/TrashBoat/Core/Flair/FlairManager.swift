@@ -233,7 +233,7 @@ public class FlairManager {
 	/**
 	Clears all the flair from the system.  Put on a tie dammit.
 	*/
-	public func clearAll() {
+	public func clear() {
 		flairs.removeAll()
 	}
 }

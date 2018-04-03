@@ -37,7 +37,7 @@ public class PointManager {
 	/**
 	Adds a new currency to the wallet!  If a matching wallet already exists, it will not be added again.
 	*/
-	public func addCurrency(_ type: PointType, initialAmount: PointValue) {
+	public func add(_ type: PointType, amount: PointValue) {
 		
 		// Ensure this won't add a wallet of the same type
 		for currency in container {
@@ -45,7 +45,7 @@ public class PointManager {
 		}
 		
 		// If not, add it!
-		let newWallet = type.instance.init(initialAmount: initialAmount)
+		let newWallet = type.instance.init(initialAmount: amount)
 		container.append(newWallet)
 	}
 	
@@ -69,7 +69,7 @@ public class PointManager {
 	/**
 	Removes and clears all PointInstance and PointReceipt types the manager has currently collected.
 	*/
-	public func clearAll() {
+	public func clear() {
 		self.container.removeAll()
 		self.transactions.removeAll()
 	}

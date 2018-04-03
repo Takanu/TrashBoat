@@ -3,41 +3,42 @@
 import Foundation
 
 /**
-Defines a unit that can be given to a PointInstance to increase or decrease it's value.
+Represents a PointValue with a PointType, providing additional space to describe
+a numerical point value outside the confines of just it's type.
 
-Allows you to create specific units like currency bills or health segments to change
-a PointInstance value.
+This allows you to create specific units like currency bills or health segments to change
+a PointInstance value with or to represent collectible point items with.
+
+
 */
-public struct PointUnit: CustomStringConvertible {
+public protocol PointUnit: CustomStringConvertible {
 	
 	/// The name of the point unit.
-	public private(set) var name: String
+	var name: String { get }
 	
 	/// The pluralised name of the point unit.
-	public private(set) var pluralisedName: String
+	var pluralisedName: String { get }
 	
 	/// A description of the point unit.
-	public private(set) var description: String
+	var description: String { get }
 	
 	/// The type this unit represents.
-	public private(set) var type: PointType
+	var type: PointType { get }
 	
 	/// The value of the unit.
-	public private(set) var value: PointValue
+	var value: PointValue { get set }
 	
-	
-	public init(name: String,
-							pluralisedName: String,
-							description: String,
-							type: PointType,
-							value: PointValue) {
-		
-		self.name = name
-		self.pluralisedName = pluralisedName
-		self.description = description
-		self.type = type
-		self.value = value
+}
+
+
+public extension PointUnit {
+	/// Convenience getter for accessing the point value as an Int.
+	var int: Int {
+		return value.int
 	}
 	
-	
+	/// Convenience getter for accessing the point value as an Double.
+	var double: Double {
+		return value.double
+	}
 }

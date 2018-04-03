@@ -50,10 +50,10 @@ public struct PointReceipt {
 			var result: Double = 0
 			
 			for unit in change {
-				result += unit.value.doubleValue
+				result += unit.value.double
 			}
 			
-			if amountBefore.doubleValue > amountBefore.doubleValue {
+			if amountBefore.double > amountBefore.double {
 				result = result * -1
 			}
 			
@@ -63,10 +63,10 @@ public struct PointReceipt {
 			var result: Int = 0
 			
 			for unit in change {
-				result += unit.value.intValue
+				result += unit.value.int
 			}
 			
-			if amountBefore.intValue > amountBefore.intValue {
+			if amountBefore.int > amountBefore.int {
 				result = result * -1
 			}
 			

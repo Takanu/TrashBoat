@@ -357,7 +357,7 @@ public class Inventory {
 	/**
 	Clears an inventory including all wallet currencies and items.  Weeewwwww.
 	*/
-	public func clearAll() {
+	public func clear() {
 		
 		items.removeAll()
 		itemTransactions.removeAll()

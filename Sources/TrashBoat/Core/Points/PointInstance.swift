@@ -22,6 +22,7 @@ public protocol PointInstance: CustomStringConvertible {
 	/// A textual description of the instance's value.
 	var description: String { get }
 	
+	
 	/**
 	A standard initialiser that's required for a PointInstance to be used with a PointManager.
 	*/
