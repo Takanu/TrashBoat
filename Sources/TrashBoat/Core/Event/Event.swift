@@ -6,7 +6,8 @@ import Pelican
 /**
 Encapsulates an event in a game, which should act as a reusable experience.  Also provides shortcuts for retrieving items and player requests in a safe way.
 
-Should almost always be initialised as part of an `EventContainer`, and subclasses should always use the `EventRepresentible` protocol to define the event's name and type.
+- warning: Subclasses should __always__ inherit the `EventRepresentible` protocol to define the event's core properties and methods,
+and almost always be initialised as part of an `EventContainer` to contain event code and initialise the event only when needed.
 */
 open class Event<HandleType: Handle> {
 	
@@ -79,11 +80,22 @@ open class Event<HandleType: Handle> {
 		execute()
 	}
 	
+	
 	/**
-	The function which all sub-classes should overwrite to implement it's unique functionality.
+	The function which all sub-classes should overwrite to perform the Event's objective or purpose.
 	*/
 	open func execute() {
-		
+		print("[#line:#function]\nYOU MUST INHERIT EVENTREPRESENTIBLE WHEN USING THE EVENT TYPE.  SEE, YOU MISSED THIS")
+	}
+	
+	/**
+	The function which all sub-classes should overwrite to make an Event testable.
+	
+	Use this function to make your Event testable by assigning your event all the properties it
+	expects to have when executed normally, then call `execute()`
+	*/
+	open func test(handle: Handle) {
+		print("[#line:#function]\nYOU MUST INHERIT EVENTREPRESENTIBLE WHEN USING THE EVENT TYPE.  SEE, YOU MISSED THIS")
 	}
 	
 	/**
@@ -108,4 +120,12 @@ open class Event<HandleType: Handle> {
 		// Exit
 		next()
 	}
+}
+
+extension Event: CustomStringConvertible {
+	
+	public var description: String {
+		return "\(name) - \(type.name) Event"
+	}
+	
 }
