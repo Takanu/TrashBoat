@@ -44,7 +44,7 @@ public class FlairManager {
 	Adds a new `Flair` item to the system.  Note that if the state you're adding already matches the category and name of one in the system,
 	the one in the system will have their stack number increase without the newly added state being added.
 	*/
-	public func addFlair(withName name: StringRepresentible, category: StringRepresentible) {
+	public func add(withName name: StringRepresentible, category: StringRepresentible) {
 		
 		let newFlag = Flair(withName: name.string(), category: category)
 		addToList(newFlag)
@@ -54,7 +54,7 @@ public class FlairManager {
 	Adds a new state to the system using flags that have already been built.  Note that if the state you're adding already matches the category and name of one in the system,
 	the one in the system will have their stack number increase without the newly added state being added.
 	*/
-	public func addFlair(_ flairs: Flair...) {
+	public func add(_ flairs: Flair...) {
 		
 		for flair in flairs {
 			addToList(flair)
@@ -62,7 +62,7 @@ public class FlairManager {
 	}
 	
 	/**
-	Always use this function if you want to add a new state to the dictionary.
+	A function other public functions use to register a flair type into the manager.
 	*/
 	private func addToList(_ incomingFlair: Flair) {
 		
@@ -91,7 +91,7 @@ public class FlairManager {
 	Tries to find if this system has the specified flair.  The flair given does not have to match exactly if compareContents is false.
 	- returns: True if it does, false if not.
 	*/
-	public func findFlair(_ incomingFlair: Flair, compareContents: Bool) -> Bool {
+	public func find(_ incomingFlair: Flair, compareContents: Bool) -> Bool {
 		
 		if let category = flairs[incomingFlair.category] {
 			for stack in category {
@@ -112,7 +112,7 @@ public class FlairManager {
 	Tries to find a flair that matches the given name and category only.
 	- returns: True if the flair exists, false if not.
 	*/
-	public func findFlair(withName name: StringRepresentible, category: StringRepresentible) -> Bool {
+	public func find(withName name: StringRepresentible, category: StringRepresentible) -> Bool {
 		let unwrappedName = name.string()
 		//let unwrappedCategory = category.string()
 		
@@ -130,7 +130,7 @@ public class FlairManager {
 	Attempts to remove a flag from the state system using a given name and category.
 	- parameter removeAll: If true, the stack that the Flair corresponds to will be removed if found.
 	*/
-	public func removeFlair(withName name: StringRepresentible, category: StringRepresentible, removeAll: Bool = false) {
+	public func remove(withName name: StringRepresentible, category: StringRepresentible, removeAll: Bool = false) {
 		
 		let flair = Flair(withName: name, category: category)
 		removeFromList(flair, removeAll: removeAll)
@@ -140,7 +140,7 @@ public class FlairManager {
 	Attempts to remove a flag from the state system using a prepared StateFlag instance.
 	- parameter ignoreStack: If true, the stack number will not be considered, and the flag will be removed if found.
 	*/
-	public func removeFlair(_ flair: Flair, removeAll: Bool = false) {
+	public func remove(_ flair: Flair, removeAll: Bool = false) {
 		removeFromList(flair, removeAll: removeAll)
 	}
 	

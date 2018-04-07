@@ -10,10 +10,10 @@ tell the stack how it should be removed if applicable.
 public struct FlairResponse {
 	
 	// If the FlairStack receives this after a trigger and is true, the state just triggered will be removed.
-	var removeSelf: Bool = false
+	public var removeSelf: Bool = false
 	
 	// If the FlairStack receives this after a trigger and is true, all states in the stack will be removed.
-	var removeAll: Bool = false
+	public var removeAll: Bool = false
 	
 	init() { }
 	
