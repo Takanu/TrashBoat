@@ -11,8 +11,8 @@ like the active players and the current game state.
 Some of these properties can be modified, and the game scenario is expected to resolve modifications
 to the handle into the global game state once the event is over.
 
-- note: Most other TrashBoat types expect a single Handle class, ensure you only have one Handle that can specifically
-handle your own needs for all of your application
+- note: Most other TrashBoat types expect a single Handle class type, ensure you only have one Handle that can specifically
+handle your own needs for the entirety of your application.
 */
 public protocol Handle: class {
 	
@@ -24,6 +24,9 @@ public protocol Handle: class {
 	
 	// GAME STATE
 	var records: [EventRecord] { get set }
+	
+	// PANIC BUTTON
+	//func abort
 	
 }
 

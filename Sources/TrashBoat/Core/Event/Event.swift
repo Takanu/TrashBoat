@@ -4,10 +4,13 @@ import Foundation
 import Pelican
 
 /**
-Encapsulates an event in a game, which should act as a reusable experience.  Also provides shortcuts for retrieving items and player requests in a safe way.
+Encapsulates an event in a game, which should act as a reusable experience.  Events provide property shortcuts for retrieving items
+and player requests, enabling clearer and more readable event scripting without having to chain other types.  Subclass this type to add
+your own properties and shortcuts for event scripting.
 
 - warning: Subclasses should __always__ inherit the `EventRepresentible` protocol to define the event's core properties and methods,
-and almost always be initialised as part of an `EventContainer` to contain event code and initialise the event only when needed.
+and __almost always__ be initialised as part of an `EventContainer` to isolate event code and game states from unexpected changes, and to
+initialise the event only when needed.
 */
 open class Event<HandleType: Handle> {
 	
