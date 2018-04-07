@@ -7,12 +7,15 @@ import Pelican
 A protocol that should be used in conjunction with `Event` to force the explicit definition and implementation of core properties
 and methods for a new event to function.
 
-It's a humunculus of a Class and a Protocol, but it does make code design cleaner <3
+It's a humunculus of a Class and a Protocol, but it does make code design cleaner and more purposeful <3
 */
 public protocol EventRepresentible {
 	
 	/// The name of the event.
 	var eventName: String { get }
+	
+	/// A description of the event's function (Used when building inline cards).
+	var eventInfo: String { get }
 	
 	/// The type of event.
 	var eventType: EventType { get }
@@ -29,5 +32,7 @@ public protocol EventRepresentible {
 	expects to have when executed normally, then call `execute()`.
 	*/
 	func test(handle: Handle)
+	
+	
 	
 }

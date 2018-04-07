@@ -14,6 +14,9 @@ open class Event<HandleType: Handle> {
 	/// The name of the event
 	public private(set) var name: String = "Untitled"
 	
+	/// A description of the event's function (Used when building inline cards).
+	public private(set) var info: String = "Unspecified"
+	
 	/// The type of event.
 	public private(set) var type = EventType(name: "UNDEFINED",
 																					 symbol: "💀",
@@ -37,19 +40,18 @@ open class Event<HandleType: Handle> {
 	public var tag: SessionTag!
 	
 	/// The flairs influencing an event.  These should typically be set before the event begins by an EventContainer.
-	public lazy var flair = FlairManager()
-	
-	
+	public lazy var flairs = FlairManager()
 	
 	/// What the event should call once it is finished.
 	private var next: (() -> ())
 	
-	/// Returns an inline card that represents the event in a standardised format.  NOTE - Change the ID before use.
+	/** Returns an inline card that represents the event in a standardised format.
+	- note: Change the ID value set before use. */
 	public var inlineCard: InlineResultArticle {
 		return InlineResultArticle(id: "0",
-															 title: "\(type.symbol) - \(name)",
-															 description: "",
-															 contents: name,
+															 title: "\(type.symbol) \(type.name) - \(name)",
+															 description: info,
+															 contents: description,
 															 markup: nil)
 	}
 	
@@ -60,6 +62,7 @@ open class Event<HandleType: Handle> {
 		if self is EventRepresentible {
 			let spaceRep = self as! EventRepresentible
 			self.name = spaceRep.eventName
+			self.info = spaceRep.eventInfo
 			self.type = spaceRep.eventType
 		}
 	}
@@ -96,6 +99,29 @@ open class Event<HandleType: Handle> {
 	*/
 	open func test(handle: Handle) {
 		print("[#line:#function]\nYOU MUST INHERIT EVENTREPRESENTIBLE WHEN USING THE EVENT TYPE.  SEE, YOU MISSED THIS")
+	}
+	
+	/**
+	Resets the event to the Handle state that all types had at the beginning of the event execution
+	Use this if something goes wrong but is recoverable.
+	
+	- note: Use the message to print or send useful information about the issue.
+	*/
+	open func reset(message: String) {
+		print("\(tag.id) - \(self): Reset requested.  \"\(message)\"")
+		
+		self.queue.clear()
+		handle.baseRoute[["event"]]?.clearAll()
+		start(handle: handle)
+	}
+	
+	/**
+	Abrubtly exit from an event if something goes wrong and is unrecoverable.
+	
+	- note: Use the message to print or send useful information about the issue.
+	*/
+	open func abort(message: String) {
+		print("\(tag.id) - \(self): Abort requested.  \"\(message)\"")
 	}
 	
 	/**

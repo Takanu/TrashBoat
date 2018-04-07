@@ -4,15 +4,15 @@ import Foundation
 import Pelican
 
 /**
-A ChatSession proxy that allows access to events outside it's scope both limited sets of information required to
+A ChatSession proxy that allows access to events outside it's scope limited sets of information required to
 interact with the chat such as a Session router, as well as key information from the scenario itself
 like the active players and the current game state.
 
 Some of these properties can be modified, and the game scenario is expected to resolve modifications
 to the handle into the global game state once the event is over.
 
-- note: Most other SandBucket types expect a single Handle class, ensure you only have one Handle that can specifically
-handle your own needs.
+- note: Most other TrashBoat types expect a single Handle class, ensure you only have one Handle that can specifically
+handle your own needs for all of your application
 */
 public protocol Handle: class {
 	

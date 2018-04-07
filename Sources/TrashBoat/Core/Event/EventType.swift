@@ -3,7 +3,12 @@
 import Foundation
 
 /**
-Represents a type of `Event`.  Useful for standarising presentation, procedural sorting and event design and planning.
+Represents a type of `Event`.  Useful for standarising presentation, procedural sorting
+and event design and planning when handling large numbers of events that can be categorised
+into different purposes.
+
+Simpler games that have a linear series of events don't require this functionality and can
+all be categorised as one type.
 
 Once initialised, the contents are immutable.
 */
