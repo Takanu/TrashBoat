@@ -81,25 +81,35 @@ public class PointManager {
 		container.append(newInstance)
 	}
 	
-	/*
 	/**
 	Deducts the amount provided from a PointInstance this Manager is responsible for.
 	A PointInstance will be created if one does not yet exist for the specified type.
 	*/
 	public func deduct(type: PointType, amount: PointValue) {
 		
+		// Flip the amount.
+		var minusValue: PointValue
+		
+		switch amount {
+			
+		case .double(let double):
+			minusValue = .double(double * -1)
+			
+		case .int(let int):
+			minusValue = .int(int * -1)
+		}
+		
 		// Ensure this won't add a wallet of the same type
 		for instance in container {
 			if instance.type == type {
-				instance.add(amount)
+				instance.add(minusValue)
 			}
 		}
 		
 		// If not, add it!
-		let newInstance = type.instance.init(startAmount: amount)
+		let newInstance = type.instance.init(startAmount: minusValue)
 		container.append(newInstance)
 	}
-	*/
 	
 	/**
 	Removes and clears all PointInstance and PointReceipt types the manager has currently collected.
