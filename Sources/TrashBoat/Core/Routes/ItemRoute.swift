@@ -118,7 +118,7 @@ public class ItemRoute: Route {
 			results[set.type] = []
 			
 			// Disable VIEW MODE ONLY warnings for all selectors
-			selectors.forEach({ $0.flair.addFlair(set.type.fetchStatusFlair) })
+			selectors.forEach({ $0.flair.add(set.type.fetchStatusFlair) })
 		}
 		
 		self.enabled = true
@@ -211,7 +211,7 @@ public class ItemRoute: Route {
 		
 		// Enable VIEW MODE ONLY warnings for all selectors
 		for type in itemTypes {
-			selectors.forEach({ $0.flair.removeFlair(type.fetchStatusFlair, removeAll: true) })
+			selectors.forEach({ $0.flair.remove(type.fetchStatusFlair, removeAll: true) })
 		}
 		
 		// Clear out the item select options for every selected player

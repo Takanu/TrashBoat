@@ -21,11 +21,11 @@ public struct Flair: Hashable, Equatable, FlairRepresentible {
 	/// A generic dictionary that Flairs can use to record any kind of variables or states they need to.
 	public var payload: [String: Any] = [:]
 	
-	/// What flags this State is looking out for, in order to trigger it's `next` function.
+	/// What flags this State is looking out for, in order to trigger it's `action` function.
 	public var flags: [String] = []
 	
 	/// The function that's triggered
-	public var next: FlairOperation?
+	public var action: FlairOperation?
 	
 	/// If true, multiple instances of this state can be recorded and held by a system.
 	public var allowStacks: Bool = false
@@ -46,8 +46,8 @@ public struct Flair: Hashable, Equatable, FlairRepresentible {
 	- parameter category: The name of the category to be added.  Should always be defined in normal case to match the behaviour of ItemTypeTag and it's requirements.
 	- parameter name: The name of the flair to be added.  Should always be defined in normal case to match the behaviour of ItemTypeTag and it's requirements.
 	*/
-	public init(withName name: StringRepresentible,
-			 category: StringRepresentible) {
+	public init(withName name: StringRepresentible, category: StringRepresentible) {
+		
 		self.name = name.string()
 		self.category = category.string()
 	}
@@ -56,9 +56,9 @@ public struct Flair: Hashable, Equatable, FlairRepresentible {
 	Create a new State with additional options for stacking options.
 	*/
 	public init(withName name: StringRepresentible,
-			 category: StringRepresentible,
-			 payload: [String: Any]?,
-			 allowStacks: Bool) {
+							category: StringRepresentible,
+							payload: [String: Any]?,
+							allowStacks: Bool) {
 		
 		self.name = name.string()
 		self.category = category.string()
@@ -68,32 +68,33 @@ public struct Flair: Hashable, Equatable, FlairRepresentible {
 	
 	/**
 	Create a complex State that can both be search for using specific search terms, and triggered indirectly using flags.
+	
 	- parameter category: The name of the category to be added.  Should always be defined in normal case to match the behaviour of ItemTypeTag and it's requirements.
 	- parameter name: The name of the flair to be added.  Should always be defined in normal case to match the behaviour of ItemTypeTag and it's requirements.
-	- parameter flags: Labels that the flair should hold onto when the system it's in tries to find any flair to trigger.  If the flag a flair is holding matches any flag the trigger is looking for, the next() function of that flair will be triggered.
-	- parameter next: The function to be used if this flair is successfully triggered.
+	- parameter flags: Labels that the flair should hold onto when the FlairManager it's inside tries to find any flair to trigger.  If the flag a flair is holding matches any flag the trigger is looking for, the action() function of that flair will be triggered.
+	- parameter action: The function to be used if this flair is successfully triggered.
 	- parameter allowStacks: If true, when the flair is added to a FlairSystem for the first time, any duplicates that are also added will stack on top of each other.  Otherwise, they would be prevented from being added to the system.
 	- parameter triggerSimultaneously: If `allowStacks` is true and there is more than one identical Flair in any given system, if one of the Flairs is triggered then all of them will be triggered simultaneously.  If false, only the first Flair in the stack will be triggered.
 	- parameter payload: If you need
 	*/
 	public init(withName name: StringRepresentible,
-			 category: StringRepresentible,
-			 payload: [String: Any]?,
-			 flags: [StringRepresentible],
-			 next: @escaping FlairOperation,
-			 allowStacks: Bool,
-			 triggerSimultaneously: Bool) {
+							category: StringRepresentible,
+							payload: [String: Any]?,
+							flags: [StringRepresentible],
+							action: @escaping FlairOperation,
+							allowStacks: Bool,
+							triggerSimultaneously: Bool) {
 		
 		self.name = name.string()
 		self.category = category.string()
 		if payload != nil { self.payload = payload! }
 		self.flags = flags.map({ $0.string() })
-		self.next = next
+		self.action = action
 	}
 	
 	/**
 	Attempt to trigger the state by passing it flags.
-	- returns: True if a matching flag was found and the state had a next closure to trigger, false if not.
+	- returns: True if a matching flag was found and the state had a action closure to trigger, false if not.
 	*/
 	public func trigger(withHandle handle: Handle, flags inputFlags: [StringRepresentible]) -> FlairResponse? {
 		
@@ -102,8 +103,8 @@ public struct Flair: Hashable, Equatable, FlairRepresentible {
 		for flag in sortedInputFlags {
 			if self.flags.contains(flag) == true {
 				
-				if next != nil {
-					let response = next!(self, handle)
+				if action != nil {
+					let response = action!(self, handle)
 					return response
 				}
 				

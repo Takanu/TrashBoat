@@ -79,7 +79,7 @@ extension UserProxy {
 				
 				
 			// Add VIEW MODE warnings after the new state system is done.
-			else if flair.findFlair(chosenType!.fetchStatusFlair, compareContents: false) == false {
+			else if flair.find(chosenType!.fetchStatusFlair, compareContents: false) == false {
 				
 				// Build the warning
 				let warning = InlineResultArticle(id: String(1),
