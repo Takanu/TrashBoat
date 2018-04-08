@@ -29,13 +29,10 @@ public protocol Handle: class {
 	/// Records key events that have happened while unresolved to the Game Session.
 	var records: [EventRecord] { get set }
 	
-	// PANIC BUTTON
-	//func abort
-	
 }
 
 /**
-Defines a type that can resolve the contents of a given handle.
+Defines a type that can represent and resolve the contents of a given handle.
 */
 protocol HandleRepresentible {
 	

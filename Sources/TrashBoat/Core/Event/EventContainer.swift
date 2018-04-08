@@ -49,6 +49,13 @@ public class EventContainer<HandleType: Handle> {
 	
 	/**
 	Initialises the event and starts it.
+	
+	- parameter handle: The handle that the event will use to read and edit game states and send Telegram requests.
+	
+	- parameter exit: The closure that should be executed when the event finishes.
+	
+	- note: The event may end early if it has a `verify()` override that fails to verify the Handle state,
+	or if an error is encountered during the execution of the event.
 	*/
 	public func start(handle: HandleType, exit: @escaping EventExit) {
 		
@@ -56,11 +63,23 @@ public class EventContainer<HandleType: Handle> {
 		self.exit = exit
 		self.event!.flairs = flairs
 		
+		if let error = event!.verify(handle: handle) {
+			end(error: error)
+			return
+		}
+		
 		event!.start(handle: handle)
 	}
 	
 	/**
 	Tests the event, which asks the event to setup it's own state requirements before calling 'execute()'.
+	
+	- parameter handle: The handle that the event will use to read and edit game states and send Telegram requests.
+	
+	- parameter exit: The closure that should be executed when the event finishes.
+	
+	- note: The event may end early if it has a `verify()` override that fails to verify the Handle state,
+	or if an error is encountered during the execution of the event.
 	*/
 	public func test(handle: HandleType, exit: @escaping EventExit) {
 		
@@ -68,13 +87,18 @@ public class EventContainer<HandleType: Handle> {
 		self.exit = exit
 		self.event!.flairs = flairs
 		
+		if let error = event!.verify(handle: handle) {
+			end(error: error)
+			return
+		}
+		
 		event!.test(handle: handle)
 	}
 	
 	/**
 	Finishes the event, removing the reference and calling the exit() function.
 	*/
-	public func end(error: Error?) {
+	private func end(error: Error?) {
 		
 		if exit == nil {
 			print("HEY, THE EVENT CONTAINER FINISH WAS CALLED WHEN NO exit FUNCTION EXISTS.\n\n\(type.name) - \(name)")

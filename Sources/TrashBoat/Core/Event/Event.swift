@@ -74,6 +74,17 @@ open class Event<HandleType: Handle> {
 	}
 	
 	/**
+	Override this function to verify that the handle state is correct and can be utilised by this event.
+	When starting an event using an EventContainer type, it will always call this method to verify that
+	the game state is compatible with the event before continuing.
+	
+	- returns: An error type if verification failed, and nil if verification was successful.
+	*/
+	open func verify(handle: HandleType) -> Error? {
+		return nil
+	}
+	
+	/**
 	Starts the event by assigning it a game object and exiting closure.
 	*/
 	open func start(handle: HandleType) {
