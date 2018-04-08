@@ -22,6 +22,9 @@ public protocol PointInstance: CustomStringConvertible {
 	/// A textual description of the instance's value.
 	var description: String { get }
 	
+	/// A list of transactions that have occurred inside the instance.  Make sure the first one is the initialised start amount!
+	var transactions: [PointReceipt] { get set }
+	
 	
 	/**
 	A standard initialiser that's required for a PointInstance to be used with a PointManager.

@@ -65,8 +65,8 @@ extension UserProxy {
 				
 				cards.append(InlineResultArticle(id: String(1),
 																				 title: "You don't have any \(chosenType!.pluralisedName)",
-					description: "¯\\_(ツ)_/¯",
-					contents: "Shiny Inline Button - LIZARD BRAIN MUST PRESS", markup: nil)
+																				 description: "¯\\_(ツ)_/¯",
+																				 contents: "Shiny Inline Button - LIZARD BRAIN MUST PRESS", markup: nil)
 				)
 				
 				request.async.answerInlineQuery(queryID: String(update.id),

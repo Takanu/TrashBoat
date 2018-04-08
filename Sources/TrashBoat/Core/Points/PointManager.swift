@@ -15,7 +15,7 @@ public class PointManager {
 	public private(set) var container: [PointInstance] = []
 	
 	/// Defines an array of transactions that have occurred with the inventory wallet.
-	public private(set) var transactions: [PointReceipt] = []
+	public private(set) var transactions: [PointType: [PointReceipt]] = [:]
 	
 	public init() {}
 	
@@ -72,12 +72,14 @@ public class PointManager {
 		// Ensure this won't add a wallet of the same type
 		for instance in container {
 			if instance.type == type {
-				instance.add(amount)
+				let receipt = instance.add(amount)
+				addReceipt(receipt)
 			}
 		}
 		
 		// If not, add it!
 		let newInstance = type.instance.init(startAmount: amount)
+		transactions[type] = newInstance.transactions
 		container.append(newInstance)
 	}
 	
@@ -102,13 +104,32 @@ public class PointManager {
 		// Ensure this won't add a wallet of the same type
 		for instance in container {
 			if instance.type == type {
-				instance.add(minusValue)
+				let receipt = instance.add(minusValue)
+				addReceipt(receipt)
 			}
 		}
 		
 		// If not, add it!
 		let newInstance = type.instance.init(startAmount: minusValue)
+		transactions[type] = newInstance.transactions
 		container.append(newInstance)
+	}
+	
+	/**
+	Used by add and deduct functions to add a receipt to the receipts dictionary.
+	*/
+	private func addReceipt(_ receipt: PointReceipt?) {
+		
+		if receipt == nil { return }
+		
+		else {
+			if transactions[receipt!.type] == nil {
+				transactions[receipt!.type] = [receipt!]
+				
+			} else {
+				transactions[receipt!.type]!.append(receipt!)
+			}
+		}
 	}
 	
 	/**
