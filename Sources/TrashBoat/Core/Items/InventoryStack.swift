@@ -45,7 +45,7 @@ public class InventoryStack: Equatable {
 	/**
 	Creates a new InventoryStack based on the information of the item, and adds it to the stack.
 	*/
-	init(item: ItemRepresentible) {
+	public init(item: ItemRepresentible) {
 		self.itemName = item.name
 		self.itemType = item.type
 		self.itemInfo = item.info
@@ -57,7 +57,7 @@ public class InventoryStack: Equatable {
 	/**
 	Adds an item to the stack.
 	*/
-	func addItem(_ item: ItemRepresentible) {
+	public func add(_ item: ItemRepresentible) {
 		if item.name != itemName || item.type != itemType { return }
 		
 		items.append(item)
@@ -66,28 +66,28 @@ public class InventoryStack: Equatable {
 	/**
 	Returns a clone of every item being held in the stack.
 	*/
-	func cloneStack() -> [ItemRepresentible] {
+	public func cloneStack() -> [ItemRepresentible] {
 		return items.map({$0.clone()})
 	}
 	
 	/**
 	Returns a clone of the first item in the stack.
 	*/
-	func cloneFirst() -> ItemRepresentible {
+	public func cloneFirst() -> ItemRepresentible {
 		return items.first!.clone()
 	}
 	
 	/**
 	Returns a clone of a random item in the stack.
 	*/
-	func cloneRandom() -> ItemRepresentible {
+	public func cloneRandom() -> ItemRepresentible {
 		return items.getRandom!.clone()
 	}
 	
 	/**
 	Returns and removes the first item from the stack if it has any.  The item being requested must match the item held by the stack.
 	*/
-	func removeItem() -> ItemRepresentible? {
+	public func removeFirstItem() -> ItemRepresentible? {
 		//if item.name != name || item.itemType != type { return nil }
 		
 		if isUnlimited == true {
@@ -115,7 +115,7 @@ public class InventoryStack: Equatable {
 	/**
 	Returns and removes a random item from the stack if any are available.  The item being requested must match the item held by the stack.
 	*/
-	func removeRandomItem() -> ItemRepresentible? {
+	public func removeRandomItem() -> ItemRepresentible? {
 		//if item.name != name || item.itemType != type { return nil }
 		
 		if isUnlimited == true {

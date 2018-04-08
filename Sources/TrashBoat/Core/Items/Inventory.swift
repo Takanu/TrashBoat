@@ -82,7 +82,7 @@ public class Inventory {
 			for stack in stacks {
 				
 				if stack.itemName == item.name {
-					stack.addItem(item)
+					stack.add(item)
 					
 					if makeUnlimitedStacks == true {
 						stack.isUnlimited = true
@@ -268,7 +268,7 @@ public class Inventory {
 		for (i, stack) in stacks.enumerated() {
 			if stack.itemName == name.string() {
 				
-				let retrievedItem = stack.removeItem()
+				let retrievedItem = stack.removeFirstItem()
 				
 				// If the stack count is down to 0 and the item is not unlimited, remove it.
 				if stack.isEmpty == true {
