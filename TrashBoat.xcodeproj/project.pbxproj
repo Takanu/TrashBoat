@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		505A4BE5206A3B010072D040 /* FlairRepresentible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 505A4BE4206A3B010072D040 /* FlairRepresentible.swift */; };
+		5066FCF02079F6080014414A /* EventExit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5066FCEF2079F6080014414A /* EventExit.swift */; };
 		5097842F206B0F680030D7A1 /* UserProxy+InlineQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5097842D206B0EFA0030D7A1 /* UserProxy+InlineQuery.swift */; };
 		50978435206B324D0030D7A1 /* PointValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50978434206B324D0030D7A1 /* PointValue.swift */; };
 		OBJ_277 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_6 /* Package.swift */; };
@@ -234,6 +235,7 @@
 
 /* Begin PBXFileReference section */
 		505A4BE4206A3B010072D040 /* FlairRepresentible.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlairRepresentible.swift; sourceTree = "<group>"; };
+		5066FCEF2079F6080014414A /* EventExit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventExit.swift; sourceTree = "<group>"; };
 		5097842D206B0EFA0030D7A1 /* UserProxy+InlineQuery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserProxy+InlineQuery.swift"; sourceTree = "<group>"; };
 		50978434206B324D0030D7A1 /* PointValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointValue.swift; sourceTree = "<group>"; };
 		OBJ_100 /* InlineQuery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InlineQuery.swift; sourceTree = "<group>"; };
@@ -561,6 +563,7 @@
 				OBJ_17 /* EventRecord.swift */,
 				OBJ_18 /* EventRepresentible.swift */,
 				OBJ_19 /* EventType.swift */,
+				5066FCEF2079F6080014414A /* EventExit.swift */,
 			);
 			path = Event;
 			sourceTree = "<group>";
@@ -1367,6 +1370,7 @@
 				OBJ_305 /* FlairResponse.swift in Sources */,
 				OBJ_306 /* FlairStack.swift in Sources */,
 				OBJ_307 /* FlairManager.swift in Sources */,
+				5066FCF02079F6080014414A /* EventExit.swift in Sources */,
 				OBJ_308 /* GenBump.swift in Sources */,
 				OBJ_309 /* Generator.swift in Sources */,
 				OBJ_310 /* GeneratorOption.swift in Sources */,

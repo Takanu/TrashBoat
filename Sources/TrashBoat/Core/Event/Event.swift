@@ -14,6 +14,7 @@ initialise the event only when needed.
 */
 open class Event<HandleType: Handle> {
 	
+	
 	/// The name of the event
 	public private(set) var name: String = "Untitled"
 	
@@ -45,8 +46,11 @@ open class Event<HandleType: Handle> {
 	/// The flairs influencing an event.  These should typically be set before the event begins by an EventContainer.
 	public lazy var flairs = FlairManager()
 	
+	/// If true, the state of the game is in Test Mode, and the event should make sure it's interface accommodates for a single test user.
+	public var testMode: Bool = false
+	
 	/// What the event should call once it is finished.
-	private var next: (() -> ())
+	private var next: EventExit
 	
 	/** Returns an inline card that represents the event in a standardised format.
 	- note: Change the ID value set before use. */
@@ -58,7 +62,7 @@ open class Event<HandleType: Handle> {
 															 markup: nil)
 	}
 	
-	required public init(next: @escaping () -> ()) {
+	required public init(next: @escaping EventExit) {
 		
 		self.next = next
 		
@@ -79,6 +83,7 @@ open class Event<HandleType: Handle> {
 		self.queue = handle.queue
 		self.baseRoute = handle.baseRoute
 		self.tag = handle.tag
+		self.testMode = handle.testMode
 		
 		handle.baseRoute[["event"]]?.clearAll()
 		handle.queue.clear()
@@ -110,8 +115,8 @@ open class Event<HandleType: Handle> {
 	
 	- note: Use the message to print or send useful information about the issue.
 	*/
-	open func reset(message: String) {
-		print("\(tag.id) - \(self): Reset requested.  \"\(message)\"")
+	open func reset(_ error: Error?) {
+		print("\(tag.id) - \(self): Reset requested.  \"\(error.debugDescription)\"")
 		
 		self.queue.clear()
 		handle.baseRoute[["event"]]?.clearAll()
@@ -123,12 +128,23 @@ open class Event<HandleType: Handle> {
 	
 	- note: Use the message to print or send useful information about the issue.
 	*/
-	open func abort(message: String) {
-		print("\(tag.id) - \(self): Abort requested.  \"\(message)\"")
+	open func abort(_ error: Error?) {
+		print("\(tag.id) - \(self): Abort requested.  \"\(error.debugDescription)\"")
+		
+		self.queue.clear()
+		handle.baseRoute[["event"]]?.clearAll()
+		
+		// Clear references to the event for memory deallocation purposes.
+		handle = nil
+		request = nil
+		queue = nil
+		baseRoute = nil
+		
+		next(error)
 	}
 	
 	/**
-	A required function to call in order to end the event and pass back control of the game to PartySession.
+	A required function to call in order to end the event and pass back control of the game to the function that called it.
 	*/
 	open func end(playerTrigger: UserProxy?, participants: [UserProxy]?) {
 		
@@ -147,7 +163,7 @@ open class Event<HandleType: Handle> {
 		baseRoute = nil
 		
 		// Exit
-		next()
+		next(nil)
 	}
 }
 

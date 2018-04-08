@@ -23,6 +23,10 @@ public protocol Handle: class {
 	var baseRoute: Route { get set }
 	
 	// GAME STATE
+	/// Use this to let any events know that you're running a test, and to configure their event interface appropriately.
+	var testMode: Bool { get set }
+	
+	/// Records key events that have happened while unresolved to the Game Session.
 	var records: [EventRecord] { get set }
 	
 	// PANIC BUTTON

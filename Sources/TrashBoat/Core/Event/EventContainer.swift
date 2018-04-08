@@ -28,7 +28,7 @@ public class EventContainer<HandleType: Handle> {
 	private var event: Event<HandleType>?
 	
 	/// The function to be called next when the event is finished.  If nil, the event either hasn't started, or it has finished.
-	public var next: ( () -> () )?
+	public var next: EventExit?
 	
 	/// The flairs influencing an event.  When an event is executed, the flairs set here will be passed onto the event.
 	public lazy var flairs = FlairManager()
@@ -40,7 +40,7 @@ public class EventContainer<HandleType: Handle> {
 		
 		/// Initialise the event temporarily to extract the juicy bits.
 		self.eventType = event
-		let event = event.init(next: {})
+		let event = event.init(next: {_ in})
 		
 		self.name = event.name
 		self.info = event.info
@@ -50,9 +50,9 @@ public class EventContainer<HandleType: Handle> {
 	/**
 	Initialises the event and starts it.
 	*/
-	public func start(handle: HandleType, next: @escaping () -> ()) {
+	public func start(handle: HandleType, next: @escaping EventExit) {
 		
-		self.event = self.eventType.init(next: self.finish)
+		self.event = self.eventType.init(next: self.end)
 		self.next = next
 		self.event!.flairs = flairs
 		
@@ -62,9 +62,9 @@ public class EventContainer<HandleType: Handle> {
 	/**
 	Tests the event, which asks the event to setup it's own state requirements before calling 'execute()'.
 	*/
-	public func test(handle: HandleType, next: @escaping () -> ()) {
+	public func test(handle: HandleType, next: @escaping EventExit) {
 		
-		self.event = self.eventType.init(next: self.finish)
+		self.event = self.eventType.init(next: self.end)
 		self.next = next
 		self.event!.flairs = flairs
 		
@@ -74,7 +74,7 @@ public class EventContainer<HandleType: Handle> {
 	/**
 	Finishes the event, removing the reference and calling the next() function.
 	*/
-	public func finish() {
+	public func end(error: Error?) {
 		
 		if next == nil {
 			print("HEY, THE EVENT CONTAINER FINISH WAS CALLED WHEN NO NEXT FUNCTION EXISTS.\n\n\(type.name) - \(name)")
@@ -85,7 +85,7 @@ public class EventContainer<HandleType: Handle> {
 			self.event = nil
 			self.next = nil
 			
-			nextCopy()
+			nextCopy(error)
 		}
 	}
 }
