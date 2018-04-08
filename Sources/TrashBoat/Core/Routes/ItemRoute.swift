@@ -158,7 +158,7 @@ public class ItemRoute: Route {
 					let chosenItemInfo = itemTypeSet.values.filter({_ in return true})[i]
 					
 					// Request the item from the player's inventory and add it to the results if not nil.
-					let fetchedItem = player.inventory.removeItem(type: chosenItemInfo.type.name, name: chosenItemInfo.name)
+					let fetchedItem = player.inventory.removeItem(name: chosenItemInfo.name, type: chosenItemInfo.type.name)
 					
 					if fetchedItem != nil {
 						results[type]!.append((player, fetchedItem))

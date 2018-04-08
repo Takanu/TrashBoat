@@ -3,8 +3,8 @@ import Foundation
 import Pelican
 
 /**
-This type represents a single collectible item type in your game.
-Types that conform to this protocol can be both collected and used by a UserProxy.
+This type represents a single collectible item in your game.
+Types that conform to this protocol can be both collected and distributed by an `Inventory` and an `InventoryStack`.
 */
 public protocol ItemRepresentible {
 	
@@ -17,13 +17,13 @@ public protocol ItemRepresentible {
 	/// A brief description of the item.  I mean if you want (but as it's a protocol you kind of have to).
 	var description: String { get }
 	
-	/// This retrieves the full name of the item.  As the name will likely not include the type, this is useful for making a full declaration of what the item is.
+	/// Retrieves the full name of the item.  As the name will likely not include the type, this is useful for making a full declaration of what the item is.
 	func getFullName() -> String
 	
-	/// This retrieves an inline card for the item, allowing an item to represent itself in an inline menu.
+	/// Retrieves an inline card for the item, allowing an item to represent itself in an inline menu.
 	func getInlineCard() -> InlineResultArticle
 	
-	/// This function must clone the item and return a new instance.  Used for infinite staaaacccckkkkss.
+	/// Return a new instance that copies all the properties of the instance it's called on.  Used for infinite staaacckkkss when added to an `Inventory`.
 	func clone() -> ItemRepresentible
 	
 }

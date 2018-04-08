@@ -4,7 +4,19 @@ import Foundation
 import Pelican
 
 /**
-Defines a simple and lightweight system for organising and managing items belonging to a player.
+Defines a simple and lightweight system for organising and managing items belonging to any type.
+Combine `Inventory` with `ItemRoute` and the `inlineItems` UserProxy route handler for a streamlined
+way to both let players view items through inline queries, and request them from the game once sent
+as messages.
+
+---
+
+Items added are organised into arrays of `InventoryStack` types where one Item Type will have it's own
+array of stacks.  An `InventoryStack` is an internal system that keeps track of item counts and will
+add items to the top of the stack and remove items from the bottom of the stack (AKA - a First In First Out queue).
+
+Stacks can also be declared as unlimited using the `isUnlimited` boolean and using `add` and `modifyStack` method
+properties, that will prevent item removal and instead clone an item from the stack every time one is requested from it.
 */
 public class Inventory {
 	
@@ -13,11 +25,12 @@ public class Inventory {
 	public private(set) var items: [ItemTypeTag: [InventoryStack] ] = [:]
 	
 	// RECORD
+	// I currently have no design or purpose for this, it doesn't immediately have a use or design like Point does.
 	/// Defines an array of transactions that have occurred with items held in the inventory.
-	public private(set) var itemTransactions: [String] = []
+	//public private(set) var transactions: [String] = []
 	
 	// FLAIR DEFINITIONS
-	/// Defines the flair category that collects what items players are currently able to use.  Should be used in conjunction with UserProxy and ItemRoute.
+	/// Defines the flair category used to collect items that players are currently able to use.  Should be used in conjunction with UserProxy and ItemRoute.
 	static var fetchStatusCategory = "Item Usage"
 	
 	// MODIFIERS
@@ -35,7 +48,7 @@ public class Inventory {
 	Adds an item type to the inventory system, before any items from that type are added.
 	This enables an inventory to provide better feedback in inline menus if the player has no items of that type.
 	*/
-	public func addItemType(_ type: ItemTypeTag) {
+	public func addType(_ type: ItemTypeTag) {
 		
 		/// Check that the item has a type category
 		if items.keys.contains(type) == false {
@@ -44,9 +57,17 @@ public class Inventory {
 	}
 	
 	/**
-	Adds an item to the player's inventory.
+	Adds one or more items to the inventory system.  Type keys and `InventoryStack` types will automatically be
+	generated for items that require it.
+	
+	- parameter makeUnlimitedStacks: If true, the stacks of any items you add will become an "unlimited stack".
+	This prevents the stack from removing the finite items it stores and instead will clone an item from it
+	every time one is requested (typically from the front of the stack).
+	
+	- parameter incomingItems: The items you wish to add to this inventory.  If any items already have a stack
+	associated with them in the inventory they will be added to it.
 	*/
-	public func addItems(_ incomingItems: [ItemRepresentible]) {
+	public func add(makeUnlimitedStacks: Bool = false, _ incomingItems: ItemRepresentible...) {
 		
 		for item in incomingItems {
 		
@@ -62,6 +83,11 @@ public class Inventory {
 				
 				if stack.itemName == item.name {
 					stack.addItem(item)
+					
+					if makeUnlimitedStacks == true {
+						stack.isUnlimited = true
+					}
+					
 					items[item.type] = stacks
 					itemAdded = true
 					break
@@ -70,16 +96,43 @@ public class Inventory {
 			
 			// If we're here, we need to make a new stack
 			if itemAdded == false {
-				stacks.append(InventoryStack(item: item))
+				let newStack = InventoryStack(item: item)
+				
+				if makeUnlimitedStacks == true {
+					newStack.isUnlimited = true
+				}
+				
+				stacks.append(newStack)
 				items[item.type] = stacks
 			}
 		}
 	}
 	
 	/**
-	Changes the behaviour of a stack of any given item, if it already exists as a stack.
+	Adds one or more items to the inventory system.  Type keys and `InventoryStack` types will automatically be
+	generated for items that require it.
+	
+	- parameter makeUnlimitedStacks: If true, the stacks of any items you add will become an "unlimited stack".
+	This prevents the stack from removing the finite items it stores and instead will clone an item from it
+	every time one is requested (typically from the front of the stack).
+	
+	- parameter incomingItems: The items you wish to add to this inventory.  If any items already have a stack
+	associated with them in the inventory they will be added to it.
 	*/
-	public func modifyStack(ofItem item: ItemRepresentible, useUnlimitedStack: Bool) {
+	public func add(makeUnlimitedStacks: Bool = false, _ incomingItems: [ItemRepresentible]) {
+		add(makeUnlimitedStacks: makeUnlimitedStacks, incomingItems)
+	}
+	
+	
+	/**
+	Changes the behaviour of a stack of any given item, if it already exists as a stack.
+	
+	- parameter ofItem: The item whose stack you wish to edit.  It is not guaranteed that a
+	stack exists for the item.
+	- parameter makeStackUnlimited: If true, the stack will no longer show a quantity when retrieving
+	items from it, and will always copy an item from the front of the stack when it is asked to return an item.
+	*/
+	public func editStack(ofItem item: ItemRepresentible, makeStackUnlimited: Bool) {
 		/// Check that the item has a type category
 		if items.keys.contains(item.type) == false {
 			items[item.type] = []
@@ -90,15 +143,16 @@ public class Inventory {
 		for stack in stacks {
 			
 			if stack.itemName == item.name {
-				stack.isUnlimited = useUnlimitedStack
+				stack.isUnlimited = makeStackUnlimited
 			}
 		}
 	}
 	
 	
 	/**
-	Checks to see if this item is in the player's inventory.
-	- returns: True if the player has the item, false if not.
+	Check to see if this item is in the inventory system.
+	
+	- returns: True if the inventory has the item, false if not.
 	*/
 	public func hasItem(_ item: ItemRepresentible) -> Bool {
 		
@@ -118,7 +172,7 @@ public class Inventory {
 	}
 	
 	/**
-	Returns every type where the inventory has at least one item belonging to it.
+	Returns every item type the inventory is currently storing at least one item from.
 	*/
 	public func getAllTypes() -> [ItemTypeTag] {
 		
@@ -149,7 +203,9 @@ public class Inventory {
 	
 	/**
 	Returns one of every item the inventory is currently storing of a given type as an info tag.
-	- note: This retrieval does not remove the item from the inventory, all items retrieved are copied from their respective stacks.
+	
+	- note: This retrieval does not remove the item from the inventory, only item information
+	is extracted.
 	*/
 	public func getItemInfo(forType type: StringRepresentible) -> [ItemInfoTag]? {
 		
@@ -171,8 +227,10 @@ public class Inventory {
 	}
 	
 	/**
-	Copies and returns one of every item the inventory is currently storing of the provided type.
-	- note: In order to avoid item count issues, try to avoid copying items - use item info instead.
+	Copies and returns one of every item the inventory is currently storing of the provided type, from the
+	**front of each stack.**  This will not reduce the stack count of the items requested.
+	
+	- note: In order to avoid item count issues, try to avoid copying items - use item info tags instead.
 	*/
 	public func getItemCopies(forType type: StringRepresentible) -> [ItemRepresentible]? {
 		
@@ -186,7 +244,7 @@ public class Inventory {
 		
 		for stack in stacks {
 			if stack.count != 0 {
-				result.append(stack.cloneItem())
+				result.append(stack.cloneFirst())
 			}
 		}
 		
@@ -195,9 +253,11 @@ public class Inventory {
 	
 	
 	/**
-	Returns and removes an item from the player's inventory if they own it.
+	Returns and removes an item from the inventory if found.
+	
+	If removing the item would reduce the stack count to zero, the stack is removed from the inventory.
 	*/
-	public func removeItem(type: StringRepresentible, name: StringRepresentible) -> ItemRepresentible? {
+	public func removeItem(name: StringRepresentible, type: StringRepresentible) -> ItemRepresentible? {
 		
 		/// Check that the type category is stored, and if not return nil.
 		if items.keys.contains(where: {$0.name == type.string()}) == false { return nil }
@@ -227,16 +287,25 @@ public class Inventory {
 	}
 	
 	/**
-	Returns and removes an item from the player's inventory if they own it.
+	Returns and removes an item from the inventory if found, using another instance of the item.
 	*/
 	public func removeItem(_ item: ItemRepresentible) -> ItemRepresentible? {
-		return removeItem(type: item.type.name, name: item.name)
+		return removeItem(name: item.name, type: item.type.name)
 	}
 	
 	/**
-	Returns and removes an item from the player's inventory if they own it, at a random position in the stack.
+	Returns and removes an item from the inventory if found, using an ItemInfoTag.
 	*/
-	public func removeRandomItem(type: StringRepresentible, name: StringRepresentible) -> ItemRepresentible? {
+	public func removeItem(withInfo info: ItemInfoTag) -> ItemRepresentible? {
+		return removeItem(name: info.name, type: info.type.name)
+	}
+	
+	/**
+	Returns and removes an item from the inventory if found, at a random position in the stack.
+	
+	This differs from `removeItem` as those related functions only remove items from the front of the stack.
+	*/
+	public func removeRandomItem(name: StringRepresentible, type: StringRepresentible) -> ItemRepresentible? {
 		
 		/// Check that the type category is stored, and if not return nil.
 		if items.keys.contains(where: {$0.name == type.string()}) == false { return nil }
@@ -266,10 +335,17 @@ public class Inventory {
 	}
 	
 	/**
-	Returns and removes an item from the player's inventory if they own it, at a random position in the stack.
+	Returns and removes an item from the inventory if found, at a random position in the item stack.
 	*/
 	public func removeRandomItem(_ item: ItemRepresentible) -> ItemRepresentible? {
-		return removeRandomItem(type: item.type.name, name: item.name)
+		return removeRandomItem(name: item.name, type: item.type.name)
+	}
+	
+	/**
+	Returns and removes an item from the inventory if found, at a random position in the item stack.
+	*/
+	public func removeRandomItem(withInfo info: ItemInfoTag) -> ItemRepresentible? {
+		return removeRandomItem(name: info.name, type: info.type.name)
 	}
 	
 	/**
@@ -317,11 +393,12 @@ public class Inventory {
 	
 	/**
 	Removes all items of a given type from the inventory.
+	
 	- parameter forType: The type of items you want to retrieve from the inventory.
-	- parameter includeUnlimitedStack: If true, any item with an unlimited stack will be removed.  Otherwise, it will remain in the inventory.
+	- parameter includeUnlimitedStacks: If true, any item with an unlimited stack will be removed.  Otherwise, it will remain in the inventory.
 	- returns: An array of all the items of this type if the player has at least one item belonging to it.
 	*/
-	public func removeAllItems(forType type: ItemTypeTag, includeUnlimitedStack: Bool) -> [ItemRepresentible]? {
+	public func removeAllItems(forType type: ItemTypeTag, includeUnlimitedStacks: Bool) -> [ItemRepresentible]? {
 		
 		/// Check that the type category is stored, and if not return nil.
 		if items.keys.contains(type) == false { return nil }
@@ -333,7 +410,7 @@ public class Inventory {
 		for stack in inventorySet {
 			
 			// If the stack is unlimited but we can't remove unlimited stacks, continue
-			if stack.isUnlimited == true && includeUnlimitedStack == false {
+			if stack.isUnlimited == true && includeUnlimitedStacks == false {
 				continue
 				
 			} else {
@@ -355,11 +432,11 @@ public class Inventory {
 	}
 	
 	/**
-	Clears an inventory including all wallet currencies and items.  Weeewwwww.
+	Clears all items stored in an inventory.  Weeewwwww.
 	*/
 	public func clear() {
 		
 		items.removeAll()
-		itemTransactions.removeAll()
+		//transactions.removeAll()
 	}
 }

@@ -149,7 +149,7 @@ public class Reward {
 		
 		// Pass on the new items!
 		for (index, item) in finalItems.enumerated() {
-			player.inventory.addItems(item.value)
+			player.inventory.add(item.value)
 			
 			
 			/// BUILD FANCY MESSAGE

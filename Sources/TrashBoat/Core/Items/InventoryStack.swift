@@ -8,6 +8,7 @@ Manages an array of items that share the same item type and name.
 */
 public class InventoryStack: Equatable {
 	
+	// ITEM INFO
 	/// The name of the item, as listed in the object.
 	public private(set) var itemName: String
 	
@@ -24,6 +25,7 @@ public class InventoryStack: Equatable {
 	public private(set) var itemCard: InlineResultArticle
 	
 	
+	// STACK PROPERTIES
 	/// The stack of items that make up this InventoryStack.
 	private var items: [ItemRepresentible] = []
 	
@@ -71,8 +73,15 @@ public class InventoryStack: Equatable {
 	/**
 	Returns a clone of the first item in the stack.
 	*/
-	func cloneItem() -> ItemRepresentible {
+	func cloneFirst() -> ItemRepresentible {
 		return items.first!.clone()
+	}
+	
+	/**
+	Returns a clone of a random item in the stack.
+	*/
+	func cloneRandom() -> ItemRepresentible {
+		return items.getRandom!.clone()
 	}
 	
 	/**
@@ -111,7 +120,7 @@ public class InventoryStack: Equatable {
 		
 		if isUnlimited == true {
 			if count > 0 {
-				return items[0].clone()
+				return cloneRandom()
 				
 			}
 			else {

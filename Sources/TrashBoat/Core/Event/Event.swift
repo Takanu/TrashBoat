@@ -9,8 +9,7 @@ and player requests, enabling clearer and more readable event scripting without 
 your own properties and shortcuts for event scripting.
 
 - warning: Subclasses should __always__ inherit the `EventRepresentible` protocol to define the event's core properties and methods,
-and __almost always__ be initialised as part of an `EventContainer` to isolate event code and game states from unexpected changes, and to
-initialise the event only when needed.
+and __almost always__ be initialised as part of an `EventContainer` to isolate event code and game states from unexpected changes.
 */
 open class Event<HandleType: Handle> {
 	
