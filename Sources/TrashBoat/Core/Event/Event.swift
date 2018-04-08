@@ -50,7 +50,7 @@ open class Event<HandleType: Handle> {
 	public var testMode: Bool = false
 	
 	/// What the event should call once it is finished.
-	private var next: EventExit
+	private var exit: EventExit
 	
 	/** Returns an inline card that represents the event in a standardised format.
 	- note: Change the ID value set before use. */
@@ -62,9 +62,9 @@ open class Event<HandleType: Handle> {
 															 markup: nil)
 	}
 	
-	required public init(next: @escaping EventExit) {
+	required public init(exit: @escaping EventExit) {
 		
-		self.next = next
+		self.exit = exit
 		
 		if self is EventRepresentible {
 			let spaceRep = self as! EventRepresentible
@@ -113,7 +113,8 @@ open class Event<HandleType: Handle> {
 	Resets the event to the Handle state that all types had at the beginning of the event execution
 	Use this if something goes wrong but is recoverable.
 	
-	- note: Use the message to print or send useful information about the issue.
+	- note: Use the message to print or send useful information about the issue.  Overriding is recommended to
+	implement custom state changes and cleanup operations.
 	*/
 	open func reset(_ error: Error?) {
 		print("\(tag.id) - \(self): Reset requested.  \"\(error.debugDescription)\"")
@@ -126,7 +127,8 @@ open class Event<HandleType: Handle> {
 	/**
 	Abrubtly exit from an event if something goes wrong and is unrecoverable.
 	
-	- note: Use the message to print or send useful information about the issue.
+	- note: Use the message to print or send useful information about the issue.  Overriding is recommended to
+	implement custom state changes and cleanup operations.
 	*/
 	open func abort(_ error: Error?) {
 		print("\(tag.id) - \(self): Abort requested.  \"\(error.debugDescription)\"")
@@ -140,7 +142,7 @@ open class Event<HandleType: Handle> {
 		queue = nil
 		baseRoute = nil
 		
-		next(error)
+		exit(error)
 	}
 	
 	/**
@@ -163,7 +165,7 @@ open class Event<HandleType: Handle> {
 		baseRoute = nil
 		
 		// Exit
-		next(nil)
+		exit(nil)
 	}
 }
 

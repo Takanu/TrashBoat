@@ -27,8 +27,8 @@ public class EventContainer<HandleType: Handle> {
 	/// The live event instance.  If nil, the event either hasn't started, or it has finished.
 	private var event: Event<HandleType>?
 	
-	/// The function to be called next when the event is finished.  If nil, the event either hasn't started, or it has finished.
-	public var next: EventExit?
+	/// The function to be called exit when the event is finished.  If nil, the event either hasn't started, or it has finished.
+	public var exit: EventExit?
 	
 	/// The flairs influencing an event.  When an event is executed, the flairs set here will be passed onto the event.
 	public lazy var flairs = FlairManager()
@@ -40,7 +40,7 @@ public class EventContainer<HandleType: Handle> {
 		
 		/// Initialise the event temporarily to extract the juicy bits.
 		self.eventType = event
-		let event = event.init(next: {_ in})
+		let event = event.init(exit: {_ in})
 		
 		self.name = event.name
 		self.info = event.info
@@ -50,10 +50,10 @@ public class EventContainer<HandleType: Handle> {
 	/**
 	Initialises the event and starts it.
 	*/
-	public func start(handle: HandleType, next: @escaping EventExit) {
+	public func start(handle: HandleType, exit: @escaping EventExit) {
 		
-		self.event = self.eventType.init(next: self.end)
-		self.next = next
+		self.event = self.eventType.init(exit: self.end)
+		self.exit = exit
 		self.event!.flairs = flairs
 		
 		event!.start(handle: handle)
@@ -62,30 +62,30 @@ public class EventContainer<HandleType: Handle> {
 	/**
 	Tests the event, which asks the event to setup it's own state requirements before calling 'execute()'.
 	*/
-	public func test(handle: HandleType, next: @escaping EventExit) {
+	public func test(handle: HandleType, exit: @escaping EventExit) {
 		
-		self.event = self.eventType.init(next: self.end)
-		self.next = next
+		self.event = self.eventType.init(exit: self.end)
+		self.exit = exit
 		self.event!.flairs = flairs
 		
 		event!.test(handle: handle)
 	}
 	
 	/**
-	Finishes the event, removing the reference and calling the next() function.
+	Finishes the event, removing the reference and calling the exit() function.
 	*/
 	public func end(error: Error?) {
 		
-		if next == nil {
-			print("HEY, THE EVENT CONTAINER FINISH WAS CALLED WHEN NO NEXT FUNCTION EXISTS.\n\n\(type.name) - \(name)")
+		if exit == nil {
+			print("HEY, THE EVENT CONTAINER FINISH WAS CALLED WHEN NO exit FUNCTION EXISTS.\n\n\(type.name) - \(name)")
 			return
 			
 		} else {
-			let nextCopy = next!
+			let exitCopy = exit!
 			self.event = nil
-			self.next = nil
+			self.exit = nil
 			
-			nextCopy(error)
+			exitCopy(error)
 		}
 	}
 }
