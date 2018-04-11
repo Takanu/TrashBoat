@@ -22,10 +22,10 @@ public class PlayerRoute: Route {
 	/** A set of targets corresponding to each selector (player that is able to pick a player), with
 	the string that's used by the route handler to identify them by.  If anonymised, the string will
 	be a unique key that will be unrelated to the player name. */
-	public var routedTargets: [Int: [String: UserProxy]] = [:]
+	public var routedTargets: [String: [String: UserProxy]] = [:]
 	
 	/// The player list available to select from.  This list will be used to match players to the articles they should have access to.
-	public var articles: [Int:[InlineResultArticle]] = [:]
+	public var articles: [String: [InlineResultArticle]] = [:]
 	
 	
 	// OPTIONS
@@ -126,11 +126,11 @@ public class PlayerRoute: Route {
 				for i in 0..<availableTargets.count {
 					let newLabel = newLabels[i]
 					let newTarget = availableTargets[i]
-					let newArticle = targetArticles[i]
+					var newArticle = targetArticles[i]
 					
-					let inputText = newArticle.content!.base as! InputMessageContent_Text
-					inputText.text = newLabel
-					newArticle.content = InputMessageContent(content: inputText)
+					let inputContent = newArticle.content!.base as! InputMessageContent_Text
+					let newInputText = InputMessageContent_Text(text: inputContent.text, parseMode: "Markdown", disableWebPreview: true)
+					newArticle.content = InputMessageContent(content: newInputText)
 					
 					modifiedArticles.append(newArticle)
 					targetSet[newLabel] = newTarget

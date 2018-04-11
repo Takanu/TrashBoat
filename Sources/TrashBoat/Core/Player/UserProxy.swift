@@ -29,12 +29,12 @@ public protocol UserProxy: class {
 	var baseRoute: Route { get set }
 	
 	/// The request type of the UserSession this proxy belongs to.
-	var request: SessionRequest { get set }
+	var request: MethodRequest { get set }
 	
 	
 	// CONVENIENCES
 	/// The unique identifier for the user.
-	var id: Int { get }
+	var id: String { get }
 	
 	/// User's or bot's first name.
 	var firstName: String { get }

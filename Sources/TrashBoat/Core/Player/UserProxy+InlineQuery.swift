@@ -81,19 +81,23 @@ extension UserProxy {
 			// Add VIEW MODE warnings after the new state system is done.
 			else if flair.find(chosenType!.fetchStatusFlair, compareContents: false) == false {
 				
+				var shuffledCards: [InlineResultArticle] = []
+				
 				// Build the warning
 				let warning = InlineResultArticle(id: String(1),
 																					title: "V I E W   M O D E   O N L Y",
 																					description: "You can't currently use charms for a turn, feel free to browse them though :)",
 																					contents: "Shiny Inline Button - LIZARD BRAIN MUST PRESS", markup: nil)
+				shuffledCards.append(warning)
 				
 				// Amend the other cards
 				for (i, card) in cards.enumerated() {
-					card.tgID = String(i + 2)
+					var newCard = card
+					newCard.tgID = String(i + 2)
+					shuffledCards.append(newCard)
 				}
 				
-				// Insert the warning
-				cards.insert(warning, at: 0)
+				cards = shuffledCards
 			}
 			
 			

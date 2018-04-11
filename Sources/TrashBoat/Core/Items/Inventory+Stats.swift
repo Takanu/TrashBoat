@@ -24,7 +24,7 @@ extension Inventory {
 			// Modify the ID to ensure they are unique
 			let cardContents = stack.itemCard.content!.base as! InputMessageContent_Text
 			let cardRef = stack.itemCard
-			let newCard = InlineResultArticle(id: String(i + 1),
+			var newCard = InlineResultArticle(id: String(i + 1),
 																				title: cardRef.title,
 																				description: cardRef.description ?? "",
 																				contents: cardContents.text,

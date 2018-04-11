@@ -23,10 +23,10 @@ public class ItemRoute: Route {
 	/** Stores the generated Inline Results for all the items a selected player has (within the
 	types that can be selected), with an invisible marker that prevents selection outside of
 	inline queries.  */
-	public var routedItems: [Int: [ItemTypeTag: [String: ItemInfoTag]]] = [:]
+	public var routedItems: [String: [ItemTypeTag: [String: ItemInfoTag]]] = [:]
 	
 	/// Stores the custom-made inline cards for each player.
-	public var routedCards: [Int: [ItemTypeTag: [InlineResultArticle]]] = [:]
+	public var routedCards: [String: [ItemTypeTag: [InlineResultArticle]]] = [:]
 	
 	/// The next function associated with each item type, if the result count associated with them matches their result count.
 	public var requestExits: [ItemTypeTag: (() -> ())? ] = [:]
@@ -82,13 +82,13 @@ public class ItemRoute: Route {
 				
 				// For every card, we need to edit it's contents with a random set of invisible glyphs!
 				for (i, card) in initialCards.enumerated() {
-					let newCard = card
+					var newCard = card
 					let cardContents = card.content!.base as! InputMessageContent_Text
 					let glyphSurprise = invisibleGlyphs.randomSelection(length: 6)!.joined()
 					
 					let newLabel = cardContents.text + glyphSurprise
-					cardContents.text = newLabel
-					newCard.content = InputMessageContent(content: cardContents)
+					let newText = InputMessageContent_Text(text: newLabel, parseMode: "Markdown", disableWebPreview: true)
+					newCard.content = InputMessageContent(content: newText)
 					
 					fixedCards.append(card)
 					routedItems[newLabel] = itemInfo[i]

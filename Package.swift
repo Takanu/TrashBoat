@@ -8,7 +8,7 @@ let package = Package(
 		.library(name: "TrashBoat", targets: ["TrashBoat"]),
 	],
 	dependencies: [
-		.package(url: "https://github.com/Takanu/Pelican.git", .revision("2f847cdf72308a7657edf92f7c67ce740049b2d9")),
+		.package(url: "https://github.com/Takanu/Pelican.git", .branch("master")),
 	],
 	targets: [
 		.target(name: "TrashBoat", dependencies: ["Pelican"]),
