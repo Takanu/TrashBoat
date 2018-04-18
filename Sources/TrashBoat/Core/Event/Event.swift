@@ -30,8 +30,11 @@ open class Event<HandleType: Handle> {
 	/// The handle used to send requests to Telegram, and to modify key game state information.  WARNING - DO NOT USE OUTSIDE THE SCOPE OF AN EVENT.
 	public var handle: HandleType!
 	
-	/// The request class, shared by `handle` to make requests.  WARNING - DO NOT USE OUTSIDE THE SCOPE OF AN EVENT.
-	public var request: SessionRequest!
+    /// The request class, shared by `handle` to make requests.  WARNING - DO NOT USE OUTSIDE THE SCOPE OF AN EVENT.
+    public var request: MethodRequest!
+    
+    /// The session class, shared by `handle` to get and modify sessions.  WARNING - DO NOT USE OUTSIDE THE SCOPE OF AN EVENT.
+    public var sessions: SessionRequest!
 	
 	/// The queue system, shared by 'handle' to queue requests.  WARNING - DO NOT USE OUTSIDE THE SCOPE OF AN EVENT.
 	public var queue: ChatSessionQueue!
@@ -89,7 +92,8 @@ open class Event<HandleType: Handle> {
 	*/
 	open func start(handle: HandleType) {
 		self.handle = handle
-		self.request = handle.request
+        self.request = handle.request
+        self.sessions = handle.sessions
 		self.queue = handle.queue
 		self.baseRoute = handle.baseRoute
 		self.tag = handle.tag

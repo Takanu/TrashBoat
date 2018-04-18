@@ -18,7 +18,8 @@ public protocol Handle: class {
 	
 	// API INTERFACE
 	var tag: SessionTag { get set }
-	var request: SessionRequest { get set }
+	var request: MethodRequest { get set }
+    var sessions: SessionRequest { get set }
 	var queue: ChatSessionQueue { get set }
 	var baseRoute: Route { get set }
 	
