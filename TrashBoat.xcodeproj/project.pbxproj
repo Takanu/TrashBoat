@@ -7,226 +7,227 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		OBJ_280 /* Codable+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_68 /* Codable+String.swift */; };
-		OBJ_281 /* Request+Admin.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_69 /* Request+Admin.swift */; };
-		OBJ_282 /* Request+Answer.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_70 /* Request+Answer.swift */; };
-		OBJ_283 /* Request+Basic.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_71 /* Request+Basic.swift */; };
-		OBJ_284 /* Request+Chat.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_72 /* Request+Chat.swift */; };
-		OBJ_285 /* Request+EditMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_73 /* Request+EditMessage.swift */; };
-		OBJ_286 /* Request+Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_74 /* Request+Game.swift */; };
-		OBJ_287 /* Request+Payments.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_75 /* Request+Payments.swift */; };
-		OBJ_288 /* Request+Stickers.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_76 /* Request+Stickers.swift */; };
-		OBJ_289 /* TelegramRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_77 /* TelegramRequest.swift */; };
-		OBJ_290 /* TelegramResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_79 /* TelegramResponse.swift */; };
-		OBJ_291 /* TelegramResponseError.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_80 /* TelegramResponseError.swift */; };
-		OBJ_292 /* InputMedia.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_83 /* InputMedia.swift */; };
-		OBJ_293 /* InputMediaPhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_84 /* InputMediaPhoto.swift */; };
-		OBJ_294 /* InputMediaVideo.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_85 /* InputMediaVideo.swift */; };
-		OBJ_295 /* CallbackQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_87 /* CallbackQuery.swift */; };
-		OBJ_296 /* Chat.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_89 /* Chat.swift */; };
-		OBJ_297 /* ChatAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_90 /* ChatAction.swift */; };
-		OBJ_298 /* ChatMember.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_91 /* ChatMember.swift */; };
-		OBJ_299 /* ChatPhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_92 /* ChatPhoto.swift */; };
-		OBJ_300 /* FileDownload.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_93 /* FileDownload.swift */; };
-		OBJ_301 /* Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_95 /* Animation.swift */; };
-		OBJ_302 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_96 /* Game.swift */; };
-		OBJ_303 /* GameHighScore.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_97 /* GameHighScore.swift */; };
-		OBJ_304 /* ChosenInlineResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_99 /* ChosenInlineResult.swift */; };
-		OBJ_305 /* InlineQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_100 /* InlineQuery.swift */; };
-		OBJ_306 /* InlineResultArticle.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_102 /* InlineResultArticle.swift */; };
-		OBJ_307 /* InlineResultAudio.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_103 /* InlineResultAudio.swift */; };
-		OBJ_308 /* InlineResultContact.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_104 /* InlineResultContact.swift */; };
-		OBJ_309 /* InlineResultDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_105 /* InlineResultDocument.swift */; };
-		OBJ_310 /* InlineResultGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_106 /* InlineResultGame.swift */; };
-		OBJ_311 /* InlineResultGif.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_107 /* InlineResultGif.swift */; };
-		OBJ_312 /* InlineResultLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_108 /* InlineResultLocation.swift */; };
-		OBJ_313 /* InlineResultMpeg4Gif.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_109 /* InlineResultMpeg4Gif.swift */; };
-		OBJ_314 /* InlineResultPhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_110 /* InlineResultPhoto.swift */; };
-		OBJ_315 /* InlineResultSticker.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_111 /* InlineResultSticker.swift */; };
-		OBJ_316 /* InlineResultVenue.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_112 /* InlineResultVenue.swift */; };
-		OBJ_317 /* InlineResultVideo.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_113 /* InlineResultVideo.swift */; };
-		OBJ_318 /* InlineResultVoice.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_114 /* InlineResultVoice.swift */; };
-		OBJ_319 /* InlineResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_115 /* InlineResult.swift */; };
-		OBJ_320 /* InlineResultAny.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_116 /* InlineResultAny.swift */; };
-		OBJ_321 /* InlineResultType.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_117 /* InlineResultType.swift */; };
-		OBJ_322 /* InputMessageContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_119 /* InputMessageContent.swift */; };
-		OBJ_323 /* InputMessageContentType.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_120 /* InputMessageContentType.swift */; };
-		OBJ_324 /* InputMessageContent_Any.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_121 /* InputMessageContent_Any.swift */; };
-		OBJ_325 /* InputMessageContent_Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_122 /* InputMessageContent_Contact.swift */; };
-		OBJ_326 /* InputMessageContent_Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_123 /* InputMessageContent_Location.swift */; };
-		OBJ_327 /* InputMessageContent_Text.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_124 /* InputMessageContent_Text.swift */; };
-		OBJ_328 /* InputMessageContent_Venue.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_125 /* InputMessageContent_Venue.swift */; };
-		OBJ_329 /* ForceReply.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_127 /* ForceReply.swift */; };
-		OBJ_330 /* InlineKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_129 /* InlineKey.swift */; };
-		OBJ_331 /* InlineKeyType.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_130 /* InlineKeyType.swift */; };
-		OBJ_332 /* InlineKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_131 /* InlineKeyboard.swift */; };
-		OBJ_333 /* Keyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_133 /* Keyboard.swift */; };
-		OBJ_334 /* KeyboardKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_134 /* KeyboardKey.swift */; };
-		OBJ_335 /* KeyboardRemove.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_135 /* KeyboardRemove.swift */; };
-		OBJ_336 /* MarkupType.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_136 /* MarkupType.swift */; };
-		OBJ_337 /* Audio.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_138 /* Audio.swift */; };
-		OBJ_338 /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_139 /* Contact.swift */; };
-		OBJ_339 /* Document.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_140 /* Document.swift */; };
-		OBJ_340 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_141 /* Location.swift */; };
-		OBJ_341 /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_142 /* Photo.swift */; };
-		OBJ_342 /* Venue.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_143 /* Venue.swift */; };
-		OBJ_343 /* Video.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_144 /* Video.swift */; };
-		OBJ_344 /* VideoNote.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_145 /* VideoNote.swift */; };
-		OBJ_345 /* Voice.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_146 /* Voice.swift */; };
-		OBJ_346 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_148 /* Message.swift */; };
-		OBJ_347 /* MessageEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_149 /* MessageEntity.swift */; };
-		OBJ_348 /* MessageParseMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_150 /* MessageParseMode.swift */; };
-		OBJ_349 /* MessageType.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_151 /* MessageType.swift */; };
-		OBJ_350 /* Invoice.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_153 /* Invoice.swift */; };
-		OBJ_351 /* LabeledPrice.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_154 /* LabeledPrice.swift */; };
-		OBJ_352 /* OrderInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_155 /* OrderInfo.swift */; };
-		OBJ_353 /* PreCheckoutQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_156 /* PreCheckoutQuery.swift */; };
-		OBJ_354 /* ShippingAddress.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_157 /* ShippingAddress.swift */; };
-		OBJ_355 /* ShippingOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_158 /* ShippingOption.swift */; };
-		OBJ_356 /* ShippingQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_159 /* ShippingQuery.swift */; };
-		OBJ_357 /* SuccessfulPayment.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_160 /* SuccessfulPayment.swift */; };
-		OBJ_358 /* MaskPosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_162 /* MaskPosition.swift */; };
-		OBJ_359 /* MaskPositionPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_163 /* MaskPositionPoint.swift */; };
-		OBJ_360 /* Sticker.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_164 /* Sticker.swift */; };
-		OBJ_361 /* StickerSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_165 /* StickerSet.swift */; };
-		OBJ_362 /* Type+Custom.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_166 /* Type+Custom.swift */; };
-		OBJ_363 /* Type+Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_167 /* Type+Error.swift */; };
-		OBJ_364 /* Type+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_168 /* Type+Extensions.swift */; };
-		OBJ_365 /* Type+Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_169 /* Type+Protocols.swift */; };
-		OBJ_366 /* Type+Standard.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_170 /* Type+Standard.swift */; };
-		OBJ_367 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_172 /* User.swift */; };
-		OBJ_368 /* UserProfilePhotos.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_173 /* UserProfilePhotos.swift */; };
-		OBJ_369 /* Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_175 /* Status.swift */; };
-		OBJ_370 /* Version.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_176 /* Version.swift */; };
-		OBJ_371 /* Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_179 /* Client.swift */; };
-		OBJ_372 /* ClientConnection+Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_180 /* ClientConnection+Error.swift */; };
-		OBJ_373 /* ClientConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_181 /* ClientConnection.swift */; };
-		OBJ_374 /* Portal.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_182 /* Portal.swift */; };
-		OBJ_375 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_183 /* Result.swift */; };
-		OBJ_376 /* Cache+Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_185 /* Cache+Error.swift */; };
-		OBJ_377 /* CacheFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_186 /* CacheFile.swift */; };
-		OBJ_378 /* CacheManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_187 /* CacheManager.swift */; };
-		OBJ_379 /* Log+Debug.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_189 /* Log+Debug.swift */; };
-		OBJ_380 /* Log+Enum.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_190 /* Log+Enum.swift */; };
-		OBJ_381 /* Log+Prints.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_191 /* Log+Prints.swift */; };
-		OBJ_382 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_192 /* Log.swift */; };
-		OBJ_383 /* LogLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_193 /* LogLevel.swift */; };
-		OBJ_384 /* Moderator.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_195 /* Moderator.swift */; };
-		OBJ_385 /* Pelican+Delegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_196 /* Pelican+Delegates.swift */; };
-		OBJ_386 /* Pelican+Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_197 /* Pelican+Errors.swift */; };
-		OBJ_387 /* Pelican+Files.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_198 /* Pelican+Files.swift */; };
-		OBJ_388 /* Pelican.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_199 /* Pelican.swift */; };
-		OBJ_389 /* LoopQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_201 /* LoopQueue.swift */; };
-		OBJ_390 /* Duration.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_203 /* Duration.swift */; };
-		OBJ_391 /* Schedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_204 /* Schedule.swift */; };
-		OBJ_392 /* SessionBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_206 /* SessionBuilder.swift */; };
-		OBJ_393 /* SessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_207 /* SessionManager.swift */; };
-		OBJ_394 /* Spawn.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_208 /* Spawn.swift */; };
-		OBJ_395 /* Update.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_210 /* Update.swift */; };
-		OBJ_396 /* UpdateType.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_211 /* UpdateType.swift */; };
-		OBJ_397 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_214 /* Session.swift */; };
-		OBJ_398 /* SessionIDType.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_215 /* SessionIDType.swift */; };
-		OBJ_399 /* SessionTag.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_216 /* SessionTag.swift */; };
-		OBJ_400 /* Async+Admin.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_220 /* Async+Admin.swift */; };
-		OBJ_401 /* Async+Answer.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_221 /* Async+Answer.swift */; };
-		OBJ_402 /* Async+Basic.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_222 /* Async+Basic.swift */; };
-		OBJ_403 /* Async+Edit.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_223 /* Async+Edit.swift */; };
-		OBJ_404 /* Async+Stickers.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_224 /* Async+Stickers.swift */; };
-		OBJ_405 /* MethodRequestAsync.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_225 /* MethodRequestAsync.swift */; };
-		OBJ_406 /* MethodRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_226 /* MethodRequest.swift */; };
-		OBJ_407 /* MethodRequestSync.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_228 /* MethodRequestSync.swift */; };
-		OBJ_408 /* Sync+Admin.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_229 /* Sync+Admin.swift */; };
-		OBJ_409 /* Sync+Answer.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_230 /* Sync+Answer.swift */; };
-		OBJ_410 /* Sync+Basic.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_231 /* Sync+Basic.swift */; };
-		OBJ_411 /* Sync+Edit.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_232 /* Sync+Edit.swift */; };
-		OBJ_412 /* Sync+Payments.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_233 /* Sync+Payments.swift */; };
-		OBJ_413 /* Sync+Stickers.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_234 /* Sync+Stickers.swift */; };
-		OBJ_414 /* SessionDispatchQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_236 /* SessionDispatchQueue.swift */; };
-		OBJ_415 /* SessionEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_238 /* SessionEvent.swift */; };
-		OBJ_416 /* UpdateFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_240 /* UpdateFilter.swift */; };
-		OBJ_417 /* SessionModerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_242 /* SessionModerator.swift */; };
-		OBJ_418 /* FloodMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_244 /* FloodMonitor.swift */; };
-		OBJ_419 /* TimeoutMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_245 /* TimeoutMonitor.swift */; };
-		OBJ_420 /* Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_247 /* Route.swift */; };
-		OBJ_421 /* RouteCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_249 /* RouteCommand.swift */; };
-		OBJ_422 /* RouteListen.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_250 /* RouteListen.swift */; };
-		OBJ_423 /* RouteManual.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_251 /* RouteManual.swift */; };
-		OBJ_424 /* RoutePass.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_252 /* RoutePass.swift */; };
-		OBJ_425 /* Queue.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_254 /* Queue.swift */; };
-		OBJ_426 /* SessionRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_256 /* SessionRequest.swift */; };
-		OBJ_427 /* ChatSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_258 /* ChatSession.swift */; };
-		OBJ_428 /* UserSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_259 /* UserSession.swift */; };
-		OBJ_429 /* CasedEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_261 /* CasedEnum.swift */; };
-		OBJ_430 /* CwlRandom.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_262 /* CwlRandom.swift */; };
-		OBJ_431 /* SynchronisedArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_263 /* SynchronisedArray.swift */; };
-		OBJ_432 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_264 /* Utilities.swift */; };
-		OBJ_434 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "SwiftyJSON::SwiftyJSON::Product" /* SwiftyJSON.framework */; };
-		OBJ_442 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_265 /* Package.swift */; };
-		OBJ_447 /* LclJSONSerialization.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_268 /* LclJSONSerialization.swift */; };
-		OBJ_448 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_269 /* SwiftyJSON.swift */; };
-		OBJ_455 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_270 /* Package.swift */; };
-		OBJ_461 /* Dice.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_11 /* Dice.swift */; };
-		OBJ_462 /* DiceItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_12 /* DiceItem.swift */; };
-		OBJ_463 /* DiceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_13 /* DiceType.swift */; };
-		OBJ_464 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_15 /* Event.swift */; };
-		OBJ_465 /* EventContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_16 /* EventContainer.swift */; };
-		OBJ_466 /* EventExit.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_17 /* EventExit.swift */; };
-		OBJ_467 /* EventRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_18 /* EventRecord.swift */; };
-		OBJ_468 /* EventRepresentible.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_19 /* EventRepresentible.swift */; };
-		OBJ_469 /* EventType.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_20 /* EventType.swift */; };
-		OBJ_470 /* Flair.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_22 /* Flair.swift */; };
-		OBJ_471 /* FlairManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_23 /* FlairManager.swift */; };
-		OBJ_472 /* FlairRepresentible.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_24 /* FlairRepresentible.swift */; };
-		OBJ_473 /* FlairResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_25 /* FlairResponse.swift */; };
-		OBJ_474 /* FlairStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_26 /* FlairStack.swift */; };
-		OBJ_475 /* GenBump.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_28 /* GenBump.swift */; };
-		OBJ_476 /* Generator.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_29 /* Generator.swift */; };
-		OBJ_477 /* GeneratorOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_30 /* GeneratorOption.swift */; };
-		OBJ_478 /* Handle.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_32 /* Handle.swift */; };
-		OBJ_479 /* Inventory+Stats.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_34 /* Inventory+Stats.swift */; };
-		OBJ_480 /* Inventory.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_35 /* Inventory.swift */; };
-		OBJ_481 /* InventoryStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_36 /* InventoryStack.swift */; };
-		OBJ_482 /* ItemInfoTag.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_37 /* ItemInfoTag.swift */; };
-		OBJ_483 /* ItemRepresentible.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_38 /* ItemRepresentible.swift */; };
-		OBJ_484 /* ItemTypeTag.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_39 /* ItemTypeTag.swift */; };
-		OBJ_485 /* Array+UserProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_41 /* Array+UserProxy.swift */; };
-		OBJ_486 /* UserProxy+InlineQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_42 /* UserProxy+InlineQuery.swift */; };
-		OBJ_487 /* UserProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_43 /* UserProxy.swift */; };
-		OBJ_488 /* UserProxyStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_44 /* UserProxyStatus.swift */; };
-		OBJ_489 /* PointInstance.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_46 /* PointInstance.swift */; };
-		OBJ_490 /* PointManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_47 /* PointManager.swift */; };
-		OBJ_491 /* PointReceipt.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_48 /* PointReceipt.swift */; };
-		OBJ_492 /* PointType.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_49 /* PointType.swift */; };
-		OBJ_493 /* PointUnit.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_50 /* PointUnit.swift */; };
-		OBJ_494 /* PointValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_51 /* PointValue.swift */; };
-		OBJ_495 /* Reward.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_53 /* Reward.swift */; };
-		OBJ_496 /* ItemRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_55 /* ItemRoute.swift */; };
-		OBJ_497 /* PlayerRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_56 /* PlayerRoute.swift */; };
-		OBJ_498 /* Array+Random.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_58 /* Array+Random.swift */; };
-		OBJ_499 /* CasedEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_59 /* CasedEnum.swift */; };
-		OBJ_500 /* CwlRandom.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_60 /* CwlRandom.swift */; };
-		OBJ_501 /* StringRepresentible.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_61 /* StringRepresentible.swift */; };
-		OBJ_503 /* Pelican.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "Pelican::Pelican::Product" /* Pelican.framework */; };
-		OBJ_504 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "SwiftyJSON::SwiftyJSON::Product" /* SwiftyJSON.framework */; };
-		OBJ_512 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_6 /* Package.swift */; };
+		OBJ_281 /* Codable+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_68 /* Codable+String.swift */; };
+		OBJ_282 /* Request+Admin.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_69 /* Request+Admin.swift */; };
+		OBJ_283 /* Request+Answer.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_70 /* Request+Answer.swift */; };
+		OBJ_284 /* Request+Basic.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_71 /* Request+Basic.swift */; };
+		OBJ_285 /* Request+Chat.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_72 /* Request+Chat.swift */; };
+		OBJ_286 /* Request+EditMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_73 /* Request+EditMessage.swift */; };
+		OBJ_287 /* Request+Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_74 /* Request+Game.swift */; };
+		OBJ_288 /* Request+Payments.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_75 /* Request+Payments.swift */; };
+		OBJ_289 /* Request+Stickers.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_76 /* Request+Stickers.swift */; };
+		OBJ_290 /* TelegramRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_77 /* TelegramRequest.swift */; };
+		OBJ_291 /* TelegramResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_79 /* TelegramResponse.swift */; };
+		OBJ_292 /* TelegramResponseError.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_80 /* TelegramResponseError.swift */; };
+		OBJ_293 /* InputMedia.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_83 /* InputMedia.swift */; };
+		OBJ_294 /* InputMediaPhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_84 /* InputMediaPhoto.swift */; };
+		OBJ_295 /* InputMediaVideo.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_85 /* InputMediaVideo.swift */; };
+		OBJ_296 /* CallbackQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_87 /* CallbackQuery.swift */; };
+		OBJ_297 /* Chat.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_89 /* Chat.swift */; };
+		OBJ_298 /* ChatAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_90 /* ChatAction.swift */; };
+		OBJ_299 /* ChatMember.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_91 /* ChatMember.swift */; };
+		OBJ_300 /* ChatPhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_92 /* ChatPhoto.swift */; };
+		OBJ_301 /* FileDownload.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_93 /* FileDownload.swift */; };
+		OBJ_302 /* Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_95 /* Animation.swift */; };
+		OBJ_303 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_96 /* Game.swift */; };
+		OBJ_304 /* GameHighScore.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_97 /* GameHighScore.swift */; };
+		OBJ_305 /* ChosenInlineResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_99 /* ChosenInlineResult.swift */; };
+		OBJ_306 /* InlineQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_100 /* InlineQuery.swift */; };
+		OBJ_307 /* InlineResultArticle.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_102 /* InlineResultArticle.swift */; };
+		OBJ_308 /* InlineResultAudio.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_103 /* InlineResultAudio.swift */; };
+		OBJ_309 /* InlineResultContact.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_104 /* InlineResultContact.swift */; };
+		OBJ_310 /* InlineResultDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_105 /* InlineResultDocument.swift */; };
+		OBJ_311 /* InlineResultGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_106 /* InlineResultGame.swift */; };
+		OBJ_312 /* InlineResultGif.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_107 /* InlineResultGif.swift */; };
+		OBJ_313 /* InlineResultLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_108 /* InlineResultLocation.swift */; };
+		OBJ_314 /* InlineResultMpeg4Gif.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_109 /* InlineResultMpeg4Gif.swift */; };
+		OBJ_315 /* InlineResultPhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_110 /* InlineResultPhoto.swift */; };
+		OBJ_316 /* InlineResultSticker.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_111 /* InlineResultSticker.swift */; };
+		OBJ_317 /* InlineResultVenue.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_112 /* InlineResultVenue.swift */; };
+		OBJ_318 /* InlineResultVideo.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_113 /* InlineResultVideo.swift */; };
+		OBJ_319 /* InlineResultVoice.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_114 /* InlineResultVoice.swift */; };
+		OBJ_320 /* InlineResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_115 /* InlineResult.swift */; };
+		OBJ_321 /* InlineResultAny.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_116 /* InlineResultAny.swift */; };
+		OBJ_322 /* InlineResultType.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_117 /* InlineResultType.swift */; };
+		OBJ_323 /* InputMessageContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_119 /* InputMessageContent.swift */; };
+		OBJ_324 /* InputMessageContentType.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_120 /* InputMessageContentType.swift */; };
+		OBJ_325 /* InputMessageContent_Any.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_121 /* InputMessageContent_Any.swift */; };
+		OBJ_326 /* InputMessageContent_Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_122 /* InputMessageContent_Contact.swift */; };
+		OBJ_327 /* InputMessageContent_Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_123 /* InputMessageContent_Location.swift */; };
+		OBJ_328 /* InputMessageContent_Text.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_124 /* InputMessageContent_Text.swift */; };
+		OBJ_329 /* InputMessageContent_Venue.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_125 /* InputMessageContent_Venue.swift */; };
+		OBJ_330 /* ForceReply.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_127 /* ForceReply.swift */; };
+		OBJ_331 /* InlineKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_129 /* InlineKey.swift */; };
+		OBJ_332 /* InlineKeyType.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_130 /* InlineKeyType.swift */; };
+		OBJ_333 /* InlineKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_131 /* InlineKeyboard.swift */; };
+		OBJ_334 /* Keyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_133 /* Keyboard.swift */; };
+		OBJ_335 /* KeyboardKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_134 /* KeyboardKey.swift */; };
+		OBJ_336 /* KeyboardRemove.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_135 /* KeyboardRemove.swift */; };
+		OBJ_337 /* MarkupType.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_136 /* MarkupType.swift */; };
+		OBJ_338 /* Audio.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_138 /* Audio.swift */; };
+		OBJ_339 /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_139 /* Contact.swift */; };
+		OBJ_340 /* Document.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_140 /* Document.swift */; };
+		OBJ_341 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_141 /* Location.swift */; };
+		OBJ_342 /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_142 /* Photo.swift */; };
+		OBJ_343 /* Venue.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_143 /* Venue.swift */; };
+		OBJ_344 /* Video.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_144 /* Video.swift */; };
+		OBJ_345 /* VideoNote.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_145 /* VideoNote.swift */; };
+		OBJ_346 /* Voice.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_146 /* Voice.swift */; };
+		OBJ_347 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_148 /* Message.swift */; };
+		OBJ_348 /* MessageEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_149 /* MessageEntity.swift */; };
+		OBJ_349 /* MessageParseMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_150 /* MessageParseMode.swift */; };
+		OBJ_350 /* MessageType.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_151 /* MessageType.swift */; };
+		OBJ_351 /* Invoice.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_153 /* Invoice.swift */; };
+		OBJ_352 /* LabeledPrice.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_154 /* LabeledPrice.swift */; };
+		OBJ_353 /* OrderInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_155 /* OrderInfo.swift */; };
+		OBJ_354 /* PreCheckoutQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_156 /* PreCheckoutQuery.swift */; };
+		OBJ_355 /* ShippingAddress.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_157 /* ShippingAddress.swift */; };
+		OBJ_356 /* ShippingOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_158 /* ShippingOption.swift */; };
+		OBJ_357 /* ShippingQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_159 /* ShippingQuery.swift */; };
+		OBJ_358 /* SuccessfulPayment.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_160 /* SuccessfulPayment.swift */; };
+		OBJ_359 /* MaskPosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_162 /* MaskPosition.swift */; };
+		OBJ_360 /* MaskPositionPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_163 /* MaskPositionPoint.swift */; };
+		OBJ_361 /* Sticker.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_164 /* Sticker.swift */; };
+		OBJ_362 /* StickerSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_165 /* StickerSet.swift */; };
+		OBJ_363 /* Type+Custom.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_166 /* Type+Custom.swift */; };
+		OBJ_364 /* Type+Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_167 /* Type+Error.swift */; };
+		OBJ_365 /* Type+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_168 /* Type+Extensions.swift */; };
+		OBJ_366 /* Type+Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_169 /* Type+Protocols.swift */; };
+		OBJ_367 /* Type+Standard.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_170 /* Type+Standard.swift */; };
+		OBJ_368 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_172 /* User.swift */; };
+		OBJ_369 /* UserProfilePhotos.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_173 /* UserProfilePhotos.swift */; };
+		OBJ_370 /* Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_175 /* Status.swift */; };
+		OBJ_371 /* Version.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_176 /* Version.swift */; };
+		OBJ_372 /* Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_179 /* Client.swift */; };
+		OBJ_373 /* ClientConnection+Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_180 /* ClientConnection+Error.swift */; };
+		OBJ_374 /* ClientConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_181 /* ClientConnection.swift */; };
+		OBJ_375 /* Portal.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_182 /* Portal.swift */; };
+		OBJ_376 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_183 /* Result.swift */; };
+		OBJ_377 /* Cache+Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_185 /* Cache+Error.swift */; };
+		OBJ_378 /* CacheFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_186 /* CacheFile.swift */; };
+		OBJ_379 /* CacheManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_187 /* CacheManager.swift */; };
+		OBJ_380 /* Log+Debug.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_189 /* Log+Debug.swift */; };
+		OBJ_381 /* Log+Enum.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_190 /* Log+Enum.swift */; };
+		OBJ_382 /* Log+Prints.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_191 /* Log+Prints.swift */; };
+		OBJ_383 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_192 /* Log.swift */; };
+		OBJ_384 /* LogLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_193 /* LogLevel.swift */; };
+		OBJ_385 /* Moderator.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_195 /* Moderator.swift */; };
+		OBJ_386 /* Pelican+Delegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_196 /* Pelican+Delegates.swift */; };
+		OBJ_387 /* Pelican+Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_197 /* Pelican+Errors.swift */; };
+		OBJ_388 /* Pelican+Files.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_198 /* Pelican+Files.swift */; };
+		OBJ_389 /* Pelican.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_199 /* Pelican.swift */; };
+		OBJ_390 /* LoopQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_201 /* LoopQueue.swift */; };
+		OBJ_391 /* Duration.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_203 /* Duration.swift */; };
+		OBJ_392 /* Schedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_204 /* Schedule.swift */; };
+		OBJ_393 /* SessionBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_206 /* SessionBuilder.swift */; };
+		OBJ_394 /* SessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_207 /* SessionManager.swift */; };
+		OBJ_395 /* Spawn.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_208 /* Spawn.swift */; };
+		OBJ_396 /* Update.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_210 /* Update.swift */; };
+		OBJ_397 /* UpdateType.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_211 /* UpdateType.swift */; };
+		OBJ_398 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_214 /* Session.swift */; };
+		OBJ_399 /* SessionIDType.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_215 /* SessionIDType.swift */; };
+		OBJ_400 /* SessionTag.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_216 /* SessionTag.swift */; };
+		OBJ_401 /* Async+Admin.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_220 /* Async+Admin.swift */; };
+		OBJ_402 /* Async+Answer.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_221 /* Async+Answer.swift */; };
+		OBJ_403 /* Async+Basic.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_222 /* Async+Basic.swift */; };
+		OBJ_404 /* Async+Edit.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_223 /* Async+Edit.swift */; };
+		OBJ_405 /* Async+Stickers.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_224 /* Async+Stickers.swift */; };
+		OBJ_406 /* MethodRequestAsync.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_225 /* MethodRequestAsync.swift */; };
+		OBJ_407 /* MethodRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_226 /* MethodRequest.swift */; };
+		OBJ_408 /* MethodRequestSync.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_228 /* MethodRequestSync.swift */; };
+		OBJ_409 /* Sync+Admin.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_229 /* Sync+Admin.swift */; };
+		OBJ_410 /* Sync+Answer.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_230 /* Sync+Answer.swift */; };
+		OBJ_411 /* Sync+Basic.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_231 /* Sync+Basic.swift */; };
+		OBJ_412 /* Sync+Edit.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_232 /* Sync+Edit.swift */; };
+		OBJ_413 /* Sync+Payments.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_233 /* Sync+Payments.swift */; };
+		OBJ_414 /* Sync+Stickers.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_234 /* Sync+Stickers.swift */; };
+		OBJ_415 /* SessionDispatchQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_236 /* SessionDispatchQueue.swift */; };
+		OBJ_416 /* SessionEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_238 /* SessionEvent.swift */; };
+		OBJ_417 /* UpdateFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_240 /* UpdateFilter.swift */; };
+		OBJ_418 /* SessionModerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_242 /* SessionModerator.swift */; };
+		OBJ_419 /* FloodMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_244 /* FloodMonitor.swift */; };
+		OBJ_420 /* TimeoutMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_245 /* TimeoutMonitor.swift */; };
+		OBJ_421 /* Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_247 /* Route.swift */; };
+		OBJ_422 /* RouteCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_249 /* RouteCommand.swift */; };
+		OBJ_423 /* RouteListen.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_250 /* RouteListen.swift */; };
+		OBJ_424 /* RouteManual.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_251 /* RouteManual.swift */; };
+		OBJ_425 /* RoutePass.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_252 /* RoutePass.swift */; };
+		OBJ_426 /* Queue.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_254 /* Queue.swift */; };
+		OBJ_427 /* SessionRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_256 /* SessionRequest.swift */; };
+		OBJ_428 /* ChatSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_258 /* ChatSession.swift */; };
+		OBJ_429 /* UserSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_259 /* UserSession.swift */; };
+		OBJ_430 /* CasedEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_261 /* CasedEnum.swift */; };
+		OBJ_431 /* CwlRandom.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_262 /* CwlRandom.swift */; };
+		OBJ_432 /* SynchronisedArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_263 /* SynchronisedArray.swift */; };
+		OBJ_433 /* SynchronisedDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_264 /* SynchronisedDictionary.swift */; };
+		OBJ_434 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_265 /* Utilities.swift */; };
+		OBJ_436 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "SwiftyJSON::SwiftyJSON::Product" /* SwiftyJSON.framework */; };
+		OBJ_444 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_266 /* Package.swift */; };
+		OBJ_449 /* LclJSONSerialization.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_269 /* LclJSONSerialization.swift */; };
+		OBJ_450 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_270 /* SwiftyJSON.swift */; };
+		OBJ_457 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_271 /* Package.swift */; };
+		OBJ_463 /* Dice.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_11 /* Dice.swift */; };
+		OBJ_464 /* DiceItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_12 /* DiceItem.swift */; };
+		OBJ_465 /* DiceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_13 /* DiceType.swift */; };
+		OBJ_466 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_15 /* Event.swift */; };
+		OBJ_467 /* EventContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_16 /* EventContainer.swift */; };
+		OBJ_468 /* EventExit.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_17 /* EventExit.swift */; };
+		OBJ_469 /* EventRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_18 /* EventRecord.swift */; };
+		OBJ_470 /* EventRepresentible.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_19 /* EventRepresentible.swift */; };
+		OBJ_471 /* EventType.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_20 /* EventType.swift */; };
+		OBJ_472 /* Flair.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_22 /* Flair.swift */; };
+		OBJ_473 /* FlairManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_23 /* FlairManager.swift */; };
+		OBJ_474 /* FlairRepresentible.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_24 /* FlairRepresentible.swift */; };
+		OBJ_475 /* FlairResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_25 /* FlairResponse.swift */; };
+		OBJ_476 /* FlairStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_26 /* FlairStack.swift */; };
+		OBJ_477 /* GenBump.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_28 /* GenBump.swift */; };
+		OBJ_478 /* Generator.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_29 /* Generator.swift */; };
+		OBJ_479 /* GeneratorOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_30 /* GeneratorOption.swift */; };
+		OBJ_480 /* Handle.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_32 /* Handle.swift */; };
+		OBJ_481 /* Inventory+Stats.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_34 /* Inventory+Stats.swift */; };
+		OBJ_482 /* Inventory.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_35 /* Inventory.swift */; };
+		OBJ_483 /* InventoryStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_36 /* InventoryStack.swift */; };
+		OBJ_484 /* ItemInfoTag.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_37 /* ItemInfoTag.swift */; };
+		OBJ_485 /* ItemRepresentible.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_38 /* ItemRepresentible.swift */; };
+		OBJ_486 /* ItemTypeTag.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_39 /* ItemTypeTag.swift */; };
+		OBJ_487 /* Array+UserProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_41 /* Array+UserProxy.swift */; };
+		OBJ_488 /* UserProxy+InlineQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_42 /* UserProxy+InlineQuery.swift */; };
+		OBJ_489 /* UserProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_43 /* UserProxy.swift */; };
+		OBJ_490 /* UserProxyStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_44 /* UserProxyStatus.swift */; };
+		OBJ_491 /* PointInstance.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_46 /* PointInstance.swift */; };
+		OBJ_492 /* PointManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_47 /* PointManager.swift */; };
+		OBJ_493 /* PointReceipt.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_48 /* PointReceipt.swift */; };
+		OBJ_494 /* PointType.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_49 /* PointType.swift */; };
+		OBJ_495 /* PointUnit.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_50 /* PointUnit.swift */; };
+		OBJ_496 /* PointValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_51 /* PointValue.swift */; };
+		OBJ_497 /* Reward.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_53 /* Reward.swift */; };
+		OBJ_498 /* ItemRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_55 /* ItemRoute.swift */; };
+		OBJ_499 /* PlayerRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_56 /* PlayerRoute.swift */; };
+		OBJ_500 /* Array+Random.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_58 /* Array+Random.swift */; };
+		OBJ_501 /* CasedEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_59 /* CasedEnum.swift */; };
+		OBJ_502 /* CwlRandom.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_60 /* CwlRandom.swift */; };
+		OBJ_503 /* StringRepresentible.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_61 /* StringRepresentible.swift */; };
+		OBJ_505 /* Pelican.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "Pelican::Pelican::Product" /* Pelican.framework */; };
+		OBJ_506 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "SwiftyJSON::SwiftyJSON::Product" /* SwiftyJSON.framework */; };
+		OBJ_514 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_6 /* Package.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		50E14813207E147800275AD5 /* PBXContainerItemProxy */ = {
+		5099AFBC2088021D0079FD43 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = OBJ_1 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = "Pelican::Pelican";
 			remoteInfo = Pelican;
 		};
-		50E14814207E147800275AD5 /* PBXContainerItemProxy */ = {
+		5099AFBD2088021D0079FD43 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = OBJ_1 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = "SwiftyJSON::SwiftyJSON";
 			remoteInfo = SwiftyJSON;
 		};
-		50E14815207E147800275AD5 /* PBXContainerItemProxy */ = {
+		5099AFBE2088021D0079FD43 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = OBJ_1 /* Project object */;
 			proxyType = 1;
@@ -377,11 +378,12 @@
 		OBJ_261 /* CasedEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CasedEnum.swift; sourceTree = "<group>"; };
 		OBJ_262 /* CwlRandom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CwlRandom.swift; sourceTree = "<group>"; };
 		OBJ_263 /* SynchronisedArray.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SynchronisedArray.swift; sourceTree = "<group>"; };
-		OBJ_264 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
-		OBJ_265 /* Package.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; name = Package.swift; path = "/Users/ido/Activities/Collection/2017-03  Telegram Swift Libraries/TrashBoat/.build/checkouts/Pelican.git-5255499054090348273/Package.swift"; sourceTree = "<group>"; };
-		OBJ_268 /* LclJSONSerialization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LclJSONSerialization.swift; sourceTree = "<group>"; };
-		OBJ_269 /* SwiftyJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
-		OBJ_270 /* Package.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; name = Package.swift; path = "/Users/ido/Activities/Collection/2017-03  Telegram Swift Libraries/TrashBoat/.build/checkouts/SwiftyJSON.git--6955445084174387031/Package.swift"; sourceTree = "<group>"; };
+		OBJ_264 /* SynchronisedDictionary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SynchronisedDictionary.swift; sourceTree = "<group>"; };
+		OBJ_265 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
+		OBJ_266 /* Package.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; name = Package.swift; path = "/Users/ido/Activities/Collection/2017-03  Telegram Swift Libraries/TrashBoat/.build/checkouts/Pelican.git-5255499054090348273/Package.swift"; sourceTree = "<group>"; };
+		OBJ_269 /* LclJSONSerialization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LclJSONSerialization.swift; sourceTree = "<group>"; };
+		OBJ_270 /* SwiftyJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
+		OBJ_271 /* Package.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; name = Package.swift; path = "/Users/ido/Activities/Collection/2017-03  Telegram Swift Libraries/TrashBoat/.build/checkouts/SwiftyJSON.git--6955445084174387031/Package.swift"; sourceTree = "<group>"; };
 		OBJ_28 /* GenBump.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenBump.swift; sourceTree = "<group>"; };
 		OBJ_29 /* Generator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Generator.swift; sourceTree = "<group>"; };
 		OBJ_30 /* GeneratorOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneratorOption.swift; sourceTree = "<group>"; };
@@ -441,27 +443,27 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		OBJ_433 /* Frameworks */ = {
+		OBJ_435 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 0;
 			files = (
-				OBJ_434 /* SwiftyJSON.framework in Frameworks */,
+				OBJ_436 /* SwiftyJSON.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		OBJ_449 /* Frameworks */ = {
+		OBJ_451 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 0;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		OBJ_502 /* Frameworks */ = {
+		OBJ_504 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 0;
 			files = (
-				OBJ_503 /* Pelican.framework in Frameworks */,
-				OBJ_504 /* SwiftyJSON.framework in Frameworks */,
+				OBJ_505 /* Pelican.framework in Frameworks */,
+				OBJ_506 /* SwiftyJSON.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -901,25 +903,26 @@
 				OBJ_261 /* CasedEnum.swift */,
 				OBJ_262 /* CwlRandom.swift */,
 				OBJ_263 /* SynchronisedArray.swift */,
-				OBJ_264 /* Utilities.swift */,
+				OBJ_264 /* SynchronisedDictionary.swift */,
+				OBJ_265 /* Utilities.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
 		};
-		OBJ_266 /* SwiftyJSON 17.0.1 */ = {
+		OBJ_267 /* SwiftyJSON 17.0.1 */ = {
 			isa = PBXGroup;
 			children = (
-				OBJ_267 /* SwiftyJSON */,
-				OBJ_270 /* Package.swift */,
+				OBJ_268 /* SwiftyJSON */,
+				OBJ_271 /* Package.swift */,
 			);
 			name = "SwiftyJSON 17.0.1";
 			sourceTree = SOURCE_ROOT;
 		};
-		OBJ_267 /* SwiftyJSON */ = {
+		OBJ_268 /* SwiftyJSON */ = {
 			isa = PBXGroup;
 			children = (
-				OBJ_268 /* LclJSONSerialization.swift */,
-				OBJ_269 /* SwiftyJSON.swift */,
+				OBJ_269 /* LclJSONSerialization.swift */,
+				OBJ_270 /* SwiftyJSON.swift */,
 			);
 			name = SwiftyJSON;
 			path = ".build/checkouts/SwiftyJSON.git--6955445084174387031/Sources/SwiftyJSON";
@@ -935,7 +938,7 @@
 			path = Generator;
 			sourceTree = "<group>";
 		};
-		OBJ_271 /* Products */ = {
+		OBJ_272 /* Products */ = {
 			isa = PBXGroup;
 			children = (
 				"TrashBoat::TrashBoat::Product" /* TrashBoat.framework */,
@@ -997,7 +1000,7 @@
 				OBJ_7 /* Sources */,
 				OBJ_62 /* Tests */,
 				OBJ_63 /* Dependencies */,
-				OBJ_271 /* Products */,
+				OBJ_272 /* Products */,
 			);
 			name = "";
 			sourceTree = "<group>";
@@ -1041,7 +1044,7 @@
 			isa = PBXGroup;
 			children = (
 				OBJ_64 /* Pelican */,
-				OBJ_266 /* SwiftyJSON 17.0.1 */,
+				OBJ_267 /* SwiftyJSON 17.0.1 */,
 			);
 			name = Dependencies;
 			sourceTree = "<group>";
@@ -1050,7 +1053,7 @@
 			isa = PBXGroup;
 			children = (
 				OBJ_65 /* Pelican */,
-				OBJ_265 /* Package.swift */,
+				OBJ_266 /* Package.swift */,
 			);
 			name = Pelican;
 			sourceTree = SOURCE_ROOT;
@@ -1221,15 +1224,15 @@
 /* Begin PBXNativeTarget section */
 		"Pelican::Pelican" /* Pelican */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = OBJ_276 /* Build configuration list for PBXNativeTarget "Pelican" */;
+			buildConfigurationList = OBJ_277 /* Build configuration list for PBXNativeTarget "Pelican" */;
 			buildPhases = (
-				OBJ_279 /* Sources */,
-				OBJ_433 /* Frameworks */,
+				OBJ_280 /* Sources */,
+				OBJ_435 /* Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				OBJ_435 /* PBXTargetDependency */,
+				OBJ_437 /* PBXTargetDependency */,
 			);
 			name = Pelican;
 			productName = Pelican;
@@ -1238,9 +1241,9 @@
 		};
 		"Pelican::SwiftPMPackageDescription" /* PelicanPackageDescription */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = OBJ_438 /* Build configuration list for PBXNativeTarget "PelicanPackageDescription" */;
+			buildConfigurationList = OBJ_440 /* Build configuration list for PBXNativeTarget "PelicanPackageDescription" */;
 			buildPhases = (
-				OBJ_441 /* Sources */,
+				OBJ_443 /* Sources */,
 			);
 			buildRules = (
 			);
@@ -1252,9 +1255,9 @@
 		};
 		"SwiftyJSON::SwiftPMPackageDescription" /* SwiftyJSONPackageDescription */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = OBJ_451 /* Build configuration list for PBXNativeTarget "SwiftyJSONPackageDescription" */;
+			buildConfigurationList = OBJ_453 /* Build configuration list for PBXNativeTarget "SwiftyJSONPackageDescription" */;
 			buildPhases = (
-				OBJ_454 /* Sources */,
+				OBJ_456 /* Sources */,
 			);
 			buildRules = (
 			);
@@ -1266,10 +1269,10 @@
 		};
 		"SwiftyJSON::SwiftyJSON" /* SwiftyJSON */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = OBJ_443 /* Build configuration list for PBXNativeTarget "SwiftyJSON" */;
+			buildConfigurationList = OBJ_445 /* Build configuration list for PBXNativeTarget "SwiftyJSON" */;
 			buildPhases = (
-				OBJ_446 /* Sources */,
-				OBJ_449 /* Frameworks */,
+				OBJ_448 /* Sources */,
+				OBJ_451 /* Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1282,9 +1285,9 @@
 		};
 		"TrashBoat::SwiftPMPackageDescription" /* TrashBoatPackageDescription */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = OBJ_508 /* Build configuration list for PBXNativeTarget "TrashBoatPackageDescription" */;
+			buildConfigurationList = OBJ_510 /* Build configuration list for PBXNativeTarget "TrashBoatPackageDescription" */;
 			buildPhases = (
-				OBJ_511 /* Sources */,
+				OBJ_513 /* Sources */,
 			);
 			buildRules = (
 			);
@@ -1296,16 +1299,16 @@
 		};
 		"TrashBoat::TrashBoat" /* TrashBoat */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = OBJ_457 /* Build configuration list for PBXNativeTarget "TrashBoat" */;
+			buildConfigurationList = OBJ_459 /* Build configuration list for PBXNativeTarget "TrashBoat" */;
 			buildPhases = (
-				OBJ_460 /* Sources */,
-				OBJ_502 /* Frameworks */,
+				OBJ_462 /* Sources */,
+				OBJ_504 /* Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				OBJ_505 /* PBXTargetDependency */,
-				OBJ_506 /* PBXTargetDependency */,
+				OBJ_507 /* PBXTargetDependency */,
+				OBJ_508 /* PBXTargetDependency */,
 			);
 			name = TrashBoat;
 			productName = TrashBoat;
@@ -1328,7 +1331,7 @@
 				en,
 			);
 			mainGroup = OBJ_5 /*  */;
-			productRefGroup = OBJ_271 /* Products */;
+			productRefGroup = OBJ_272 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
@@ -1343,269 +1346,270 @@
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
-		OBJ_279 /* Sources */ = {
+		OBJ_280 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 0;
 			files = (
-				OBJ_280 /* Codable+String.swift in Sources */,
-				OBJ_281 /* Request+Admin.swift in Sources */,
-				OBJ_282 /* Request+Answer.swift in Sources */,
-				OBJ_283 /* Request+Basic.swift in Sources */,
-				OBJ_284 /* Request+Chat.swift in Sources */,
-				OBJ_285 /* Request+EditMessage.swift in Sources */,
-				OBJ_286 /* Request+Game.swift in Sources */,
-				OBJ_287 /* Request+Payments.swift in Sources */,
-				OBJ_288 /* Request+Stickers.swift in Sources */,
-				OBJ_289 /* TelegramRequest.swift in Sources */,
-				OBJ_290 /* TelegramResponse.swift in Sources */,
-				OBJ_291 /* TelegramResponseError.swift in Sources */,
-				OBJ_292 /* InputMedia.swift in Sources */,
-				OBJ_293 /* InputMediaPhoto.swift in Sources */,
-				OBJ_294 /* InputMediaVideo.swift in Sources */,
-				OBJ_295 /* CallbackQuery.swift in Sources */,
-				OBJ_296 /* Chat.swift in Sources */,
-				OBJ_297 /* ChatAction.swift in Sources */,
-				OBJ_298 /* ChatMember.swift in Sources */,
-				OBJ_299 /* ChatPhoto.swift in Sources */,
-				OBJ_300 /* FileDownload.swift in Sources */,
-				OBJ_301 /* Animation.swift in Sources */,
-				OBJ_302 /* Game.swift in Sources */,
-				OBJ_303 /* GameHighScore.swift in Sources */,
-				OBJ_304 /* ChosenInlineResult.swift in Sources */,
-				OBJ_305 /* InlineQuery.swift in Sources */,
-				OBJ_306 /* InlineResultArticle.swift in Sources */,
-				OBJ_307 /* InlineResultAudio.swift in Sources */,
-				OBJ_308 /* InlineResultContact.swift in Sources */,
-				OBJ_309 /* InlineResultDocument.swift in Sources */,
-				OBJ_310 /* InlineResultGame.swift in Sources */,
-				OBJ_311 /* InlineResultGif.swift in Sources */,
-				OBJ_312 /* InlineResultLocation.swift in Sources */,
-				OBJ_313 /* InlineResultMpeg4Gif.swift in Sources */,
-				OBJ_314 /* InlineResultPhoto.swift in Sources */,
-				OBJ_315 /* InlineResultSticker.swift in Sources */,
-				OBJ_316 /* InlineResultVenue.swift in Sources */,
-				OBJ_317 /* InlineResultVideo.swift in Sources */,
-				OBJ_318 /* InlineResultVoice.swift in Sources */,
-				OBJ_319 /* InlineResult.swift in Sources */,
-				OBJ_320 /* InlineResultAny.swift in Sources */,
-				OBJ_321 /* InlineResultType.swift in Sources */,
-				OBJ_322 /* InputMessageContent.swift in Sources */,
-				OBJ_323 /* InputMessageContentType.swift in Sources */,
-				OBJ_324 /* InputMessageContent_Any.swift in Sources */,
-				OBJ_325 /* InputMessageContent_Contact.swift in Sources */,
-				OBJ_326 /* InputMessageContent_Location.swift in Sources */,
-				OBJ_327 /* InputMessageContent_Text.swift in Sources */,
-				OBJ_328 /* InputMessageContent_Venue.swift in Sources */,
-				OBJ_329 /* ForceReply.swift in Sources */,
-				OBJ_330 /* InlineKey.swift in Sources */,
-				OBJ_331 /* InlineKeyType.swift in Sources */,
-				OBJ_332 /* InlineKeyboard.swift in Sources */,
-				OBJ_333 /* Keyboard.swift in Sources */,
-				OBJ_334 /* KeyboardKey.swift in Sources */,
-				OBJ_335 /* KeyboardRemove.swift in Sources */,
-				OBJ_336 /* MarkupType.swift in Sources */,
-				OBJ_337 /* Audio.swift in Sources */,
-				OBJ_338 /* Contact.swift in Sources */,
-				OBJ_339 /* Document.swift in Sources */,
-				OBJ_340 /* Location.swift in Sources */,
-				OBJ_341 /* Photo.swift in Sources */,
-				OBJ_342 /* Venue.swift in Sources */,
-				OBJ_343 /* Video.swift in Sources */,
-				OBJ_344 /* VideoNote.swift in Sources */,
-				OBJ_345 /* Voice.swift in Sources */,
-				OBJ_346 /* Message.swift in Sources */,
-				OBJ_347 /* MessageEntity.swift in Sources */,
-				OBJ_348 /* MessageParseMode.swift in Sources */,
-				OBJ_349 /* MessageType.swift in Sources */,
-				OBJ_350 /* Invoice.swift in Sources */,
-				OBJ_351 /* LabeledPrice.swift in Sources */,
-				OBJ_352 /* OrderInfo.swift in Sources */,
-				OBJ_353 /* PreCheckoutQuery.swift in Sources */,
-				OBJ_354 /* ShippingAddress.swift in Sources */,
-				OBJ_355 /* ShippingOption.swift in Sources */,
-				OBJ_356 /* ShippingQuery.swift in Sources */,
-				OBJ_357 /* SuccessfulPayment.swift in Sources */,
-				OBJ_358 /* MaskPosition.swift in Sources */,
-				OBJ_359 /* MaskPositionPoint.swift in Sources */,
-				OBJ_360 /* Sticker.swift in Sources */,
-				OBJ_361 /* StickerSet.swift in Sources */,
-				OBJ_362 /* Type+Custom.swift in Sources */,
-				OBJ_363 /* Type+Error.swift in Sources */,
-				OBJ_364 /* Type+Extensions.swift in Sources */,
-				OBJ_365 /* Type+Protocols.swift in Sources */,
-				OBJ_366 /* Type+Standard.swift in Sources */,
-				OBJ_367 /* User.swift in Sources */,
-				OBJ_368 /* UserProfilePhotos.swift in Sources */,
-				OBJ_369 /* Status.swift in Sources */,
-				OBJ_370 /* Version.swift in Sources */,
-				OBJ_371 /* Client.swift in Sources */,
-				OBJ_372 /* ClientConnection+Error.swift in Sources */,
-				OBJ_373 /* ClientConnection.swift in Sources */,
-				OBJ_374 /* Portal.swift in Sources */,
-				OBJ_375 /* Result.swift in Sources */,
-				OBJ_376 /* Cache+Error.swift in Sources */,
-				OBJ_377 /* CacheFile.swift in Sources */,
-				OBJ_378 /* CacheManager.swift in Sources */,
-				OBJ_379 /* Log+Debug.swift in Sources */,
-				OBJ_380 /* Log+Enum.swift in Sources */,
-				OBJ_381 /* Log+Prints.swift in Sources */,
-				OBJ_382 /* Log.swift in Sources */,
-				OBJ_383 /* LogLevel.swift in Sources */,
-				OBJ_384 /* Moderator.swift in Sources */,
-				OBJ_385 /* Pelican+Delegates.swift in Sources */,
-				OBJ_386 /* Pelican+Errors.swift in Sources */,
-				OBJ_387 /* Pelican+Files.swift in Sources */,
-				OBJ_388 /* Pelican.swift in Sources */,
-				OBJ_389 /* LoopQueue.swift in Sources */,
-				OBJ_390 /* Duration.swift in Sources */,
-				OBJ_391 /* Schedule.swift in Sources */,
-				OBJ_392 /* SessionBuilder.swift in Sources */,
-				OBJ_393 /* SessionManager.swift in Sources */,
-				OBJ_394 /* Spawn.swift in Sources */,
-				OBJ_395 /* Update.swift in Sources */,
-				OBJ_396 /* UpdateType.swift in Sources */,
-				OBJ_397 /* Session.swift in Sources */,
-				OBJ_398 /* SessionIDType.swift in Sources */,
-				OBJ_399 /* SessionTag.swift in Sources */,
-				OBJ_400 /* Async+Admin.swift in Sources */,
-				OBJ_401 /* Async+Answer.swift in Sources */,
-				OBJ_402 /* Async+Basic.swift in Sources */,
-				OBJ_403 /* Async+Edit.swift in Sources */,
-				OBJ_404 /* Async+Stickers.swift in Sources */,
-				OBJ_405 /* MethodRequestAsync.swift in Sources */,
-				OBJ_406 /* MethodRequest.swift in Sources */,
-				OBJ_407 /* MethodRequestSync.swift in Sources */,
-				OBJ_408 /* Sync+Admin.swift in Sources */,
-				OBJ_409 /* Sync+Answer.swift in Sources */,
-				OBJ_410 /* Sync+Basic.swift in Sources */,
-				OBJ_411 /* Sync+Edit.swift in Sources */,
-				OBJ_412 /* Sync+Payments.swift in Sources */,
-				OBJ_413 /* Sync+Stickers.swift in Sources */,
-				OBJ_414 /* SessionDispatchQueue.swift in Sources */,
-				OBJ_415 /* SessionEvent.swift in Sources */,
-				OBJ_416 /* UpdateFilter.swift in Sources */,
-				OBJ_417 /* SessionModerator.swift in Sources */,
-				OBJ_418 /* FloodMonitor.swift in Sources */,
-				OBJ_419 /* TimeoutMonitor.swift in Sources */,
-				OBJ_420 /* Route.swift in Sources */,
-				OBJ_421 /* RouteCommand.swift in Sources */,
-				OBJ_422 /* RouteListen.swift in Sources */,
-				OBJ_423 /* RouteManual.swift in Sources */,
-				OBJ_424 /* RoutePass.swift in Sources */,
-				OBJ_425 /* Queue.swift in Sources */,
-				OBJ_426 /* SessionRequest.swift in Sources */,
-				OBJ_427 /* ChatSession.swift in Sources */,
-				OBJ_428 /* UserSession.swift in Sources */,
-				OBJ_429 /* CasedEnum.swift in Sources */,
-				OBJ_430 /* CwlRandom.swift in Sources */,
-				OBJ_431 /* SynchronisedArray.swift in Sources */,
-				OBJ_432 /* Utilities.swift in Sources */,
+				OBJ_281 /* Codable+String.swift in Sources */,
+				OBJ_282 /* Request+Admin.swift in Sources */,
+				OBJ_283 /* Request+Answer.swift in Sources */,
+				OBJ_284 /* Request+Basic.swift in Sources */,
+				OBJ_285 /* Request+Chat.swift in Sources */,
+				OBJ_286 /* Request+EditMessage.swift in Sources */,
+				OBJ_287 /* Request+Game.swift in Sources */,
+				OBJ_288 /* Request+Payments.swift in Sources */,
+				OBJ_289 /* Request+Stickers.swift in Sources */,
+				OBJ_290 /* TelegramRequest.swift in Sources */,
+				OBJ_291 /* TelegramResponse.swift in Sources */,
+				OBJ_292 /* TelegramResponseError.swift in Sources */,
+				OBJ_293 /* InputMedia.swift in Sources */,
+				OBJ_294 /* InputMediaPhoto.swift in Sources */,
+				OBJ_295 /* InputMediaVideo.swift in Sources */,
+				OBJ_296 /* CallbackQuery.swift in Sources */,
+				OBJ_297 /* Chat.swift in Sources */,
+				OBJ_298 /* ChatAction.swift in Sources */,
+				OBJ_299 /* ChatMember.swift in Sources */,
+				OBJ_300 /* ChatPhoto.swift in Sources */,
+				OBJ_301 /* FileDownload.swift in Sources */,
+				OBJ_302 /* Animation.swift in Sources */,
+				OBJ_303 /* Game.swift in Sources */,
+				OBJ_304 /* GameHighScore.swift in Sources */,
+				OBJ_305 /* ChosenInlineResult.swift in Sources */,
+				OBJ_306 /* InlineQuery.swift in Sources */,
+				OBJ_307 /* InlineResultArticle.swift in Sources */,
+				OBJ_308 /* InlineResultAudio.swift in Sources */,
+				OBJ_309 /* InlineResultContact.swift in Sources */,
+				OBJ_310 /* InlineResultDocument.swift in Sources */,
+				OBJ_311 /* InlineResultGame.swift in Sources */,
+				OBJ_312 /* InlineResultGif.swift in Sources */,
+				OBJ_313 /* InlineResultLocation.swift in Sources */,
+				OBJ_314 /* InlineResultMpeg4Gif.swift in Sources */,
+				OBJ_315 /* InlineResultPhoto.swift in Sources */,
+				OBJ_316 /* InlineResultSticker.swift in Sources */,
+				OBJ_317 /* InlineResultVenue.swift in Sources */,
+				OBJ_318 /* InlineResultVideo.swift in Sources */,
+				OBJ_319 /* InlineResultVoice.swift in Sources */,
+				OBJ_320 /* InlineResult.swift in Sources */,
+				OBJ_321 /* InlineResultAny.swift in Sources */,
+				OBJ_322 /* InlineResultType.swift in Sources */,
+				OBJ_323 /* InputMessageContent.swift in Sources */,
+				OBJ_324 /* InputMessageContentType.swift in Sources */,
+				OBJ_325 /* InputMessageContent_Any.swift in Sources */,
+				OBJ_326 /* InputMessageContent_Contact.swift in Sources */,
+				OBJ_327 /* InputMessageContent_Location.swift in Sources */,
+				OBJ_328 /* InputMessageContent_Text.swift in Sources */,
+				OBJ_329 /* InputMessageContent_Venue.swift in Sources */,
+				OBJ_330 /* ForceReply.swift in Sources */,
+				OBJ_331 /* InlineKey.swift in Sources */,
+				OBJ_332 /* InlineKeyType.swift in Sources */,
+				OBJ_333 /* InlineKeyboard.swift in Sources */,
+				OBJ_334 /* Keyboard.swift in Sources */,
+				OBJ_335 /* KeyboardKey.swift in Sources */,
+				OBJ_336 /* KeyboardRemove.swift in Sources */,
+				OBJ_337 /* MarkupType.swift in Sources */,
+				OBJ_338 /* Audio.swift in Sources */,
+				OBJ_339 /* Contact.swift in Sources */,
+				OBJ_340 /* Document.swift in Sources */,
+				OBJ_341 /* Location.swift in Sources */,
+				OBJ_342 /* Photo.swift in Sources */,
+				OBJ_343 /* Venue.swift in Sources */,
+				OBJ_344 /* Video.swift in Sources */,
+				OBJ_345 /* VideoNote.swift in Sources */,
+				OBJ_346 /* Voice.swift in Sources */,
+				OBJ_347 /* Message.swift in Sources */,
+				OBJ_348 /* MessageEntity.swift in Sources */,
+				OBJ_349 /* MessageParseMode.swift in Sources */,
+				OBJ_350 /* MessageType.swift in Sources */,
+				OBJ_351 /* Invoice.swift in Sources */,
+				OBJ_352 /* LabeledPrice.swift in Sources */,
+				OBJ_353 /* OrderInfo.swift in Sources */,
+				OBJ_354 /* PreCheckoutQuery.swift in Sources */,
+				OBJ_355 /* ShippingAddress.swift in Sources */,
+				OBJ_356 /* ShippingOption.swift in Sources */,
+				OBJ_357 /* ShippingQuery.swift in Sources */,
+				OBJ_358 /* SuccessfulPayment.swift in Sources */,
+				OBJ_359 /* MaskPosition.swift in Sources */,
+				OBJ_360 /* MaskPositionPoint.swift in Sources */,
+				OBJ_361 /* Sticker.swift in Sources */,
+				OBJ_362 /* StickerSet.swift in Sources */,
+				OBJ_363 /* Type+Custom.swift in Sources */,
+				OBJ_364 /* Type+Error.swift in Sources */,
+				OBJ_365 /* Type+Extensions.swift in Sources */,
+				OBJ_366 /* Type+Protocols.swift in Sources */,
+				OBJ_367 /* Type+Standard.swift in Sources */,
+				OBJ_368 /* User.swift in Sources */,
+				OBJ_369 /* UserProfilePhotos.swift in Sources */,
+				OBJ_370 /* Status.swift in Sources */,
+				OBJ_371 /* Version.swift in Sources */,
+				OBJ_372 /* Client.swift in Sources */,
+				OBJ_373 /* ClientConnection+Error.swift in Sources */,
+				OBJ_374 /* ClientConnection.swift in Sources */,
+				OBJ_375 /* Portal.swift in Sources */,
+				OBJ_376 /* Result.swift in Sources */,
+				OBJ_377 /* Cache+Error.swift in Sources */,
+				OBJ_378 /* CacheFile.swift in Sources */,
+				OBJ_379 /* CacheManager.swift in Sources */,
+				OBJ_380 /* Log+Debug.swift in Sources */,
+				OBJ_381 /* Log+Enum.swift in Sources */,
+				OBJ_382 /* Log+Prints.swift in Sources */,
+				OBJ_383 /* Log.swift in Sources */,
+				OBJ_384 /* LogLevel.swift in Sources */,
+				OBJ_385 /* Moderator.swift in Sources */,
+				OBJ_386 /* Pelican+Delegates.swift in Sources */,
+				OBJ_387 /* Pelican+Errors.swift in Sources */,
+				OBJ_388 /* Pelican+Files.swift in Sources */,
+				OBJ_389 /* Pelican.swift in Sources */,
+				OBJ_390 /* LoopQueue.swift in Sources */,
+				OBJ_391 /* Duration.swift in Sources */,
+				OBJ_392 /* Schedule.swift in Sources */,
+				OBJ_393 /* SessionBuilder.swift in Sources */,
+				OBJ_394 /* SessionManager.swift in Sources */,
+				OBJ_395 /* Spawn.swift in Sources */,
+				OBJ_396 /* Update.swift in Sources */,
+				OBJ_397 /* UpdateType.swift in Sources */,
+				OBJ_398 /* Session.swift in Sources */,
+				OBJ_399 /* SessionIDType.swift in Sources */,
+				OBJ_400 /* SessionTag.swift in Sources */,
+				OBJ_401 /* Async+Admin.swift in Sources */,
+				OBJ_402 /* Async+Answer.swift in Sources */,
+				OBJ_403 /* Async+Basic.swift in Sources */,
+				OBJ_404 /* Async+Edit.swift in Sources */,
+				OBJ_405 /* Async+Stickers.swift in Sources */,
+				OBJ_406 /* MethodRequestAsync.swift in Sources */,
+				OBJ_407 /* MethodRequest.swift in Sources */,
+				OBJ_408 /* MethodRequestSync.swift in Sources */,
+				OBJ_409 /* Sync+Admin.swift in Sources */,
+				OBJ_410 /* Sync+Answer.swift in Sources */,
+				OBJ_411 /* Sync+Basic.swift in Sources */,
+				OBJ_412 /* Sync+Edit.swift in Sources */,
+				OBJ_413 /* Sync+Payments.swift in Sources */,
+				OBJ_414 /* Sync+Stickers.swift in Sources */,
+				OBJ_415 /* SessionDispatchQueue.swift in Sources */,
+				OBJ_416 /* SessionEvent.swift in Sources */,
+				OBJ_417 /* UpdateFilter.swift in Sources */,
+				OBJ_418 /* SessionModerator.swift in Sources */,
+				OBJ_419 /* FloodMonitor.swift in Sources */,
+				OBJ_420 /* TimeoutMonitor.swift in Sources */,
+				OBJ_421 /* Route.swift in Sources */,
+				OBJ_422 /* RouteCommand.swift in Sources */,
+				OBJ_423 /* RouteListen.swift in Sources */,
+				OBJ_424 /* RouteManual.swift in Sources */,
+				OBJ_425 /* RoutePass.swift in Sources */,
+				OBJ_426 /* Queue.swift in Sources */,
+				OBJ_427 /* SessionRequest.swift in Sources */,
+				OBJ_428 /* ChatSession.swift in Sources */,
+				OBJ_429 /* UserSession.swift in Sources */,
+				OBJ_430 /* CasedEnum.swift in Sources */,
+				OBJ_431 /* CwlRandom.swift in Sources */,
+				OBJ_432 /* SynchronisedArray.swift in Sources */,
+				OBJ_433 /* SynchronisedDictionary.swift in Sources */,
+				OBJ_434 /* Utilities.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		OBJ_441 /* Sources */ = {
+		OBJ_443 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 0;
 			files = (
-				OBJ_442 /* Package.swift in Sources */,
+				OBJ_444 /* Package.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		OBJ_446 /* Sources */ = {
+		OBJ_448 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 0;
 			files = (
-				OBJ_447 /* LclJSONSerialization.swift in Sources */,
-				OBJ_448 /* SwiftyJSON.swift in Sources */,
+				OBJ_449 /* LclJSONSerialization.swift in Sources */,
+				OBJ_450 /* SwiftyJSON.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		OBJ_454 /* Sources */ = {
+		OBJ_456 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 0;
 			files = (
-				OBJ_455 /* Package.swift in Sources */,
+				OBJ_457 /* Package.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		OBJ_460 /* Sources */ = {
+		OBJ_462 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 0;
 			files = (
-				OBJ_461 /* Dice.swift in Sources */,
-				OBJ_462 /* DiceItem.swift in Sources */,
-				OBJ_463 /* DiceType.swift in Sources */,
-				OBJ_464 /* Event.swift in Sources */,
-				OBJ_465 /* EventContainer.swift in Sources */,
-				OBJ_466 /* EventExit.swift in Sources */,
-				OBJ_467 /* EventRecord.swift in Sources */,
-				OBJ_468 /* EventRepresentible.swift in Sources */,
-				OBJ_469 /* EventType.swift in Sources */,
-				OBJ_470 /* Flair.swift in Sources */,
-				OBJ_471 /* FlairManager.swift in Sources */,
-				OBJ_472 /* FlairRepresentible.swift in Sources */,
-				OBJ_473 /* FlairResponse.swift in Sources */,
-				OBJ_474 /* FlairStack.swift in Sources */,
-				OBJ_475 /* GenBump.swift in Sources */,
-				OBJ_476 /* Generator.swift in Sources */,
-				OBJ_477 /* GeneratorOption.swift in Sources */,
-				OBJ_478 /* Handle.swift in Sources */,
-				OBJ_479 /* Inventory+Stats.swift in Sources */,
-				OBJ_480 /* Inventory.swift in Sources */,
-				OBJ_481 /* InventoryStack.swift in Sources */,
-				OBJ_482 /* ItemInfoTag.swift in Sources */,
-				OBJ_483 /* ItemRepresentible.swift in Sources */,
-				OBJ_484 /* ItemTypeTag.swift in Sources */,
-				OBJ_485 /* Array+UserProxy.swift in Sources */,
-				OBJ_486 /* UserProxy+InlineQuery.swift in Sources */,
-				OBJ_487 /* UserProxy.swift in Sources */,
-				OBJ_488 /* UserProxyStatus.swift in Sources */,
-				OBJ_489 /* PointInstance.swift in Sources */,
-				OBJ_490 /* PointManager.swift in Sources */,
-				OBJ_491 /* PointReceipt.swift in Sources */,
-				OBJ_492 /* PointType.swift in Sources */,
-				OBJ_493 /* PointUnit.swift in Sources */,
-				OBJ_494 /* PointValue.swift in Sources */,
-				OBJ_495 /* Reward.swift in Sources */,
-				OBJ_496 /* ItemRoute.swift in Sources */,
-				OBJ_497 /* PlayerRoute.swift in Sources */,
-				OBJ_498 /* Array+Random.swift in Sources */,
-				OBJ_499 /* CasedEnum.swift in Sources */,
-				OBJ_500 /* CwlRandom.swift in Sources */,
-				OBJ_501 /* StringRepresentible.swift in Sources */,
+				OBJ_463 /* Dice.swift in Sources */,
+				OBJ_464 /* DiceItem.swift in Sources */,
+				OBJ_465 /* DiceType.swift in Sources */,
+				OBJ_466 /* Event.swift in Sources */,
+				OBJ_467 /* EventContainer.swift in Sources */,
+				OBJ_468 /* EventExit.swift in Sources */,
+				OBJ_469 /* EventRecord.swift in Sources */,
+				OBJ_470 /* EventRepresentible.swift in Sources */,
+				OBJ_471 /* EventType.swift in Sources */,
+				OBJ_472 /* Flair.swift in Sources */,
+				OBJ_473 /* FlairManager.swift in Sources */,
+				OBJ_474 /* FlairRepresentible.swift in Sources */,
+				OBJ_475 /* FlairResponse.swift in Sources */,
+				OBJ_476 /* FlairStack.swift in Sources */,
+				OBJ_477 /* GenBump.swift in Sources */,
+				OBJ_478 /* Generator.swift in Sources */,
+				OBJ_479 /* GeneratorOption.swift in Sources */,
+				OBJ_480 /* Handle.swift in Sources */,
+				OBJ_481 /* Inventory+Stats.swift in Sources */,
+				OBJ_482 /* Inventory.swift in Sources */,
+				OBJ_483 /* InventoryStack.swift in Sources */,
+				OBJ_484 /* ItemInfoTag.swift in Sources */,
+				OBJ_485 /* ItemRepresentible.swift in Sources */,
+				OBJ_486 /* ItemTypeTag.swift in Sources */,
+				OBJ_487 /* Array+UserProxy.swift in Sources */,
+				OBJ_488 /* UserProxy+InlineQuery.swift in Sources */,
+				OBJ_489 /* UserProxy.swift in Sources */,
+				OBJ_490 /* UserProxyStatus.swift in Sources */,
+				OBJ_491 /* PointInstance.swift in Sources */,
+				OBJ_492 /* PointManager.swift in Sources */,
+				OBJ_493 /* PointReceipt.swift in Sources */,
+				OBJ_494 /* PointType.swift in Sources */,
+				OBJ_495 /* PointUnit.swift in Sources */,
+				OBJ_496 /* PointValue.swift in Sources */,
+				OBJ_497 /* Reward.swift in Sources */,
+				OBJ_498 /* ItemRoute.swift in Sources */,
+				OBJ_499 /* PlayerRoute.swift in Sources */,
+				OBJ_500 /* Array+Random.swift in Sources */,
+				OBJ_501 /* CasedEnum.swift in Sources */,
+				OBJ_502 /* CwlRandom.swift in Sources */,
+				OBJ_503 /* StringRepresentible.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		OBJ_511 /* Sources */ = {
+		OBJ_513 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 0;
 			files = (
-				OBJ_512 /* Package.swift in Sources */,
+				OBJ_514 /* Package.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		OBJ_435 /* PBXTargetDependency */ = {
+		OBJ_437 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = "SwiftyJSON::SwiftyJSON" /* SwiftyJSON */;
-			targetProxy = 50E14814207E147800275AD5 /* PBXContainerItemProxy */;
+			targetProxy = 5099AFBD2088021D0079FD43 /* PBXContainerItemProxy */;
 		};
-		OBJ_505 /* PBXTargetDependency */ = {
+		OBJ_507 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = "Pelican::Pelican" /* Pelican */;
-			targetProxy = 50E14813207E147800275AD5 /* PBXContainerItemProxy */;
+			targetProxy = 5099AFBC2088021D0079FD43 /* PBXContainerItemProxy */;
 		};
-		OBJ_506 /* PBXTargetDependency */ = {
+		OBJ_508 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = "SwiftyJSON::SwiftyJSON" /* SwiftyJSON */;
-			targetProxy = 50E14815207E147800275AD5 /* PBXContainerItemProxy */;
+			targetProxy = 5099AFBE2088021D0079FD43 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		OBJ_277 /* Debug */ = {
+		OBJ_278 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ENABLE_TESTABILITY = YES;
@@ -1628,7 +1632,7 @@
 			};
 			name = Debug;
 		};
-		OBJ_278 /* Release */ = {
+		OBJ_279 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ENABLE_TESTABILITY = YES;
@@ -1693,25 +1697,25 @@
 			};
 			name = Release;
 		};
-		OBJ_439 /* Debug */ = {
+		OBJ_441 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				LD = /usr/bin/true;
-				OTHER_SWIFT_FLAGS = "-swift-version 4 -I $(TOOLCHAIN_DIR)/usr/lib/swift/pm/4 -target x86_64-apple-macosx10.10 -sdk /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk";
+				OTHER_SWIFT_FLAGS = "-swift-version 4 -I $(TOOLCHAIN_DIR)/usr/lib/swift/pm/4 -target x86_64-apple-macosx10.10 -sdk /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk";
 				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
-		OBJ_440 /* Release */ = {
+		OBJ_442 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				LD = /usr/bin/true;
-				OTHER_SWIFT_FLAGS = "-swift-version 4 -I $(TOOLCHAIN_DIR)/usr/lib/swift/pm/4 -target x86_64-apple-macosx10.10 -sdk /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk";
+				OTHER_SWIFT_FLAGS = "-swift-version 4 -I $(TOOLCHAIN_DIR)/usr/lib/swift/pm/4 -target x86_64-apple-macosx10.10 -sdk /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk";
 				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};
-		OBJ_444 /* Debug */ = {
+		OBJ_446 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ENABLE_TESTABILITY = YES;
@@ -1734,7 +1738,7 @@
 			};
 			name = Debug;
 		};
-		OBJ_445 /* Release */ = {
+		OBJ_447 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ENABLE_TESTABILITY = YES;
@@ -1757,25 +1761,25 @@
 			};
 			name = Release;
 		};
-		OBJ_452 /* Debug */ = {
+		OBJ_454 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				LD = /usr/bin/true;
-				OTHER_SWIFT_FLAGS = "-swift-version 3 -I $(TOOLCHAIN_DIR)/usr/lib/swift/pm/3 -target x86_64-apple-macosx10.10 -sdk /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk";
+				OTHER_SWIFT_FLAGS = "-swift-version 3 -I $(TOOLCHAIN_DIR)/usr/lib/swift/pm/3 -target x86_64-apple-macosx10.10 -sdk /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
-		OBJ_453 /* Release */ = {
+		OBJ_455 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				LD = /usr/bin/true;
-				OTHER_SWIFT_FLAGS = "-swift-version 3 -I $(TOOLCHAIN_DIR)/usr/lib/swift/pm/3 -target x86_64-apple-macosx10.10 -sdk /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk";
+				OTHER_SWIFT_FLAGS = "-swift-version 3 -I $(TOOLCHAIN_DIR)/usr/lib/swift/pm/3 -target x86_64-apple-macosx10.10 -sdk /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
-		OBJ_458 /* Debug */ = {
+		OBJ_460 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ENABLE_TESTABILITY = YES;
@@ -1798,7 +1802,7 @@
 			};
 			name = Debug;
 		};
-		OBJ_459 /* Release */ = {
+		OBJ_461 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ENABLE_TESTABILITY = YES;
@@ -1821,20 +1825,20 @@
 			};
 			name = Release;
 		};
-		OBJ_509 /* Debug */ = {
+		OBJ_511 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				LD = /usr/bin/true;
-				OTHER_SWIFT_FLAGS = "-swift-version 4 -I $(TOOLCHAIN_DIR)/usr/lib/swift/pm/4 -target x86_64-apple-macosx10.10 -sdk /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk";
+				OTHER_SWIFT_FLAGS = "-swift-version 4 -I $(TOOLCHAIN_DIR)/usr/lib/swift/pm/4 -target x86_64-apple-macosx10.10 -sdk /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk";
 				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
-		OBJ_510 /* Release */ = {
+		OBJ_512 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				LD = /usr/bin/true;
-				OTHER_SWIFT_FLAGS = "-swift-version 4 -I $(TOOLCHAIN_DIR)/usr/lib/swift/pm/4 -target x86_64-apple-macosx10.10 -sdk /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk";
+				OTHER_SWIFT_FLAGS = "-swift-version 4 -I $(TOOLCHAIN_DIR)/usr/lib/swift/pm/4 -target x86_64-apple-macosx10.10 -sdk /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk";
 				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
@@ -1851,56 +1855,56 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		OBJ_276 /* Build configuration list for PBXNativeTarget "Pelican" */ = {
+		OBJ_277 /* Build configuration list for PBXNativeTarget "Pelican" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				OBJ_277 /* Debug */,
-				OBJ_278 /* Release */,
+				OBJ_278 /* Debug */,
+				OBJ_279 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		OBJ_438 /* Build configuration list for PBXNativeTarget "PelicanPackageDescription" */ = {
+		OBJ_440 /* Build configuration list for PBXNativeTarget "PelicanPackageDescription" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				OBJ_439 /* Debug */,
-				OBJ_440 /* Release */,
+				OBJ_441 /* Debug */,
+				OBJ_442 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		OBJ_443 /* Build configuration list for PBXNativeTarget "SwiftyJSON" */ = {
+		OBJ_445 /* Build configuration list for PBXNativeTarget "SwiftyJSON" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				OBJ_444 /* Debug */,
-				OBJ_445 /* Release */,
+				OBJ_446 /* Debug */,
+				OBJ_447 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		OBJ_451 /* Build configuration list for PBXNativeTarget "SwiftyJSONPackageDescription" */ = {
+		OBJ_453 /* Build configuration list for PBXNativeTarget "SwiftyJSONPackageDescription" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				OBJ_452 /* Debug */,
-				OBJ_453 /* Release */,
+				OBJ_454 /* Debug */,
+				OBJ_455 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		OBJ_457 /* Build configuration list for PBXNativeTarget "TrashBoat" */ = {
+		OBJ_459 /* Build configuration list for PBXNativeTarget "TrashBoat" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				OBJ_458 /* Debug */,
-				OBJ_459 /* Release */,
+				OBJ_460 /* Debug */,
+				OBJ_461 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		OBJ_508 /* Build configuration list for PBXNativeTarget "TrashBoatPackageDescription" */ = {
+		OBJ_510 /* Build configuration list for PBXNativeTarget "TrashBoatPackageDescription" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				OBJ_509 /* Debug */,
-				OBJ_510 /* Release */,
+				OBJ_511 /* Debug */,
+				OBJ_512 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

@@ -5,8 +5,8 @@
         "package": "Pelican",
         "repositoryURL": "https://github.com/Takanu/Pelican.git",
         "state": {
-          "branch": "master",
-          "revision": "bffe1586f3f02354dce7bfa0d38f08a40dcaf371",
+          "branch": null,
+          "revision": "9b3c3111b243c26242b91972ca17081f6ae1229c",
           "version": null
         }
       },
