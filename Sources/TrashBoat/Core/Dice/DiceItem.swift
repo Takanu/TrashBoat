@@ -13,7 +13,7 @@ public class DiceItem: ItemRepresentible {
 	public var description: String
 	
 	/// A static type to conform to ItemRepresentible.
-	public var type = ItemTypeTag(name: "Dice",
+	public var itemType = ItemTypeTag(name: "Dice",
 												 symbol: "🎲",
 												 pluralisedName: "Dice",
 												 routeName: "Dice",

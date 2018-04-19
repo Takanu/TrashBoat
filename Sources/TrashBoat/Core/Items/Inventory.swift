@@ -72,12 +72,12 @@ public class Inventory {
 		for item in incomingItems {
 		
 			/// Check that the item has a type category
-			if items.keys.contains(item.type) == false {
-				items[item.type] = []
+			if items.keys.contains(item.itemType) == false {
+				items[item.itemType] = []
 			}
 			
 			/// Search through the stacks for one that matches the name
-			var stacks = items[item.type]!
+			var stacks = items[item.itemType]!
 			var itemAdded = false
 			for stack in stacks {
 				
@@ -88,7 +88,7 @@ public class Inventory {
 						stack.isUnlimited = true
 					}
 					
-					items[item.type] = stacks
+					items[item.itemType] = stacks
 					itemAdded = true
 					break
 				}
@@ -103,7 +103,7 @@ public class Inventory {
 				}
 				
 				stacks.append(newStack)
-				items[item.type] = stacks
+				items[item.itemType] = stacks
 			}
 		}
 	}
@@ -134,12 +134,12 @@ public class Inventory {
 	*/
 	public func editStack(ofItem item: ItemRepresentible, makeStackUnlimited: Bool) {
 		/// Check that the item has a type category
-		if items.keys.contains(item.type) == false {
-			items[item.type] = []
+		if items.keys.contains(item.itemType) == false {
+			items[item.itemType] = []
 		}
 		
 		/// Search through the stacks for one that matches the name
-		let stacks = items[item.type]!
+		let stacks = items[item.itemType]!
 		for stack in stacks {
 			
 			if stack.itemName == item.name {
@@ -157,12 +157,12 @@ public class Inventory {
 	public func hasItem(_ item: ItemRepresentible) -> Bool {
 		
 		/// Check that the type category is stored, and if not return false early.
-		if items.keys.contains(item.type) == false {
+		if items.keys.contains(item.itemType) == false {
 			return false
 		}
 		
 		/// Search through the stacks for one that matches the name.  If found, return true.
-		for stack in items[item.type]! {
+		for stack in items[item.itemType]! {
 			if stack.itemName == item.name {
 				return true
 			}
@@ -290,7 +290,7 @@ public class Inventory {
 	Returns and removes an item from the inventory if found, using another instance of the item.
 	*/
 	public func removeItem(_ item: ItemRepresentible) -> ItemRepresentible? {
-		return removeItem(name: item.name, type: item.type.name)
+		return removeItem(name: item.name, type: item.itemType.name)
 	}
 	
 	/**
@@ -338,7 +338,7 @@ public class Inventory {
 	Returns and removes an item from the inventory if found, at a random position in the item stack.
 	*/
 	public func removeRandomItem(_ item: ItemRepresentible) -> ItemRepresentible? {
-		return removeRandomItem(name: item.name, type: item.type.name)
+		return removeRandomItem(name: item.name, type: item.itemType.name)
 	}
 	
 	/**

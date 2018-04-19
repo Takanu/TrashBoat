@@ -12,7 +12,7 @@ public protocol ItemRepresentible {
 	var name: String { get }
 	
 	/// The type of item this object represents, as defined by an ItemTypeTag.  Protocols that represent a type of object should define this tag immediately when inheriting from ItemRepresentible.
-	var type: ItemTypeTag { get }
+	var itemType: ItemTypeTag { get }
 	
 	/// A brief description of the item.  I mean if you want (but as it's a protocol you kind of have to).
 	var description: String { get }
@@ -37,8 +37,9 @@ extension ItemRepresentible {
 	public func isEqualTo(_ item: ItemRepresentible) -> Bool {
 		
 		if name != item.name { return false }
-		if type != item.type { return false }
-		
+		if itemType != item.itemType { return false }
+    if description != item.description { return false }
+    
 		return true
 	}
 }

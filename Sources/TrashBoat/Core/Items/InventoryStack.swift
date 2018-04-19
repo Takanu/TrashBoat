@@ -47,7 +47,7 @@ public class InventoryStack: Equatable {
 	*/
 	public init(item: ItemRepresentible) {
 		self.itemName = item.name
-		self.itemType = item.type
+		self.itemType = item.itemType
 		self.itemInfo = item.info
 		self.itemDescription = item.description
 		self.itemCard = item.getInlineCard()
@@ -58,7 +58,7 @@ public class InventoryStack: Equatable {
 	Adds an item to the stack.
 	*/
 	public func add(_ item: ItemRepresentible) {
-		if item.name != itemName || item.type != itemType { return }
+		if item.name != itemName || item.itemType != itemType { return }
 		
 		items.append(item)
 	}

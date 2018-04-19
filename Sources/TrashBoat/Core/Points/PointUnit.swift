@@ -24,7 +24,7 @@ public protocol PointUnit: CustomStringConvertible {
 	var description: String { get }
 	
 	/// The type this unit represents.
-	var type: PointType { get }
+	var pointType: PointType { get }
 	
 	/// The value of the unit.
 	var value: PointValue { get set }

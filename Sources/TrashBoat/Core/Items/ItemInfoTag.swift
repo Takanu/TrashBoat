@@ -27,7 +27,7 @@ public struct ItemInfoTag: Equatable {
 	*/
 	public init(withItem item: ItemRepresentible) {
 		self.name = item.name
-		self.type = item.type
+		self.type = item.itemType
 		self.description = item.description
 		self.fullName = item.getFullName()
 		self.inlineCard = item.getInlineCard()
