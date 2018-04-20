@@ -29,5 +29,34 @@ public enum PointValue: Equatable {
 			return double
 		}
 	}
+  
+  var type: String {
+    switch self {
+    case .int(_):
+      return "Int"
+    case .double(_):
+      return "Double"
+    }
+  }
+  
+  
+  static public func ==(lhs: PointValue, rhs: PointValue) -> Bool {
+    
+    switch lhs {
+    case .int(let lhsInt):
+      if rhs.type == "Double" { return false }
+      
+      let rhsInt = rhs.int
+      if lhsInt != rhsInt { return false }
+      return true
+      
+    case .double(let lhsDouble):
+      if rhs.type == "Double" { return false }
+      
+      let rhsDouble = rhs.double
+      if lhsDouble != rhsDouble { return false }
+      return true
+    }
+  }
 }
 
