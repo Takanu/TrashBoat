@@ -108,6 +108,8 @@ public class Inventory {
 		}
 	}
 	
+  // Removed due to conflict with the above function.  Will add back later.
+  
 	/**
 	Adds one or more items to the inventory system.  Type keys and `InventoryStack` types will automatically be
 	generated for items that require it.
@@ -119,9 +121,9 @@ public class Inventory {
 	- parameter incomingItems: The items you wish to add to this inventory.  If any items already have a stack
 	associated with them in the inventory they will be added to it.
 	*/
-	public func add(makeUnlimitedStacks: Bool = false, _ itemArray: [ItemRepresentible]) {
-		add(makeUnlimitedStacks: makeUnlimitedStacks, itemArray)
-	}
+//  public func add(makeUnlimitedStacks: Bool = false, _ itemArray: [ItemRepresentible]) {
+//    add(makeUnlimitedStacks: makeUnlimitedStacks, itemArray)
+//  }
 	
 	
 	/**
