@@ -4,55 +4,55 @@ import Foundation
 import Pelican
 
 /**
-Encapsulates an event in a game, which should act as a reusable experience.  Events provide property shortcuts for retrieving items
-and player requests, enabling clearer and more readable event scripting without having to chain other types.  Subclass this type to add
-your own properties and shortcuts for event scripting.
-
-- warning: Subclasses should __always__ inherit the `EventRepresentible` protocol to define the event's core properties and methods,
-and __almost always__ be initialised as part of an `EventContainer` to isolate event code and game states from unexpected changes.
-*/
+ Encapsulates an event in a game, which should act as a reusable experience.  Events provide property shortcuts for retrieving items
+ and player requests, enabling clearer and more readable event scripting without having to chain other types.  Subclass this type to add
+ your own properties and shortcuts for event scripting.
+ 
+ - warning: Subclasses should __always__ inherit the `EventRepresentible` protocol to define the event's core properties and methods,
+ and __almost always__ be initialised as part of an `EventContainer` to isolate event code and game states from unexpected changes.
+ */
 open class Event<HandleType: Handle> {
-	
-	
-	/// The name of the event
-	public private(set) var name: String = "Untitled"
-	
-	/// A description of the event's function (Used when building inline cards).
-	public private(set) var info: String = "Unspecified"
-	
-	/// The type of event.
-	public private(set) var type = EventType(name: "UNDEFINED",
-																					 symbol: "💀",
-																					 pluralisedName: "UNDEFINED",
-																					 description: "DEFINE ME")
-
-	
-	/// The handle used to send requests to Telegram, and to modify key game state information.  WARNING - DO NOT USE OUTSIDE THE SCOPE OF AN EVENT.
-	public var handle: HandleType!
-	
-    /// The request class, shared by `handle` to make requests.  WARNING - DO NOT USE OUTSIDE THE SCOPE OF AN EVENT.
-    public var request: MethodRequest!
-    
-    /// The session class, shared by `handle` to get and modify sessions.  WARNING - DO NOT USE OUTSIDE THE SCOPE OF AN EVENT.
-    public var sessions: SessionRequest!
-	
-	/// The queue system, shared by 'handle' to queue requests.  WARNING - DO NOT USE OUTSIDE THE SCOPE OF AN EVENT.
-	public var queue: ChatSessionQueue!
-	
-	/// The base route, shared by 'handle' to handle update filtering.  WARNING - DO NOT USE OUTSIDE THE SCOPE OF AN EVENT.
-	public var baseRoute: Route!
-	
-	// The tag, shared by 'handle' to identify the chat when making requests.  WARNING - DO NOT USE OUTSIDE THE SCOPE OF AN EVENT.
-	public var tag: SessionTag!
-	
-	/// The flairs influencing an event.  These should typically be set before the event begins by an EventContainer.
-	public lazy var flairs = FlairManager()
-	
-	/// If true, the state of the game is in Test Mode, and the event should make sure it's interface accommodates for a single test user.
-	public var testMode: Bool = false
-	
-	/// What the event should call once it is finished.
-	private var exit: EventExit
+  
+  
+  /// The name of the event
+  public private(set) var name: String = "Untitled"
+  
+  /// A description of the event's function (Used when building inline cards).
+  public private(set) var info: String = "Unspecified"
+  
+  /// The type of event.
+  public private(set) var type = EventType(name: "UNDEFINED",
+                                           symbol: "💀",
+                                           pluralisedName: "UNDEFINED",
+                                           description: "DEFINE ME")
+  
+  
+  /// The handle used to send requests to Telegram, and to modify key game state information.  WARNING - DO NOT USE OUTSIDE THE SCOPE OF AN EVENT.
+  public var handle: HandleType!
+  
+  /// The request class, shared by `handle` to make requests.  WARNING - DO NOT USE OUTSIDE THE SCOPE OF AN EVENT.
+  public var request: MethodRequest!
+  
+  /// The session class, shared by `handle` to get and modify sessions.  WARNING - DO NOT USE OUTSIDE THE SCOPE OF AN EVENT.
+  public var sessions: SessionRequest!
+  
+  /// The queue system, shared by 'handle' to queue requests.  WARNING - DO NOT USE OUTSIDE THE SCOPE OF AN EVENT.
+  public var queue: ChatSessionQueue!
+  
+  /// The base route, shared by 'handle' to handle update filtering.  WARNING - DO NOT USE OUTSIDE THE SCOPE OF AN EVENT.
+  public var baseRoute: Route!
+  
+  // The tag, shared by 'handle' to identify the chat when making requests.  WARNING - DO NOT USE OUTSIDE THE SCOPE OF AN EVENT.
+  public var tag: SessionTag!
+  
+  /// The flairs influencing an event.  These should typically be set before the event begins by an EventContainer.
+  public lazy var flairs = FlairManager()
+  
+  /// If true, the state of the game is in Test Mode, and the event should make sure it's interface accommodates for a single test user.
+  public var testMode: Bool = false
+  
+  /// What the event should call once it is finished.
+  public var exit: EventExit
 	
 	/** Returns an inline card that represents the event in a standardised format.
 	- note: Change the ID value set before use. */
