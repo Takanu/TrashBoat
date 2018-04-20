@@ -12,7 +12,6 @@ public class FlairManager {
 	/// The current collection of states this system is holding.
 	public private(set) var flairs: [String: [FlairStack] ] = [:]
 	
-	
 	public init() { }
 	
 	
@@ -91,7 +90,7 @@ public class FlairManager {
 	Tries to find if this system has the specified flair.  The flair given does not have to match exactly if compareContents is false.
 	- returns: True if it does, false if not.
 	*/
-	public func find(_ incomingFlair: Flair, compareContents: Bool) -> Bool {
+	public func find(_ incomingFlair: Flair, compareContents: Bool = false) -> Bool {
 		
 		if let category = flairs[incomingFlair.category] {
 			for stack in category {
@@ -107,6 +106,18 @@ public class FlairManager {
 		}
 		return false
 	}
+  
+  /**
+   Tries to find if this system has the specified category of flair.
+   - returns: True if it does, false if not.
+   */
+  public func find(category: String) -> Bool {
+    
+    if flairs[category] != nil {
+     return true
+    }
+    return false
+  }
 	
 	/**
 	Tries to find a flair that matches the given name and category only.
@@ -170,9 +181,17 @@ public class FlairManager {
 					array.remove(at: index)
 				}
 			}
-			
-			// Merge any changes back
-			flairs[incomingFlair.category] = array
+      
+      
+      // If the array is empty, remove the category
+      if array.count == 0 {
+        flairs.removeValue(forKey: incomingFlair.category)
+      }
+      
+      // Otherwise merge any changes back
+      else {
+        flairs[incomingFlair.category] = array
+      }
 		}
 	}
 	
