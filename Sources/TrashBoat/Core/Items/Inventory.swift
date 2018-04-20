@@ -257,6 +257,7 @@ public class Inventory {
 	
 	If removing the item would reduce the stack count to zero, the stack is removed from the inventory.
 	*/
+  @discardableResult
 	public func removeItem(name: StringRepresentible, type: StringRepresentible) -> ItemRepresentible? {
 		
 		/// Check that the type category is stored, and if not return nil.
@@ -289,6 +290,7 @@ public class Inventory {
 	/**
 	Returns and removes an item from the inventory if found, using another instance of the item.
 	*/
+  @discardableResult
 	public func removeItem(_ item: ItemRepresentible) -> ItemRepresentible? {
 		return removeItem(name: item.name, type: item.itemType.name)
 	}
@@ -296,6 +298,7 @@ public class Inventory {
 	/**
 	Returns and removes an item from the inventory if found, using an ItemInfoTag.
 	*/
+  @discardableResult
 	public func removeItem(withInfo info: ItemInfoTag) -> ItemRepresentible? {
 		return removeItem(name: info.name, type: info.type.name)
 	}
@@ -305,6 +308,7 @@ public class Inventory {
 	
 	This differs from `removeItem` as those related functions only remove items from the front of the stack.
 	*/
+  @discardableResult
 	public func removeRandomItem(name: StringRepresentible, type: StringRepresentible) -> ItemRepresentible? {
 		
 		/// Check that the type category is stored, and if not return nil.
@@ -337,6 +341,7 @@ public class Inventory {
 	/**
 	Returns and removes an item from the inventory if found, at a random position in the item stack.
 	*/
+  @discardableResult
 	public func removeRandomItem(_ item: ItemRepresentible) -> ItemRepresentible? {
 		return removeRandomItem(name: item.name, type: item.itemType.name)
 	}
@@ -344,6 +349,7 @@ public class Inventory {
 	/**
 	Returns and removes an item from the inventory if found, at a random position in the item stack.
 	*/
+  @discardableResult
 	public func removeRandomItem(withInfo info: ItemInfoTag) -> ItemRepresentible? {
 		return removeRandomItem(name: info.name, type: info.type.name)
 	}
@@ -351,6 +357,7 @@ public class Inventory {
 	/**
 	Randomly returns and retrieves any item that can be found which matches the given type.
 	*/
+  @discardableResult
 	public func removeRandomItem(ofType type: String, includeUnlimitedStack: Bool) -> ItemRepresentible? {
 		
 		/// Check that the type category is stored, and if not return nil.
@@ -398,6 +405,7 @@ public class Inventory {
 	- parameter includeUnlimitedStacks: If true, any item with an unlimited stack will be removed.  Otherwise, it will remain in the inventory.
 	- returns: An array of all the items of this type if the player has at least one item belonging to it.
 	*/
+  @discardableResult
 	public func removeAllItems(forType type: ItemTypeTag, includeUnlimitedStacks: Bool) -> [ItemRepresentible]? {
 		
 		/// Check that the type category is stored, and if not return nil.
