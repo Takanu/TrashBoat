@@ -119,8 +119,8 @@ public class Inventory {
 	- parameter incomingItems: The items you wish to add to this inventory.  If any items already have a stack
 	associated with them in the inventory they will be added to it.
 	*/
-	public func add(makeUnlimitedStacks: Bool = false, _ incomingItems: [ItemRepresentible]) {
-		add(makeUnlimitedStacks: makeUnlimitedStacks, incomingItems)
+	public func add(makeUnlimitedStacks: Bool = false, _ itemArray: [ItemRepresentible]) {
+		add(makeUnlimitedStacks: makeUnlimitedStacks, itemArray)
 	}
 	
 	
