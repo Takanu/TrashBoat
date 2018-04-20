@@ -67,48 +67,10 @@ public class Inventory {
 	- parameter incomingItems: The items you wish to add to this inventory.  If any items already have a stack
 	associated with them in the inventory they will be added to it.
 	*/
-	public func add(makeUnlimitedStacks: Bool = false, _ incomingItems: ItemRepresentible...) {
-		
-		for item in incomingItems {
-		
-			/// Check that the item has a type category
-			if items.keys.contains(item.itemType) == false {
-				items[item.itemType] = []
-			}
-			
-			/// Search through the stacks for one that matches the name
-			var stacks = items[item.itemType]!
-			var itemAdded = false
-			for stack in stacks {
-				
-				if stack.itemName == item.name {
-					stack.add(item)
-					
-					if makeUnlimitedStacks == true {
-						stack.isUnlimited = true
-					}
-					
-					items[item.itemType] = stacks
-					itemAdded = true
-					break
-				}
-			}
-			
-			// If we're here, we need to make a new stack
-			if itemAdded == false {
-				let newStack = InventoryStack(item: item)
-				
-				if makeUnlimitedStacks == true {
-					newStack.isUnlimited = true
-				}
-				
-				stacks.append(newStack)
-				items[item.itemType] = stacks
-			}
-		}
+	public func add(makeUnlimitedStacks: Bool = false, _ sequence: ItemRepresentible...) {
+		addItems(array: sequence, makeUnlimitedStacks: makeUnlimitedStacks)
 	}
 	
-  // Removed due to conflict with the above function.  Will add back later.
   
 	/**
 	Adds one or more items to the inventory system.  Type keys and `InventoryStack` types will automatically be
@@ -121,9 +83,51 @@ public class Inventory {
 	- parameter incomingItems: The items you wish to add to this inventory.  If any items already have a stack
 	associated with them in the inventory they will be added to it.
 	*/
-//  public func add(makeUnlimitedStacks: Bool = false, _ itemArray: [ItemRepresentible]) {
-//    add(makeUnlimitedStacks: makeUnlimitedStacks, itemArray)
-//  }
+  public func add(makeUnlimitedStacks: Bool = false, _ array: [ItemRepresentible]) {
+    addItems(array: array, makeUnlimitedStacks: makeUnlimitedStacks)
+  }
+  
+  
+  private func addItems(array: [ItemRepresentible], makeUnlimitedStacks: Bool) {
+    
+    for item in array {
+      
+      /// Check that the item has a type category
+      if items.keys.contains(item.itemType) == false {
+        items[item.itemType] = []
+      }
+      
+      /// Search through the stacks for one that matches the name
+      var stacks = items[item.itemType]!
+      var itemAdded = false
+      for stack in stacks {
+        
+        if stack.itemName == item.name {
+          stack.add(item)
+          
+          if makeUnlimitedStacks == true {
+            stack.isUnlimited = true
+          }
+          
+          items[item.itemType] = stacks
+          itemAdded = true
+          break
+        }
+      }
+      
+      // If we're here, we need to make a new stack
+      if itemAdded == false {
+        let newStack = InventoryStack(item: item)
+        
+        if makeUnlimitedStacks == true {
+          newStack.isUnlimited = true
+        }
+        
+        stacks.append(newStack)
+        items[item.itemType] = stacks
+      }
+    }
+  }
 	
 	
 	/**
