@@ -83,7 +83,7 @@ open class Event<HandleType: Handle> {
 	
 	- returns: An error type if verification failed, and nil if verification was successful.
 	*/
-	open func verify(handle: HandleType) -> Error? {
+	open func verify(handle: HandleType) -> EventError? {
 		return nil
 	}
 	
@@ -130,7 +130,7 @@ open class Event<HandleType: Handle> {
 	- note: Use the message to print or send useful information about the issue.  Overriding is recommended to
 	implement custom state changes and cleanup operations.
 	*/
-	open func reset(_ error: Error?) {
+	open func reset(_ error: EventError?) {
 		print("\(tag.id) - \(self): Reset requested.  \"\(error.debugDescription)\"")
 		
 		self.queue.clear()
@@ -144,7 +144,7 @@ open class Event<HandleType: Handle> {
 	- note: Use the message to print or send useful information about the issue.  Overriding is recommended to
 	implement custom state changes and cleanup operations.
 	*/
-	open func abort(_ error: Error?) {
+	open func abort(_ error: EventError?) {
 		print("\(tag.id) - \(self): Abort requested.  \"\(error.debugDescription)\"")
 		
 		self.queue.clear()

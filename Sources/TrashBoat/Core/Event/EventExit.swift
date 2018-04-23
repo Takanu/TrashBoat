@@ -2,4 +2,4 @@
 
 import Foundation
 
-public typealias EventExit = (Error?) -> ()
+public typealias EventExit = (EventError?) -> ()

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		50257A10208E8229000BE45E /* EventError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50257A0F208E8229000BE45E /* EventError.swift */; };
 		OBJ_281 /* Codable+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_68 /* Codable+String.swift */; };
 		OBJ_282 /* Request+Admin.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_69 /* Request+Admin.swift */; };
 		OBJ_283 /* Request+Answer.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_70 /* Request+Answer.swift */; };
@@ -237,6 +238,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		50257A0F208E8229000BE45E /* EventError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventError.swift; sourceTree = "<group>"; };
 		OBJ_100 /* InlineQuery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InlineQuery.swift; sourceTree = "<group>"; };
 		OBJ_102 /* InlineResultArticle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InlineResultArticle.swift; sourceTree = "<group>"; };
 		OBJ_103 /* InlineResultAudio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InlineResultAudio.swift; sourceTree = "<group>"; };
@@ -570,6 +572,7 @@
 				OBJ_18 /* EventRecord.swift */,
 				OBJ_19 /* EventRepresentible.swift */,
 				OBJ_20 /* EventType.swift */,
+				50257A0F208E8229000BE45E /* EventError.swift */,
 			);
 			path = Event;
 			sourceTree = "<group>";
@@ -993,7 +996,7 @@
 			path = Points;
 			sourceTree = "<group>";
 		};
-		OBJ_5 /*  */ = {
+		OBJ_5 = {
 			isa = PBXGroup;
 			children = (
 				OBJ_6 /* Package.swift */,
@@ -1002,7 +1005,6 @@
 				OBJ_63 /* Dependencies */,
 				OBJ_272 /* Products */,
 			);
-			name = "";
 			sourceTree = "<group>";
 		};
 		OBJ_52 /* Reward */ = {
@@ -1330,7 +1332,7 @@
 			knownRegions = (
 				en,
 			);
-			mainGroup = OBJ_5 /*  */;
+			mainGroup = OBJ_5;
 			productRefGroup = OBJ_272 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -1559,6 +1561,7 @@
 				OBJ_483 /* InventoryStack.swift in Sources */,
 				OBJ_484 /* ItemInfoTag.swift in Sources */,
 				OBJ_485 /* ItemRepresentible.swift in Sources */,
+				50257A10208E8229000BE45E /* EventError.swift in Sources */,
 				OBJ_486 /* ItemTypeTag.swift in Sources */,
 				OBJ_487 /* Array+UserProxy.swift in Sources */,
 				OBJ_488 /* UserProxy+InlineQuery.swift in Sources */,

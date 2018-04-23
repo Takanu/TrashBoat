@@ -33,6 +33,7 @@ public class EventContainer<HandleType: Handle> {
 	/// The flairs influencing an event.  When an event is executed, the flairs set here will be passed onto the event.
 	public lazy var flairs = FlairManager()
 	
+	
 	/**
 	Initialises itself with an event, to temporarily initialise the event and extract name and type information.
 	*/
@@ -98,7 +99,7 @@ public class EventContainer<HandleType: Handle> {
 	/**
 	Finishes the event, removing the reference and calling the exit() function.
 	*/
-	private func end(error: Error?) {
+	private func end(error: EventError?) {
 		
 		if exit == nil {
 			print("HEY, THE EVENT CONTAINER FINISH WAS CALLED WHEN NO exit FUNCTION EXISTS.\n\n\(type.name) - \(name)")
