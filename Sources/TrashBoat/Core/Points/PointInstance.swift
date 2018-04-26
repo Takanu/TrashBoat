@@ -44,7 +44,7 @@ public protocol PointInstance: CustomStringConvertible {
 	- parameter change: The change in any numerical value.
 	*/
 	@discardableResult
-	func add(_ change: PointValue) -> PointReceipt?
+	func add(_ change: PointValue) -> PointReceipt
 	
 	/**
 	Adds the amount of currency the player has to the instance's value, in accordance with it's behaviours, returning a receipt
@@ -53,5 +53,5 @@ public protocol PointInstance: CustomStringConvertible {
 	- parameter units: The PointUnit types you wish to comprise the change of.
 	*/
 	@discardableResult
-	func add(units: PointUnit...) -> PointReceipt?
+	func add(units: PointUnit...) -> PointReceipt
 }

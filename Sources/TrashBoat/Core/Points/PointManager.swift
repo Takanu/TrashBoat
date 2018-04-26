@@ -65,29 +65,77 @@ public class PointManager {
 	
 	/**
 	Adds the amount provided to this manager with the specified PointType.
-	A PointInstance will be created for any PointTypes that have yet to be stored in the wallet.
+	A PointInstance will be created for any PointTypes that have yet to be stored in this manager.
 	*/
 	@discardableResult
 	public func add(type: PointType, amount: PointValue) -> PointReceipt {
 		
-		var receipt: PointReceipt?
-		
 		// Ensure this won't add a wallet of the same type
 		for instance in container {
 			if instance.type == type {
-				receipt = instance.add(amount)
+				
+				let receipt = instance.add(amount)
 				addReceipt(receipt)
-				return receipt!
+				return receipt
 			}
 		}
 		
 		// If not, add it!
 		let newInstance = type.instance.init(startAmount: amount)
 		transactions[type] = newInstance.transactions
-		receipt = transactions[type]![0]
+		let receipt = transactions[type]![0]
 		container.append(newInstance)
 		
-		return receipt!
+		return receipt
+	}
+	
+	/**
+	Adds all provided PointUnits to the manager.
+	A PointInstance will be created for any PointTypes that have yet to be stored in this manager.
+	*/
+	public func add(_ units: PointUnit...) {
+		for unit in units {
+			self.add(unit: unit)
+		}
+	}
+	
+	/**
+	Adds all provided PointUnits to the manager.
+	A PointInstance will be created for any PointTypes that have yet to be stored in this manager.
+	*/
+	public func add(_ units: [PointUnit]) {
+		for unit in units {
+			self.add(unit: unit)
+		}
+	}
+	
+	/**
+	Adds all provided PointUnit type to the manager.
+	A PointInstance will be created for any PointTypes that have yet to be stored in this manager.
+	
+	- returns: A PointReceipt if successful.
+	*/
+	@discardableResult
+	public func add(unit: PointUnit) -> PointReceipt {
+		let type = unit.pointType
+		
+		// Ensure this won't add a wallet of the same type
+		for instance in container {
+			if instance.type == type {
+				
+				let receipt = instance.add(units: unit)
+				addReceipt(receipt)
+				return receipt
+			}
+		}
+		
+		// If not, add it!
+		let newInstance = type.instance.init(startAmount: unit.value)
+		transactions[type] = newInstance.transactions
+		let receipt = transactions[type]![0]
+		container.append(newInstance)
+		
+		return receipt
 	}
 	
 	/**
@@ -110,6 +158,58 @@ public class PointManager {
 		}
 		
 		return add(type: type, amount: minusValue)
+	}
+	
+	/**
+	Deducts all provided PointUnits from the manager.
+	A PointInstance will be created for any PointTypes that have yet to be stored in this manager.
+	*/
+	public func deduct(_ units: PointUnit...) {
+		for unit in units {
+			
+			// Flip the amount.
+			var minusValue: PointValue
+			var newUnit = unit
+			
+			switch unit.value {
+				
+			case .double(let double):
+				minusValue = .double(double * -1)
+				
+			case .int(let int):
+				minusValue = .int(int * -1)
+			}
+			
+			newUnit.value = minusValue
+			self.add(unit: newUnit)
+			
+		}
+	}
+	
+	/**
+	Deducts all provided PointUnits from the manager.
+	A PointInstance will be created for any PointTypes that have yet to be stored in this manager.
+	*/
+	public func deduct(_ units: [PointUnit]) {
+		for unit in units {
+			
+			// Flip the amount.
+			var minusValue: PointValue
+			var newUnit = unit
+			
+			switch unit.value {
+				
+			case .double(let double):
+				minusValue = .double(double * -1)
+				
+			case .int(let int):
+				minusValue = .int(int * -1)
+			}
+			
+			newUnit.value = minusValue
+			self.add(unit: newUnit)
+			
+		}
 	}
 	
 	/**
