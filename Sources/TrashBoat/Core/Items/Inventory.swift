@@ -28,6 +28,7 @@ public class Inventory {
 	// I currently have no design or purpose for this, it doesn't immediately have a use or design like Point does.
 	/// Defines an array of transactions that have occurred with items held in the inventory.
 	//public private(set) var transactions: [String] = []
+	public typealias InventoryItemInfo = (info: ItemInfoTag, count: Int)
 	
 	// FLAIR DEFINITIONS
 	/// Defines the flair category used to collect items that players are currently able to use.  Should be used in conjunction with UserProxy and ItemRoute.
@@ -213,7 +214,7 @@ public class Inventory {
 	- note: This retrieval does not remove the item from the inventory, only item information
 	is extracted.
 	*/
-	public func getItemInfo(forType type: StringRepresentible) -> [ItemInfoTag]? {
+	public func getItemInfo(forType type: StringRepresentible) -> [InventoryItemInfo]? {
 		
 		/// Check that the type category is stored, and if not return nil.
 		if items.keys.contains(where: {$0.name == type.string()}) == false { return nil }
@@ -221,11 +222,11 @@ public class Inventory {
 		/// Search through the stacks for one that matches the name.  If found, extract an item from it.
 		let inventorySet = items.first(where: {$0.key.name == type.string()})!
 		let stacks = inventorySet.value
-		var result: [ItemInfoTag] = []
+		var result: [InventoryItemInfo] = []
 		
 		for stack in stacks {
 			if stack.count != 0 {
-				result.append(stack.itemInfo)
+				result.append((stack.itemInfo, stack.count))
 			}
 		}
 		

@@ -91,7 +91,7 @@ public class ItemRoute: Route {
 					newCard.content = InputMessageContent(content: newText)
 					
 					fixedCards.append(card)
-					routedItems[newLabel] = itemInfo[i]
+					routedItems[newLabel] = itemInfo[i].info
 				}
 				
 				// Add the generated sets to the ItemTypeTag keys
