@@ -12,6 +12,8 @@ public class DiceItem: ItemRepresentible {
 	/// A description of what the dice is.
 	public var description: String
 	
+	public var isStackable: Bool = true
+	
 	/// A static type to conform to ItemRepresentible.
 	public var itemType = ItemTypeTag(name: "Dice",
 												 symbol: "🎲",

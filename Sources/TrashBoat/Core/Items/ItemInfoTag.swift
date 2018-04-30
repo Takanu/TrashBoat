@@ -4,6 +4,9 @@ import Pelican
 
 /**
 Represents the basic information of an item.  Useful for events to understand what an item is or what items a player has in their inventory.
+
+- warning: The full name and inline card that represents any given Item is generated on request, and as such these properties could
+become out of date with the Item it's supposed to represent.
 */
 public struct ItemInfoTag: Equatable {
 	

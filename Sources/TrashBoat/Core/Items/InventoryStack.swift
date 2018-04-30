@@ -15,14 +15,11 @@ public class InventoryStack: Equatable {
 	/// The type of item in this stack, as listed in the object.
 	public private(set) var itemType: ItemTypeTag
 	
-	/// The information of the item, as defined by it's ItemInfoTag.
-	public private(set) var itemInfo: ItemInfoTag
-	
 	/// The description of the object listed
 	public private(set) var itemDescription: String
 	
-	/// An inline card that represents the item being stored in the stack, generated from the function of the item itself.
-	public private(set) var itemCard: InlineResultArticle
+	/// Whether or not the item is stackable.  If false, only one item will be contained in an InventoryStack instance.
+	public private(set) var itemIsStackable: Bool
 	
 	
 	// STACK PROPERTIES
@@ -48,19 +45,50 @@ public class InventoryStack: Equatable {
 	public init(item: ItemRepresentible) {
 		self.itemName = item.name
 		self.itemType = item.itemType
-		self.itemInfo = item.info
 		self.itemDescription = item.description
-		self.itemCard = item.getInlineCard()
+		self.itemIsStackable = item.isStackable
 		items.append(item)
 	}
 	
 	/**
-	Adds an item to the stack.
+	Adds an item to the stack if it:
+	- Matches the item information exactly of the items held in this stack based on ItemRepresentible property conformance.
+	- The item being added doesn't represent in instance that this stack already holds.
+	
+	- returns: True if the item was successfully added, false otherwise.
 	*/
-	public func add(_ item: ItemRepresentible) {
-		if item.name != itemName || item.itemType != itemType { return }
+	public func add(_ incomingItem: ItemRepresentible) -> Bool {
 		
-		items.append(item)
+		// Stackable doesn't refer to storage, but the way that items are presented to the player and accessed or removed.
+		//if itemIsStackable == false { return false }
+		
+		if incomingItem.name != itemName ||
+			incomingItem.itemType != itemType ||
+			incomingItem.description != itemDescription ||
+			incomingItem.isStackable != itemIsStackable {
+			return false
+		}
+		
+		for storedItem in items {
+			if storedItem as AnyObject === incomingItem as AnyObject { return false }
+		}
+		
+		items.append(incomingItem)
+		return true
+	}
+	
+	/**
+	Compares an item to the item information stored by the stack to see if there's a match.
+	*/
+	public func compare(_ incomingItem: ItemRepresentible) -> Bool {
+		if incomingItem.name != itemName ||
+			incomingItem.itemType != itemType ||
+			incomingItem.description != itemDescription ||
+			incomingItem.isStackable != itemIsStackable {
+			return false
+		}
+		
+		return true
 	}
 	
 	/**
@@ -82,6 +110,25 @@ public class InventoryStack: Equatable {
 	*/
 	public func cloneRandom() -> ItemRepresentible {
 		return items.getRandom!.clone()
+	}
+	
+	/**
+	Returns and removes the given item from the stack, if contained.
+	
+	- returns: The removed item if successful, or nil if not.
+	*/
+	public func remove(_ incomingItem: ItemRepresentible) -> ItemRepresentible? {
+		
+		for (i, stackItem) in items.enumerated() {
+			if incomingItem === stackItem &&
+				incomingItem.isEqualTo(stackItem) {
+				
+				items.remove(at: i)
+				return stackItem
+			}
+		}
+		
+		return nil
 	}
 	
 	/**
@@ -139,10 +186,52 @@ public class InventoryStack: Equatable {
 		}
 	}
 	
+	/**
+	Returns all cards required for the stack to be fully represented.  If the stack isnt "stackable", a card will be returned for every item present, otherwise
+	only one card will be returned.
+	*/
+	public func getInlineCards() -> [InlineResultArticle] {
+		
+		if itemIsStackable == true {
+			return [items[0].getInlineCard()]
+		} else {
+			return items.map( { $0.getInlineCard() } )
+		}
+	}
+	
+	/**
+	Returns all tags required for the stack to be fully represented.  If the stack isnt "stackable", an info tag will be returned for every item present, otherwise
+	only one info tag will be returned.
+	*/
+	public func getItemInfo() -> [ItemInfoTag] {
+		
+		if itemIsStackable == true {
+			return [items[0].info]
+		} else {
+			return items.map( { $0.info } )
+		}
+	}
+	
+	/**
+	Returns the "stack information" for this stack.  If the items represented by this stack are not stackable, only one entry will be returned with the full
+	stack count.  Otherwise each item will be returned with a stack count of 1.
+	*/
+	public func getStackInfo() -> [InventoryStackInfo] {
+		if itemIsStackable == true {
+			return [(items[0], self.count)]
+		} else {
+			return items.map( { ($0, 1) } )
+		}
+	}
+	
+	
+	/**
+	Returns any inline cards that associate the item to this
+	*/
+	
 	static public func ==(lhs: InventoryStack, rhs: InventoryStack) -> Bool {
 		if lhs.itemName != rhs.itemName { return false }
 		if lhs.itemType != rhs.itemType { return false }
-		if lhs.itemInfo != rhs.itemInfo { return false }
 		if lhs.itemDescription != rhs.itemDescription { return false }
 		
 		if lhs.items.count != rhs.items.count { return false }

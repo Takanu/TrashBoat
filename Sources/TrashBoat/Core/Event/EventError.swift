@@ -25,7 +25,7 @@ public struct EventError: CustomStringConvertible {
 		"""
 	}
 	
-	init(_ error: Error, description: String? = nil) {
+	public init(_ error: Error, description: String? = nil) {
 		self.error = error
 		self.errorDescription = description
 	}

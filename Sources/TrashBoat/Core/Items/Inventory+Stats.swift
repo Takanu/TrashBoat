@@ -22,30 +22,35 @@ extension Inventory {
 		for (i, stack) in stacks.enumerated() {
 			
 			// Modify the ID to ensure they are unique
-			let cardContents = stack.itemCard.content!.base as! InputMessageContent_Text
-			let cardRef = stack.itemCard
-			var newCard = InlineResultArticle(id: String(i + 1),
-																				title: cardRef.title,
-																				description: cardRef.description ?? "",
-																				contents: cardContents.text,
-																				markup: nil)
-			
-			// Modify the title to include the quantity if needed.
-			if stack.isUnlimited == false {
+			for card in stack.getInlineCards() {
 				
-				if inlineCardTitle != "" {
-					var newTitle = inlineCardTitle
-					newTitle = newTitle.replacingOccurrences(of: "$name", with: newCard.title)
-					newTitle = newTitle.replacingOccurrences(of: "$count", with: "\(stack.count)")
-					newCard.title = newTitle
+				let cardContents = card.content!.base as! InputMessageContent_Text
+				let cardRef = card
+				var newCard = InlineResultArticle(id: String(i + 1),
+																					title: cardRef.title,
+																					description: cardRef.description ?? "",
+																					contents: cardContents.text,
+																					markup: nil)
+				
+				// Modify the title to include the quantity if needed.
+				if stack.isUnlimited == false {
 					
-				} else {
-					newCard.title = "\(newCard.title)  (You have \(stack.count))"
+					if inlineCardTitle != "" {
+						var newTitle = inlineCardTitle
+						newTitle = newTitle.replacingOccurrences(of: "$name", with: newCard.title)
+						newTitle = newTitle.replacingOccurrences(of: "$count", with: "\(stack.count)")
+						newCard.title = newTitle
+						
+					} else {
+						newCard.title = "\(newCard.title)  (You have \(stack.count))"
+					}
 				}
+				
+				// Throw it onto the pile
+				result.append(newCard)
+				
 			}
 			
-			// Throw it onto the pile
-			result.append(newCard)
 		}
 		
 		return result

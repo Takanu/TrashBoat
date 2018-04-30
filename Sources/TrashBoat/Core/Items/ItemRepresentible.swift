@@ -6,7 +6,7 @@ import Pelican
 This type represents a single collectible item in your game.
 Types that conform to this protocol can be both collected and distributed by an `Inventory` and an `InventoryStack`.
 */
-public protocol ItemRepresentible {
+public protocol ItemRepresentible: class {
 	
 	/// The name of the item, conforming to ItemRepresentable.  Must be unique between items of the same type.
 	var name: String { get }
@@ -16,6 +16,12 @@ public protocol ItemRepresentible {
 	
 	/// A brief description of the item.  I mean if you want (but as it's a protocol you kind of have to).
 	var description: String { get }
+	
+	/** If true, all item instances will be represented by a single inline card when added to an Inventory.
+	If false, each item will be represented by it's own card and item instance when obtained through an Inventory. */
+	var isStackable: Bool { get }
+	
+	
 	
 	/// Retrieves the full name of the item.  As the name will likely not include the type, this is useful for making a full declaration of what the item is.
 	func getFullName() -> String
@@ -36,10 +42,14 @@ extension ItemRepresentible {
 	
 	public func isEqualTo(_ item: ItemRepresentible) -> Bool {
 		
-		if name != item.name { return false }
-		if itemType != item.itemType { return false }
-    if description != item.description { return false }
-    
-		return true
+		if name != item.name ||
+			itemType != item.itemType ||
+			description != item.description ||
+			isStackable != item.isStackable {
+			
+			return true
+		}
+		
+		return false
 	}
 }

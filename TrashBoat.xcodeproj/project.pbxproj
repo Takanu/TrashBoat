@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		50257A10208E8229000BE45E /* EventError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50257A0F208E8229000BE45E /* EventError.swift */; };
+		502D405E209720140001ED3C /* InventoryStackInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 502D405C20971FFB0001ED3C /* InventoryStackInfo.swift */; };
 		OBJ_281 /* Codable+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_68 /* Codable+String.swift */; };
 		OBJ_282 /* Request+Admin.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_69 /* Request+Admin.swift */; };
 		OBJ_283 /* Request+Answer.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_70 /* Request+Answer.swift */; };
@@ -239,6 +240,7 @@
 
 /* Begin PBXFileReference section */
 		50257A0F208E8229000BE45E /* EventError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventError.swift; sourceTree = "<group>"; };
+		502D405C20971FFB0001ED3C /* InventoryStackInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryStackInfo.swift; sourceTree = "<group>"; };
 		OBJ_100 /* InlineQuery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InlineQuery.swift; sourceTree = "<group>"; };
 		OBJ_102 /* InlineResultArticle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InlineResultArticle.swift; sourceTree = "<group>"; };
 		OBJ_103 /* InlineResultAudio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InlineResultAudio.swift; sourceTree = "<group>"; };
@@ -962,9 +964,10 @@
 		OBJ_33 /* Items */ = {
 			isa = PBXGroup;
 			children = (
-				OBJ_34 /* Inventory+Stats.swift */,
 				OBJ_35 /* Inventory.swift */,
+				OBJ_34 /* Inventory+Stats.swift */,
 				OBJ_36 /* InventoryStack.swift */,
+				502D405C20971FFB0001ED3C /* InventoryStackInfo.swift */,
 				OBJ_37 /* ItemInfoTag.swift */,
 				OBJ_38 /* ItemRepresentible.swift */,
 				OBJ_39 /* ItemTypeTag.swift */,
@@ -1565,6 +1568,7 @@
 				OBJ_486 /* ItemTypeTag.swift in Sources */,
 				OBJ_487 /* Array+UserProxy.swift in Sources */,
 				OBJ_488 /* UserProxy+InlineQuery.swift in Sources */,
+				502D405E209720140001ED3C /* InventoryStackInfo.swift in Sources */,
 				OBJ_489 /* UserProxy.swift in Sources */,
 				OBJ_490 /* UserProxyStatus.swift in Sources */,
 				OBJ_491 /* PointInstance.swift in Sources */,

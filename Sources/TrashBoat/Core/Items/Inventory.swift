@@ -24,12 +24,6 @@ public class Inventory {
 	/// Defines a structured set of items the player has, organised into stacks.
 	public private(set) var items: [ItemTypeTag: [InventoryStack] ] = [:]
 	
-	// RECORD
-	// I currently have no design or purpose for this, it doesn't immediately have a use or design like Point does.
-	/// Defines an array of transactions that have occurred with items held in the inventory.
-	//public private(set) var transactions: [String] = []
-	public typealias InventoryItemInfo = (info: ItemInfoTag, count: Int)
-	
 	// FLAIR DEFINITIONS
 	/// Defines the flair category used to collect items that players are currently able to use.  Should be used in conjunction with UserProxy and ItemRoute.
 	static var fetchStatusCategory = "Item Usage"
@@ -209,12 +203,12 @@ public class Inventory {
 	}
 	
 	/**
-	Returns one of every item the inventory is currently storing of a given type as an info tag.
+	Returns one of every item stack belonging to the given type as an info tag.
 	
 	- note: This retrieval does not remove the item from the inventory, only item information
 	is extracted.
 	*/
-	public func getItemInfo(forType type: StringRepresentible) -> [InventoryItemInfo]? {
+	public func getItemInfo(forType type: StringRepresentible) -> [ItemInfoTag]? {
 		
 		/// Check that the type category is stored, and if not return nil.
 		if items.keys.contains(where: {$0.name == type.string()}) == false { return nil }
@@ -222,12 +216,34 @@ public class Inventory {
 		/// Search through the stacks for one that matches the name.  If found, extract an item from it.
 		let inventorySet = items.first(where: {$0.key.name == type.string()})!
 		let stacks = inventorySet.value
-		var result: [InventoryItemInfo] = []
+		var result: [ItemInfoTag] = []
 		
 		for stack in stacks {
 			if stack.count != 0 {
-				result.append((stack.itemInfo, stack.count))
+				result += stack.getItemInfo()
 			}
+		}
+		
+		return result
+	}
+	
+	/**
+	Returns information about the stacks being held for each item belonging to a specific type.  This kind of
+	retrieval follows the 'isStackable' property of Items and will return multiple of the same Item type if
+	it's stackable property is false.
+	*/
+	public func getStackInfo(forType type: StringRepresentible) -> [InventoryStackInfo]? {
+		
+		/// Check that the type category is stored, and if not return nil.
+		if items.keys.contains(where: {$0.name == type.string()}) == false { return nil }
+		
+		/// Search through the stacks for one that matches the name.  If found, extract an item from it.
+		let inventorySet = items.first(where: {$0.key.name == type.string()})!
+		let stacks = inventorySet.value
+		var result: [InventoryStackInfo] = []
+		
+		for stack in stacks {
+			result += stack.getStackInfo()
 		}
 		
 		return result
@@ -260,8 +276,7 @@ public class Inventory {
 	
 	
 	/**
-	Returns and removes an item from the inventory if found.
-	
+	Returns and removes an item from the item's Inventory stack if found.
 	If removing the item would reduce the stack count to zero, the stack is removed from the inventory.
 	*/
   @discardableResult
@@ -295,11 +310,40 @@ public class Inventory {
 	}
 	
 	/**
-	Returns and removes an item from the inventory if found, using another instance of the item.
+	Returns and removes the specified item instance from the Inventory if stored.
+	If removing the item would reduce the stack count to zero, the stack is removed from the inventory.
+	
+	- note: This differs from the removeItem(name:type) and removeItem(info:) methods in that it will only
+	remove an item if it matches the instance provided, not just the ItemRepresentible properties.
 	*/
   @discardableResult
 	public func removeItem(_ item: ItemRepresentible) -> ItemRepresentible? {
-		return removeItem(name: item.name, type: item.itemType.name)
+		
+		/// Check that the type category is stored, and if not return nil.
+		if items.keys.contains(item.itemType) == false { return nil }
+		
+		/// Search through the stacks for one that matches the name.  If found, extract an item from it.
+		let inventoryStacks = items.first(where: { $0.key == item.itemType })!
+		var stacks = inventoryStacks.value
+		
+		for (i, stack) in stacks.enumerated() {
+			if stack.itemName == item.name.string() {
+				
+				let retrievedItem = stack.remove(item)
+				
+				// If the stack count is down to 0 and the item is not unlimited, remove it.
+				if stack.isEmpty == true {
+					stacks.remove(at: i)
+				}
+				
+				// Set the state and return
+				items[inventoryStacks.key] = stacks
+				return retrievedItem
+			}
+		}
+		
+		// If we're here, we failed - return nil!
+		return nil
 	}
 	
 	/**
