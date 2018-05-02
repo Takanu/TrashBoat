@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		50257A10208E8229000BE45E /* EventError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50257A0F208E8229000BE45E /* EventError.swift */; };
 		502D405E209720140001ED3C /* InventoryStackInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 502D405C20971FFB0001ED3C /* InventoryStackInfo.swift */; };
+		5059472E2099BDD600B40C9B /* PointValueConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5059472C2099BD7400B40C9B /* PointValueConvertible.swift */; };
 		OBJ_281 /* Codable+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_68 /* Codable+String.swift */; };
 		OBJ_282 /* Request+Admin.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_69 /* Request+Admin.swift */; };
 		OBJ_283 /* Request+Answer.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_70 /* Request+Answer.swift */; };
@@ -241,6 +242,7 @@
 /* Begin PBXFileReference section */
 		50257A0F208E8229000BE45E /* EventError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventError.swift; sourceTree = "<group>"; };
 		502D405C20971FFB0001ED3C /* InventoryStackInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryStackInfo.swift; sourceTree = "<group>"; };
+		5059472C2099BD7400B40C9B /* PointValueConvertible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointValueConvertible.swift; sourceTree = "<group>"; };
 		OBJ_100 /* InlineQuery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InlineQuery.swift; sourceTree = "<group>"; };
 		OBJ_102 /* InlineResultArticle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InlineResultArticle.swift; sourceTree = "<group>"; };
 		OBJ_103 /* InlineResultAudio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InlineResultAudio.swift; sourceTree = "<group>"; };
@@ -995,6 +997,7 @@
 				OBJ_49 /* PointType.swift */,
 				OBJ_50 /* PointUnit.swift */,
 				OBJ_51 /* PointValue.swift */,
+				5059472C2099BD7400B40C9B /* PointValueConvertible.swift */,
 			);
 			path = Points;
 			sourceTree = "<group>";
@@ -1575,6 +1578,7 @@
 				OBJ_492 /* PointManager.swift in Sources */,
 				OBJ_493 /* PointReceipt.swift in Sources */,
 				OBJ_494 /* PointType.swift in Sources */,
+				5059472E2099BDD600B40C9B /* PointValueConvertible.swift in Sources */,
 				OBJ_495 /* PointUnit.swift in Sources */,
 				OBJ_496 /* PointValue.swift in Sources */,
 				OBJ_497 /* Reward.swift in Sources */,

@@ -134,7 +134,7 @@ public class Reward {
 		
 		// Pass on the new currencies!
 		for reward in finalCurrency {
-			player.points.add(type: reward.key, amount: .int(reward.value))
+			player.points.add(type: reward.key, amount: reward.value)
 			
 			/// BUILD FANCY MESSAGE
 			if reward.value > 0 {

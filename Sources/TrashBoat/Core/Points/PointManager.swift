@@ -68,7 +68,7 @@ public class PointManager {
 	A PointInstance will be created for any PointTypes that have yet to be stored in this manager.
 	*/
 	@discardableResult
-	public func add(type: PointType, amount: PointValue) -> PointReceipt {
+	public func add(type: PointType, amount: PointValueConvertible) -> PointReceipt {
 		
 		// Ensure this won't add a wallet of the same type
 		for instance in container {
@@ -143,12 +143,13 @@ public class PointManager {
 	A PointInstance will be created if one does not yet exist for the specified type.
 	*/
 	@discardableResult
-	public func deduct(type: PointType, amount: PointValue) -> PointReceipt {
+	public func deduct(type: PointType, amount: PointValueConvertible) -> PointReceipt {
 		
 		// Flip the amount.
 		var minusValue: PointValue
+		let pointAmount = amount.getPointValue()
 		
-		switch amount {
+		switch pointAmount {
 			
 		case .double(let double):
 			minusValue = .double(double * -1)

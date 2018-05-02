@@ -29,7 +29,7 @@ public protocol PointInstance: CustomStringConvertible {
 	/**
 	A standard initialiser that's required for a PointInstance to be used with a PointManager.
 	*/
-	init(startAmount: PointValue)
+	init(startAmount: PointValueConvertible)
 	
 	
 	/**
@@ -44,7 +44,7 @@ public protocol PointInstance: CustomStringConvertible {
 	- parameter change: The change in any numerical value.
 	*/
 	@discardableResult
-	func add(_ change: PointValue) -> PointReceipt
+	func add(_ change: PointValueConvertible) -> PointReceipt
 	
 	/**
 	Adds the amount of currency the player has to the instance's value, in accordance with it's behaviours, returning a receipt
