@@ -6,9 +6,13 @@ import Foundation
 Used to let the player decide between using an Integer and Double as value types for Points
 without having to use the messy and Linux-unfriendly NSNumber.
 */
-public enum PointValue: Equatable, PointValueConvertible {
+public enum PointValue: Equatable, PointValueConvertible, CustomStringConvertible {
 	case int(Int)
 	case double(Double)
+	
+	public var description: String {
+		return type
+	}
 	
 	/// Returns the type value in Integer form.  If the case is not an Integer, it will be converted.
 	public var int: Int {
