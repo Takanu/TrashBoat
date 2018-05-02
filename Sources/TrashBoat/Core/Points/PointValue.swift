@@ -11,7 +11,12 @@ public enum PointValue: Equatable, PointValueConvertible, CustomStringConvertibl
 	case double(Double)
 	
 	public var description: String {
-		return type
+		switch self {
+		case .int(let int):
+			return int.description
+		case .double(let double):
+			return double.description
+		}
 	}
 	
 	/// Returns the type value in Integer form.  If the case is not an Integer, it will be converted.
