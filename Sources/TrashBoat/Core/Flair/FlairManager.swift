@@ -120,6 +120,20 @@ public class FlairManager {
   }
 	
 	/**
+	Tries to find a flair name if it exists in **any** category.  Returns true if successful, and false if not.
+	*/
+	public func find(flairName: String) -> Bool {
+		
+		for category in flairs.values {
+			if category.contains(where: {$0.name == flairName}) == true {
+				return true
+			}
+		}
+		
+		return false
+	}
+	
+	/**
 	Tries to find a flair that matches the given name and category only.
 	- returns: True if the flair exists, false if not.
 	*/
