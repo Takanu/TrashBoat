@@ -64,6 +64,20 @@ public class PointManager {
 	}
 	
 	/**
+	Checks if the manager has a PointInstance that is represented by a specific name.
+	- returns: True if yes, false if no.
+	*/
+	public func hasType(_ typeName: String) -> Bool {
+		
+		for instance in container {
+			if instance.type.name == typeName {
+				return true
+			}
+		}
+		return false
+	}
+	
+	/**
 	Adds the amount provided to this manager with the specified PointType.
 	A PointInstance will be created for any PointTypes that have yet to be stored in this manager.
 	*/
@@ -136,6 +150,28 @@ public class PointManager {
 		container.append(newInstance)
 		
 		return receipt
+	}
+	
+	/**
+	Adds points to the manager using the given name and point value.
+	- warning: As this doesn't require the actual type name, this can fail.
+	- returns: A point receipt if successful, and nil otherwise.
+	*/
+	@discardableResult
+	public func add(pointName: String, value: PointValue) -> PointReceipt? {
+		
+		// Ensure this won't add a wallet of the same type
+		for instance in container {
+			if instance.type.name == pointName {
+				
+				let receipt = instance.add(value)
+				addReceipt(receipt)
+				return receipt
+			}
+		}
+		
+		return nil
+		
 	}
 	
 	/**
