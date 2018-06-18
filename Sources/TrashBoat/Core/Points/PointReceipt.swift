@@ -6,7 +6,7 @@ import Pelican
 /**
 Represents the result of a change in value of a player's currency.
 */
-public struct PointReceipt {
+public struct PointReceipt: Equatable {
 	
 	/// The name of the currency
 	public private(set) var type: PointType
@@ -74,5 +74,29 @@ public struct PointReceipt {
 		}
 
 		self.difference = differenceCalc
+	}
+	
+	static public func ==(lhs: PointReceipt, rhs: PointReceipt) -> Bool {
+		if lhs.type != rhs.type { return false }
+		if lhs.previousAmount != rhs.previousAmount { return false }
+		if lhs.currentAmount != rhs.currentAmount { return false }
+		if lhs.difference != rhs.difference { return false }
+		
+		if lhs.units == nil {
+			if rhs.units == nil { return true }
+			return false
+		}
+		
+		else {
+			let lhsUnits = lhs.units!
+			let rhsUnits = rhs.units!
+			
+			for (i, unit) in lhsUnits.enumerated() {
+				let otherUnit = rhsUnits[i]
+				if unit.isEqualTo(otherUnit) == false { return false }
+			}
+			
+			return true
+		}
 	}
 }

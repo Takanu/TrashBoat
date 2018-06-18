@@ -55,3 +55,20 @@ public protocol PointInstance: CustomStringConvertible {
 	@discardableResult
 	func add(units: PointUnit...) -> PointReceipt
 }
+
+extension PointInstance {
+	
+	func isEqualTo(other: PointInstance) -> Bool {
+		if self.value != other.value { return false }
+		if self.type != other.type { return false }
+		if self.description != other.description { return false }
+		if self.transactions.count != other.transactions.count { return false }
+		
+		for (i, transaction) in transactions.enumerated() {
+			if transaction != other.transactions[i]! { return false }
+		}
+		
+		return true
+	}
+	
+}

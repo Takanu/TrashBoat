@@ -33,6 +33,17 @@ public protocol PointUnit: CustomStringConvertible {
 
 
 public extension PointUnit {
+	
+	func isEqualTo(_ other: PointUnit) -> Bool {
+		if self.name == other.name &&
+			self.pluralisedName == other.pluralisedName &&
+			self.description == other.description &&
+			self.pointType == other.pointType &&
+			self.value == other.value { return true }
+		
+		return false
+	}
+	
 	/// Convenience getter for accessing the point value as an Int.
 	var int: Int {
 		return value.int

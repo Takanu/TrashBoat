@@ -9,7 +9,7 @@ things like player currency and health.
 Enables other types like Reward to find a single abstracted point from which to modify point values in
 an implicit manner.
 */
-public class PointManager {
+public class PointManager: Equatable {
 	
 	/// Defines a list of point types the player has, including the amount they have and how they can behave.
 	public private(set) var container: [PointInstance] = []
@@ -272,5 +272,30 @@ public class PointManager {
 	public func clear() {
 		self.container.removeAll()
 		self.transactions.removeAll()
+	}
+	
+	static public func ==(lhs: PointManager, rhs: PointManager) -> Bool {
+		
+		if lhs.container.count != rhs.container.count { return false }
+		
+		for (i, pointInstance) in lhs.container.enumerated() {
+			let otherPointInstance = rhs.container[i]
+			if pointInstance.isEqualTo(other: otherPointInstance) == false { return false }
+		}
+		
+		if lhs.transactions.count != rhs.transactions.count { return false }
+		
+		for (i, transactionSet) in lhs.transactions.values.enumerated() {
+			let otherTransactionSet = rhs.transactions.values.map {$0}[i]
+			if transactionSet.count != otherTransactionSet.count { return false }
+			
+			for (p, transaction) in transactionSet.enumerated() {
+				let otherTransaction = otherTransactionSet[p]
+				if transaction != otherTransaction { return false }
+			}
+		}
+		
+		return true
+		
 	}
 }
