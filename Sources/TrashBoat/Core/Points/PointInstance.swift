@@ -31,7 +31,6 @@ public protocol PointInstance: CustomStringConvertible {
 	*/
 	init(startAmount: PointValueConvertible)
 	
-	
 	/**
 	Returns the numerical value of this PointInstance as a PointUnit type.
 	*/
@@ -54,6 +53,11 @@ public protocol PointInstance: CustomStringConvertible {
 	*/
 	@discardableResult
 	func add(units: PointUnit...) -> PointReceipt
+	
+	/**
+	Copies the instance in it's entirety to a new instance, used for PointManager's copy() ability.
+	*/
+	func copy() -> PointInstance
 }
 
 extension PointInstance {

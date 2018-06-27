@@ -34,13 +34,30 @@ public class FlairStack: Equatable {
 	/**
 	Initialises the stack with the Flair that will form the stack.
 	*/
-	init(firstState: Flair) {
+	public init(firstState: Flair) {
 		
 		self.name = firstState.name
 		self.category = firstState.category
 		self.allowStacks = firstState.allowStacks
 		self.triggerSimultaneously = firstState.triggerSimultaneously
 		self.stack.append(firstState)
+	}
+	
+	/**
+	An initialiser used for copies.
+	*/
+	public init(name: String,
+							category: String,
+							allowStacks: Bool,
+							triggerSimultaneously: Bool,
+							stack: [Flair]) {
+		
+		self.name = name
+		self.category = category
+		self.allowStacks = allowStacks
+		self.triggerSimultaneously = triggerSimultaneously
+		self.stack = stack
+		
 	}
 	
 	/**
@@ -119,6 +136,21 @@ public class FlairStack: Equatable {
 				stack.remove(at: i)
 			}
 		}
+	}
+	
+	/**
+	Duplicates the instance! \o/
+	*/
+	public func copy() -> FlairStack {
+		
+		let copy = FlairStack(name: self.name,
+													category: self.category,
+													allowStacks: self.allowStacks,
+													triggerSimultaneously: self.triggerSimultaneously,
+													stack: self.stack)
+		
+		return copy
+		
 	}
 	
 	static public func ==(lhs: FlairStack, rhs: FlairStack) -> Bool {

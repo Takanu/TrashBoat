@@ -40,6 +40,13 @@ public class FlairManager {
 	}
 	
 	/**
+	A non-public init function used solely for the copy function.
+	*/
+	init(flairs: [String: [FlairStack]]) {
+		self.flairs = flairs
+	}
+	
+	/**
 	Adds a new `Flair` item to the system.  Note that if the state you're adding already matches the category and name of one in the system,
 	the one in the system will have their stack number increase without the newly added state being added.
 	*/
@@ -268,5 +275,25 @@ public class FlairManager {
 	*/
 	public func clear() {
 		flairs.removeAll()
+	}
+	
+	/**
+	Copies the FlairManager.  All contents will be copied into separate instances.
+	*/
+	public func copy() -> FlairManager {
+		
+		var newFlairCollection: [String: [FlairStack]] = [:]
+		
+		for oldCollection in flairs {
+			var newFlairArray: [FlairStack] = []
+			newFlairCollection[oldCollection.key] = []
+			
+			for oldStack in oldCollection.value {
+				newFlairCollection[oldCollection.key] += [oldStack.copy()]
+			}
+		}
+		
+		return FlairManager(flairs: newFlairCollection)
+		
 	}
 }

@@ -274,6 +274,19 @@ public class PointManager: Equatable {
 		self.transactions.removeAll()
 	}
 	
+	/**
+	Copies the instance in it's entirety, creating new instances for all containers.
+	*/
+	public func copy() -> PointManager {
+		
+		let newCopy = PointManager()
+		for instance in self.container {
+			newCopy.container += [instance.copy()]
+		}
+		
+		return newCopy
+	}
+	
 	static public func ==(lhs: PointManager, rhs: PointManager) -> Bool {
 		
 		if lhs.container.count != rhs.container.count { return false }
