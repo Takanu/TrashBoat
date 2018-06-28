@@ -69,7 +69,7 @@ extension PointInstance {
 		if self.transactions.count != other.transactions.count { return false }
 		
 		for (i, transaction) in transactions.enumerated() {
-			if transaction != other.transactions[i]! { return false }
+			if transaction != other.transactions[i] { return false }
 		}
 		
 		return true

@@ -289,7 +289,7 @@ public class FlairManager {
 			newFlairCollection[oldCollection.key] = []
 			
 			for oldStack in oldCollection.value {
-				newFlairCollection[oldCollection.key] += [oldStack.copy()]
+				newFlairCollection[oldCollection.key]! += [oldStack.copy()]
 			}
 		}
 		

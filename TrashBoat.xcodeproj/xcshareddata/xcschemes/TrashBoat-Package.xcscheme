@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "TrashBoat::TrashBoat"
-               BuildableName = "TrashBoat.framework"
-               BlueprintName = "TrashBoat"
+               BlueprintIdentifier = "SwiftyJSON::SwiftyJSON"
+               BuildableName = "SwiftyJSON.framework"
+               BlueprintName = "SwiftyJSON"
                ReferencedContainer = "container:TrashBoat.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -28,9 +28,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "SwiftyJSON::SwiftyJSON"
-               BuildableName = "SwiftyJSON.framework"
-               BlueprintName = "SwiftyJSON"
+               BlueprintIdentifier = "TrashBoat::TrashBoat"
+               BuildableName = "TrashBoat.framework"
+               BlueprintName = "TrashBoat"
                ReferencedContainer = "container:TrashBoat.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -73,9 +73,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "TrashBoat::TrashBoat"
-            BuildableName = "TrashBoat.framework"
-            BlueprintName = "TrashBoat"
+            BlueprintIdentifier = "SwiftyJSON::SwiftyJSON"
+            BuildableName = "SwiftyJSON.framework"
+            BlueprintName = "SwiftyJSON"
             ReferencedContainer = "container:TrashBoat.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
